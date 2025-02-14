@@ -10,6 +10,7 @@ Both the OSI and TCP/IP models define how data travels over a network. The OSI m
 The OSI (Open Systems Interconnection) model has 7 layers, each with a specific role in data communication. ##
 
 **Layer 7: Application Layer**
+
 Purpose: Provides network services to end-users.
 
 Examples: HTTP (web browsing), FTP (file transfer), SMTP (email).

@@ -1,6 +1,7 @@
 # Week 2: Linux System Administration & Automation
 ---
 ## Welcome to Week 2 of the 90 Days of DevOps - 2025 Edition!
+
 #### This week, we dive into Linux system administration and automation, covering essential topics such as user management, file permissions, log analysis, process control, volume mounts, and shell scripting.
 
 #### 🚀 Project: DevOps Linux Server Monitoring & Automation
@@ -26,7 +27,7 @@ Owner can edit, group can read, others have no access.
 Use ls -l to verify permissions.
 
 ---
-### 3️⃣ Log File Analysis with AWK, Grep & Sed**
+### 3️⃣ Log File Analysis with AWK, Grep & Sed
 
 Logs are crucial in DevOps! You’ll analyze logs using the Linux_2k.log file from LogHub (GitHub Repo).
 
@@ -39,7 +40,7 @@ Use sed to replace all IP addresses with [REDACTED] for security.
 Bonus: Find the most frequent log entry using awk or sort | uniq -c | sort -nr | head -10.
 
 ---
-### 4️⃣ Volume Management & Disk Usage**
+### 4️⃣ Volume Management & Disk Usage
 
 Task:
 Create a directory /mnt/devops_data.
@@ -47,7 +48,7 @@ Mount a new volume (or loop device for local practice).
 Verify using df -h and mount | grep devops_data.
 
 ---
-### 5️⃣ Process Management & Monitoring**
+### 5️⃣ Process Management & Monitoring
 
 Task:
 Start a background process (ping google.com > ping_test.log &).
@@ -56,7 +57,7 @@ Kill the process and verify it's gone.
 
 ---
 
-### 6️⃣ Automate Backups with Shell Scripting**
+### 6️⃣ Automate Backups with Shell Scripting
 
 Task:
 Write a shell script to back up /devops_workspace as backup_$(date +%F).tar.gz.

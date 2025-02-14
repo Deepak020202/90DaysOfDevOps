@@ -31,4 +31,4 @@ cat /etc/passwd
 ---
 ### Step3. Restrict SSH login for certain users in /etc/ssh/sshd_config
 
-locate the ssh_config file and make changes in AllowUser or DenyUser and add username after SSH login will be not allowed for that user 
+locate the ssh_config file and make changes in AllowUser or DenyUser and add username after that SSH login will be not allowed for that user 

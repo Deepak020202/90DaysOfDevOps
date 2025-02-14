@@ -42,8 +42,14 @@ Purpose: Deals with the physical transmission of raw data bits over network cabl
 Real-World Example: The Ethernet cable or Wi-Fi radio waves that connect your device to the internet.
 
 
-2. TCP/IP MODEL (4 Layers)
+---
+2
+## 📊 TCP/IP Model Overview
+The TCP/IP model has **4 layers** 
 The TCP/IP (Transmission Control Protocol/Internet Protocol) model is more practical and maps roughly to the OSI model but with 4 layers.
+
+---
+
 
 Layer 1: Network Access Layer
 Purpose: Handles hardware connections and physical data transmission.

@@ -1,15 +1,15 @@
 
 Task :-
 Understand OSI & TCP/IP Models Learn about the OSI and TCP/IP models, including their layers and purposes. Task: Write examples of how each layer applies to real-world scenarios (e.g., HTTP at the Application Layer, TCP at the Transport Layer).
-
-Solution:-
+---
+**Solution:-**
 
 ![OSI](https://github.com/user-attachments/assets/baa88c4d-0db1-45e3-8f82-f30250ebc886)
 
 Both the OSI and TCP/IP models define how data travels over a network. The OSI model is more theoretical, while the TCP/IP model is more practical and widely used.
 ## 1. OSI MODEL Overview (7 Layers) 📊 
 The OSI (Open Systems Interconnection) model has 7 layers, each with a specific role in data communication.
-
+---
 **Layer 7: Application Layer**
 
 Purpose: Provides network services to end-users.
@@ -53,9 +53,6 @@ Real-World Example: When your laptop connects to Wi-Fi, this layer manages the c
 Purpose: Deals with the physical transmission of raw data bits over network cables, radio signals, or fiber optics.
 
 Real-World Example: The Ethernet cable or Wi-Fi radio waves that connect your device to the internet.
-
-
-
 
 ---
 ## 2. TCP/IP Model Overview📊

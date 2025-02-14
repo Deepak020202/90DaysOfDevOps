@@ -1,5 +1,4 @@
 **Task:-**
-
 AWS EC2 and Security Groups Launch an AWS EC2 instance (free tier is fine). Learn about Security Groups, their rules, and their significance in securing cloud instances. 
 Task: Write a step-by-step guide or blog on how to create and configure Security Groups.
 ---

@@ -1,6 +1,6 @@
 # Week 2: Linux System Administration & Automation
 
-## Welcome to Week 2 of the 90 Days of DevOps - 2025 Edition!
+## Welcome to Week 2 of the 90 Days of DevOps 
 
 #### This week, we dive into Linux system administration and automation, covering essential topics such as user management, file permissions, log analysis, process control, volume mounts, and shell scripting.
 

@@ -1,12 +1,14 @@
-Task :-
-Understand OSI & TCP/IP Models Learn about the OSI and TCP/IP models, including their layers and purposes. Task: Write examples of how each layer applies to real-world scenarios 
-Solution:-
-(e.g., HTTP at the Application Layer, TCP at the Transport Layer).
-![OSI](https://github.com/user-attachments/assets/baa88c4d-0db1-45e3-8f82-f30250ebc886)
-Both the OSI and TCP/IP models define how data travels over a network. The OSI model is more theoretical, while the TCP/IP model is more practical and widely used.
+#Task :-
+Understand OSI & TCP/IP Models Learn about the OSI and TCP/IP models, including their layers and purposes. Task: Write examples of how each layer applies to real-world scenarios (e.g., HTTP at the Application Layer, TCP at the Transport Layer). #
 
-1. OSI MODEL (7 Layers)
-The OSI (Open Systems Interconnection) model has 7 layers, each with a specific role in data communication.
+Solution:-
+
+![OSI](https://github.com/user-attachments/assets/baa88c4d-0db1-45e3-8f82-f30250ebc886)
+
+---
+Both the OSI and TCP/IP models define how data travels over a network. The OSI model is more theoretical, while the TCP/IP model is more practical and widely used.
+## 1. OSI MODEL Overview (7 Layers) 📊 
+The OSI (Open Systems Interconnection) model has 7 layers, each with a specific role in data communication. ##
 
 Layer 7: Application Layer
 Purpose: Provides network services to end-users.
@@ -40,17 +42,13 @@ Real-World Example: When your laptop connects to Wi-Fi, this layer manages the c
 Layer 1: Physical Layer
 Purpose: Deals with the physical transmission of raw data bits over network cables, radio signals, or fiber optics.
 Real-World Example: The Ethernet cable or Wi-Fi radio waves that connect your device to the internet.
-
+---
 
 ---
-2
-## 📊 TCP/IP Model Overview
+## 2. TCP/IP Model Overview📊
 The TCP/IP model has **4 layers** 
 The TCP/IP (Transmission Control Protocol/Internet Protocol) model is more practical and maps roughly to the OSI model but with 4 layers.
-
 ---
-
-
 Layer 1: Network Access Layer
 Purpose: Handles hardware connections and physical data transmission.
 Real-World Example: When you connect to Wi-Fi, this layer manages data transmission through radio waves.
@@ -66,5 +64,6 @@ Real-World Example: During a file download, TCP ensures all parts are received c
 Layer 4: Application Layer
 Purpose: Interfaces with the end-user, managing application services.
 Real-World Example: When browsing the web, HTTP in this layer requests and displays webpages.
+
 
 

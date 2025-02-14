@@ -1,4 +1,4 @@
- ## 📌 Tasks :- User & Group Management
+ ## 📌 Task :- User & Group Management
 
 Learn about Linux users, groups, and permissions (/etc/passwd, /etc/group).
 Task:

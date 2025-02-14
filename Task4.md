@@ -11,7 +11,7 @@ Purpose: Checks connectivity between your device and a remote host. It sends ICM
 
 Example:
 `ping google.com`
-This checks if you can reach Google's servers and measures the time it takes for packets to travel.
+
 
 ---
 **2. traceroute / tracert**
@@ -22,7 +22,8 @@ Example:
 `traceroute google.com`
 
 ---
-3. netstat
+**3. netstat**
+
 Purpose: Displays network statistics, including active connections, routing tables, and network interface statistics.
 
 Example:

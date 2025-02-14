@@ -8,7 +8,10 @@ Restrict SSH login for certain users in /etc/ssh/sshd_config.
 
 ---
 ### Solution :-
-''' sudo useradd devops_user
+```sudo useradd devops_user
 sudo groupadd devops_team
 sudo usermod -aG devops_team devops_user
 cat /etc/group
+
+![image](https://github.com/user-attachments/assets/fbc1e812-9841-49cf-830f-b13b45354d36)
+---

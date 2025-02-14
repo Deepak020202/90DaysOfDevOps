@@ -3,6 +3,7 @@ AWS EC2 and Security Groups Launch an AWS EC2 instance (free tier is fine). Lear
 Task: Write a step-by-step guide or blog on how to create and configure Security Groups.
 ---
 **Solution :-**
+
 1.Creating Security Groups :- 
 Security Groups are a critical part of securing your EC2 instances.
 

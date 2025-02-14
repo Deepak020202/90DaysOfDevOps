@@ -74,3 +74,8 @@ Use find to list all files modified in the last 7 days.
 Write a script that extracts and displays only ERROR and WARNING logs from Linux_2k.log.
 
 ---
+
+### Resources
+[Linux_2k.log](https://github.com/user-attachments/files/18799857/Linux_2k.log)
+
+---

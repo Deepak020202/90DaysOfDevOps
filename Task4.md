@@ -10,6 +10,7 @@ ping (check connectivity) traceroute / tracert (trace packet routes) netstat
 Purpose: Checks connectivity between your device and a remote host. It sends ICMP (Internet Control Message Protocol) Echo Request packets and listens for Echo Reply packets.
 
 Example:
+
 `ping google.com`
 
 
@@ -19,6 +20,7 @@ Example:
 Purpose: Traces the route packets take to reach a destination. This helps in identifying network congestion or routing issues.
 
 Example:
+
 `traceroute google.com`
 
 ---

@@ -53,6 +53,8 @@ Purpose: Deals with the physical transmission of raw data bits over network cabl
 Real-World Example: The Ethernet cable or Wi-Fi radio waves that connect your device to the internet.
 
 
+
+
 ---
 ## 2. TCP/IP Model Overview📊
 The TCP/IP model has **4 layers** 

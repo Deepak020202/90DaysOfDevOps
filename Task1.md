@@ -1,3 +1,4 @@
+TASK 1
 Understand OSI & TCP/IP Models Learn about the OSI and TCP/IP models, including their layers and purposes. Task: Write examples of how each layer applies to real-world scenarios 
 (e.g., HTTP at the Application Layer, TCP at the Transport Layer).
-https://github.com/Deepak020202/90DaysDevOps/blob/e320b035bd29b49f15adc4d9c4ecd001926ee8a1/OSI.gif
+![OSI](https://github.com/user-attachments/assets/baa88c4d-0db1-45e3-8f82-f30250ebc886)

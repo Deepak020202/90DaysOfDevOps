@@ -1,7 +1,7 @@
 Task :-
 Protocols and Ports for DevOps Study the most commonly used protocols (e.g., HTTP, HTTPS, FTP, SSH, DNS) and their port numbers. Create a blog, article, GitHub page, or README listing these protocols and explaining their relevance to DevOps workflows.
 ---
-#Solution :-
+**Solution :-**
 
 protocols enable communication between servers, applications, and services. Let's explore the most commonly used protocols in DevOps workflows.
 
@@ -48,7 +48,8 @@ Example: Resolving example.com to its corresponding IP address.
 ---
 
 **Port Numbers**
+
 port numbers are crucial for communication between devices. They help identify specific processes or services on a device, allowing data to be sent to the correct application. Think of them as apartment numbers in a building – they ensure that the right information reaches the right place.
----
+
 ![PORT_NUMBERS](https://github.com/user-attachments/assets/3cefe6cc-7df0-48fc-a5c0-f72c02fde3ab)
 ---

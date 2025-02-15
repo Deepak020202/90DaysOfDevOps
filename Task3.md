@@ -10,6 +10,7 @@ Task: Download the log file from the repository. Extract insights using commands
 ### Step1: - Use grep to find all occurrences of the word "error".
 
 In the log file error word are not exist 
+
 ![image](https://github.com/user-attachments/assets/6263555b-7bc7-4469-8960-cef9421a6054)
 
 ### Step2 :- Use awk to extract timestamps and log levels.

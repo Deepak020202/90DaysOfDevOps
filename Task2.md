@@ -7,3 +7,30 @@
 3. After successfully deleting the account, display a confirmation message with the deleted username.
 
 ### Solution :-
+
+### Code :- 
+
+```
+#!/bin/bash
+
+delete_account() {
+echo "Enter the username want to delete :"
+
+read username
+
+if ! id "$username" &>/dev/null; then
+        echo "$username does not exist"
+        exit 1
+fi
+
+sudo userdel -r $username
+
+echo "============= USER DELETED ================================"
+}
+
+if [[ "$1" == "-delete"  ]]; then
+        delete_account
+fi
+
+```
+

@@ -11,56 +11,13 @@ Additionally, the script should implement a rotation mechanism to keep only the 
 
 > The script will create a timestamped backup folder inside the specified directory and copy all the files into it. It will also check for existing backup folders and remove the oldest backups to keep only the last 3 backups.
 
-## Example Usage
-
-Assume the script is named `backup_with_rotation.sh`. Here's an example of how it will look,
-also assuming the script is executed with the following commands on different dates:
-
-1. First Execution (2023-07-30):
+## Program :- 
 
 ```
-$ ./backup_with_rotation.sh /home/user/documents
-```
-
-Output:
 
 ```
-Backup created: /home/user/documents/backup_2023-07-30_12-30-45
-Backup created: /home/user/documents/backup_2023-07-30_15-20-10
-Backup created: /home/user/documents/backup_2023-07-30_18-40-55
-```
 
-After this execution, the /home/user/documents directory will contain the following items:
 
-```
-backup_2023-07-30_12-30-45
-backup_2023-07-30_15-20-10
-backup_2023-07-30_18-40-55
-file1.txt
-file2.txt
-...
-```
+## Output 
 
-2. Second Execution (2023-08-01):
-
-```
-$ ./backup_with_rotation.sh /home/user/documents
-```
-
-Output:
-
-```
-Backup created: /home/user/documents/backup_2023-08-01_09-15-30
-```
-
-After this execution, the /home/user/documents directory will contain the following items:
-
-```
-backup_2023-07-30_15-20-10
-backup_2023-07-30_18-40-55
-backup_2023-08-01_09-15-30
-file1.txt
-file2.txt
-...
-```
-In this example, the script creates backup folders with timestamped names and retains only the last 3 backups while removing the older backups.
+![image](https://github.com/user-attachments/assets/74034f05-c169-4bdf-9ec2-6e12b473de19)

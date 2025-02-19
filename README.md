@@ -1,8 +1,24 @@
 # Week 4: Git and GitHub Challenge - Basic
 
+**This challenge covers advanced Git concepts essential for real-world DevOps workflows. By the end of this challenge, you will learn :**
+
+## **Topics Covered**  
+1. Pull Requests – Collaborating in teams.  
+2. Reset & Revert – Undo changes safely.  
+3. Stashing – Saving work temporarily.  
+4. Cherry-picking – Selecting specific commits.  
+5. Rebasing – Maintaining a clean history.  
+6. Branching Strategies – Industry best practices.  
+7. Understand how to work with Pull Requests effectively.
+8. Learn to undo changes using Reset & Revert.  
+9. Use Stashing to manage uncommitted work.  
+10. Apply Cherry-picking for selective commits.  
+11. Keep a clean commit history using Rebasing.  
+12. Learn industry-standard Branching Strategies.  
+
 ## Challenge Tasks 
 
-### Task 1: Fork and Clone the Repository
+## Task 1: Fork and Clone the Repository
 1. **Fork the Repository:**  
    - Visit [this repository](https://github.com/LondheShubham153/90DaysOfDevOps) and fork it to your own GitHub account. If not done yet.
   
@@ -18,7 +34,7 @@
 
 ---
 
-### Task 2: Initialize a Local Repository and Create a File
+## Task 2: Initialize a Local Repository and Create a File
 1. **Set Up Your Challenge Directory:**  
    - Inside the cloned repository, create a new directory for this challenge:
      ```bash
@@ -76,7 +92,7 @@
 
 ---
 
-### Task 4: Explore Your Commit History
+## Task 4: Explore Your Commit History
 1. **View the Git Log:**  
    - Check your commit history using:
      ```bash
@@ -86,7 +102,7 @@
 
 ---
 
-### Task 5: Advanced Branching and Switching
+## Task 5: Advanced Branching and Switching
 1. **Create a New Branch:**  
    - Create a branch called `feature-update`:
      ```bash
@@ -119,7 +135,7 @@
 
 ---
 
-### Task 6: Explain Branching Strategies
+## Task 6: Explain Branching Strategies
 1. **Document Your Process:**  
    - Create (or update) a file named `solution.md` in your repository.
    - List all the Git commands you used in Tasks 1–4.
@@ -131,56 +147,9 @@
 
 ---
 
-### Bonus Task: Explore SSH Authentication
-1. **Generate an SSH Key (if not already set up):**
-   - Create an SSH key pair:
-     ```bash
-     ssh-keygen
-     ```
-   - Follow the prompts and then locate your public key (typically found at `~/.ssh/id_ed25519.pub`).
-
-2. **Add Your SSH Public Key to GitHub:**  
-   - Copy the contents of your public key and add it to your GitHub account under **SSH and GPG keys**.  
-     (See [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) for help.)
-
-3. **Switch Your Remote URL to SSH:**  
-   - Change the remote URL from HTTPS to SSH:
-     ```bash
-     git remote set-url origin git@github.com:<your-username>/90DaysOfDevOps.git
-     ```
-
-4. **Push Your Branch Using SSH:**  
-   - Test the SSH connection by pushing your branch:
-     ```bash
-     git push origin feature-update
-     ```
-
----
-
-
-
 # Git & GitHub Advanced Challenge 
 
-This challenge covers advanced Git concepts essential for real-world DevOps workflows. By the end of this challenge, you will:  
-
-- Understand how to work with Pull Requests effectively.  
-- Learn to undo changes using Reset & Revert.  
-- Use Stashing to manage uncommitted work.  
-- Apply Cherry-picking for selective commits.  
-- Keep a clean commit history using Rebasing.  
-- Learn industry-standard Branching Strategies.  
-
-## **Topics Covered**  
-1. Pull Requests – Collaborating in teams.  
-2. Reset & Revert – Undo changes safely.  
-3. Stashing – Saving work temporarily.  
-4. Cherry-picking – Selecting specific commits.  
-5. Rebasing – Maintaining a clean history.  
-6. Branching Strategies – Industry best practices.  
-
-## **Challenge Tasks**  
-
-### **Task 7: Working with Pull Requests (PRs)**  
+## **Task 7: Working with Pull Requests (PRs)**  
 **Scenario:** You are working on a new feature and need to merge your changes into the main branch using a Pull Request.  
 
 1. Fork a repository and clone it locally.  
@@ -208,7 +177,7 @@ This challenge covers advanced Git concepts essential for real-world DevOps work
 
 ---
 
-### **Task 8: Undoing Changes – Reset & Revert**  
+## **Task 8: Undoing Changes – Reset & Revert**  
 **Scenario:** You accidentally committed incorrect changes and need to undo them.  
 
 1. Create and modify a file.  
@@ -240,7 +209,7 @@ This challenge covers advanced Git concepts essential for real-world DevOps work
 
 ---
 
-### **Task 9: Stashing - Save Work Without Committing**  
+## **Task 9: Stashing - Save Work Without Committing**  
 **Scenario:** You need to switch branches but don’t want to commit incomplete work.  
 
 1. Modify a file without committing.  
@@ -264,7 +233,7 @@ This challenge covers advanced Git concepts essential for real-world DevOps work
 
 ---
 
-### **Task 4: Cherry-Picking - Selectively Apply Commits**  
+### **Task 10: Cherry-Picking - Selectively Apply Commits**  
 **Scenario:** A bug fix exists in another branch, and you only want to apply that specific commit.  
 
 1. Find the commit to cherry-pick.  
@@ -286,7 +255,7 @@ This challenge covers advanced Git concepts essential for real-world DevOps work
 
 ---
 
-### **Task 10: Rebasing - Keeping a Clean Commit History**  
+## **Task 11: Rebasing - Keeping a Clean Commit History**  
 **Scenario:** Your branch is behind the main branch and needs to be updated without extra merge commits.  
 
 1. Fetch the latest changes.  
@@ -308,7 +277,7 @@ This challenge covers advanced Git concepts essential for real-world DevOps work
 
 ---
 
-### **Task 6: Branching Strategies Used in Companies**  
+## **Task 12: Branching Strategies Used in Companies**  
 **Scenario:** Understand real-world branching strategies used in DevOps workflows.  
 
 1. Research and explain Git workflows:  
@@ -326,5 +295,32 @@ This challenge covers advanced Git concepts essential for real-world DevOps work
 **Document in `solution.md`**  
 - Which strategy is best for DevOps and CI/CD.  
 - Pros and cons of different workflows.  
+
+---
+
+## Bonus Task: Explore SSH Authentication
+
+1. **Generate an SSH Key (if not already set up):**
+   - Create an SSH key pair:
+     ```bash
+     ssh-keygen
+     ```
+   - Follow the prompts and then locate your public key (typically found at `~/.ssh/id_ed25519.pub`).
+
+2. **Add Your SSH Public Key to GitHub:**  
+   - Copy the contents of your public key and add it to your GitHub account under **SSH and GPG keys**.  
+     (See [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) for help.)
+
+3. **Switch Your Remote URL to SSH:**  
+   - Change the remote URL from HTTPS to SSH:
+     ```bash
+     git remote set-url origin git@github.com:<your-username>/90DaysOfDevOps.git
+     ```
+
+4. **Push Your Branch Using SSH:**  
+   - Test the SSH connection by pushing your branch:
+     ```bash
+     git push origin feature-update
+     ```
 
 ---

@@ -1,5 +1,4 @@
-# Task 1:
-Fork and Clone the Repository
+# Task 1: Fork and Clone the Repository
 1. **Fork the Repository:**  
    - Visit [this repository](https://github.com/LondheShubham153/90DaysOfDevOps) and fork it to your own GitHub account. If not done yet.
   

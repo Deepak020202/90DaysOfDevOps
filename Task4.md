@@ -8,3 +8,5 @@
 
 ---
 ## Solution :-
+
+![image](https://github.com/user-attachments/assets/e0b94895-c174-4270-af7f-8c5af27ed38c)

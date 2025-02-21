@@ -7,6 +7,90 @@
      - Facilitating parallel development
      - Reducing merge conflicts
      - Enabling effective code reviews
+---
+### Bonus Task: Explore SSH Authentication
+1. **Generate an SSH Key (if not already set up):**
+   - Create an SSH key pair:
+     ```bash
+     ssh-keygen
+     ```
+   - Follow the prompts and then locate your public key (typically found at `~/.ssh/id_ed25519.pub`).
+
+2. **Add Your SSH Public Key to GitHub:**  
+   - Copy the contents of your public key and add it to your GitHub account under **SSH and GPG keys**.  
+     (See [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) for help.)
+
+3. **Switch Your Remote URL to SSH:**  
+   - Change the remote URL from HTTPS to SSH:
+     ```bash
+     git remote set-url origin git@github.com:<your-username>/90DaysOfDevOps.git
+     ```
+
+4. **Push Your Branch Using SSH:**  
+   - Test the SSH connection by pushing your branch:
+     ```bash
+     git push origin feature-update
+     ```
 
 ---
+---
 ## Solution :-
+
+![image](https://github.com/user-attachments/assets/5fa582f8-d6b2-48e0-99dd-02562d0d7c2b)
+
+---
+## 🤷‍♂️Importance of Branching Strategies in Collaborative Development
+
+Branching strategies are essential in collaborative development because they provide a structured approach to managing code changes. A well-defined branching strategy helps teams work efficiently, avoid conflicts, and maintain code quality. Below are the key reasons why branching strategies are important:
+
+### 1. Isolating Features and Bug Fixes
+Branching allows developers to work on new features or bug fixes independently without affecting the main codebase.
+✅Why it matters?
+prevents incomplete or experimental code from disrupting the stable version.
+Allows multiple developers to work on different tasks simultaneously.
+Makes it easier to track and roll back specific changes if needed.
+Example:
+A developer working on a new login feature creates a branch (feature-login).
+A different developer working on fixing a critical bug creates a bugfix-auth-error branch.
+Both can work in isolation without interfering with each other.
+
+### 2. Facilitating Parallel Development
+Branching enables multiple developers or teams to work on different parts of the project at the same time.
+✅ Why it matters?
+Accelerates development by allowing teams to work independently.
+Reduces bottlenecks since developers don’t have to wait for one another to complete their work.
+Supports different workflows like feature branching, GitFlow, and trunk-based development.
+Example:
+The frontend team is working on a feature-ui-redesign branch, while the backend team is implementing a feature-api-enhancements branch.
+Both teams can develop and test their features separately before merging them into the main branch.
+
+### 3. Reducing Merge Conflicts
+Merge conflicts occur when multiple developers modify the same part of a file. A good branching strategy minimizes these conflicts by structuring how and when changes are merged.
+✅ Why it matters?
+Prevents long-lived branches that accumulate too many changes, making merging difficult.
+Encourages frequent merges to integrate changes incrementally instead of all at once.
+Reduces the time spent resolving conflicts and debugging issues caused by conflicting changes.
+Example:
+A team follows a feature branch strategy where developers regularly merge their branches into develop.
+Instead of waiting until the last moment, they integrate changes frequently, reducing the likelihood of large conflicts.
+
+### 4. Enabling Effective Code Reviews
+Branching strategies support structured code review processes before changes are merged into the main branch.
+✅ Why it matters?
+Ensures that every change is reviewed for quality, security, and consistency.
+Allows teammates to catch errors or suggest improvements before code reaches production.
+Helps maintain a clean and organized codebase.
+Example:
+A developer pushes their feature-payment-gateway branch and opens a pull request (PR).
+Other developers review the code, suggest changes, and approve the PR before merging it into main.
+This process ensures high-quality code and reduces the risk of introducing bugs.
+
+---
+
+## Bounus Task 
+
+![image](https://github.com/user-attachments/assets/395c75a4-d83e-4b51-b8a4-3910533a1287)
+
+![image](https://github.com/user-attachments/assets/086afc5b-5786-4757-a6b0-9e5285ae3f7f)
+
+---

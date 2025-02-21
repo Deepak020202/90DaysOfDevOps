@@ -15,3 +15,13 @@
 ---
 
 ## Solution 
+
+```
+ git clone git clone https://github.com/Deepak020202/90DaysOfDevOps-Demo.gitCloning into '90DaysOfDevOps-Demo'...
+ cd 2025/git/01_Git_and_Github_Basic
+
+```
+
+## Output :-
+
+![image](https://github.com/user-attachments/assets/78cb1886-dbdc-4b04-937e-74c2e187706c)

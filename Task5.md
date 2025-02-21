@@ -31,3 +31,14 @@
 
 ---
 ## Solution :-
+
+![image](https://github.com/user-attachments/assets/a0b73808-a74f-40c5-8178-fc8140db3b63)
+
+
+![image](https://github.com/user-attachments/assets/65c67180-a115-4e33-9763-e873d070e4f4)
+
+![image](https://github.com/user-attachments/assets/053c5dbb-46c2-45bd-aa41-aebee071ef34)
+
+![image](https://github.com/user-attachments/assets/13143aa7-aa39-48c9-9940-71024b75a7f1)
+
+

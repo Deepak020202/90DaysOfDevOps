@@ -28,3 +28,6 @@
 ---
 
 ## Solution
+
+![image](https://github.com/user-attachments/assets/a221c0ae-f0a7-4a47-92b0-bfaa2e71d145)
+

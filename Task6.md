@@ -21,4 +21,4 @@ Additionally, the script should implement a rotation mechanism to keep only the 
 ## Output 
 
 task 1.
-![image](https://github.com/user-attachments/assets/74034f05-c169-4bdf-9ec2-6e12b473de19)
+

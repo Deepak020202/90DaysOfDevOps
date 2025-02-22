@@ -11,14 +11,46 @@ Additionally, the script should implement a rotation mechanism to keep only the 
 
 > The script will create a timestamped backup folder inside the specified directory and copy all the files into it. It will also check for existing backup folders and remove the oldest backups to keep only the last 3 backups.
 
-## Program :- 
+## Solution : - 
+
+```
+#!/bin/bash
+<< info
+
+Task 6 : - Automated Backup & Recovery using Cron
+info
+       # argument check
+    if [ -z "$1" ]; then
+    echo "Usage: $0 <directory_path>"
+        exit 1
+        fi
+
+        #path set
+
+        SOURCE_DIR="$1"
+        BACKUP_DIR="${SOURCE_DIR}/backups"
+        TIMESTAMP=$(date +"%S-%M-%H___%d-%m-%Y")
+        BACKUP_PATH="${BACKUP_DIR}/backup_${TIMESTAMP}"
+
+        mkdir -p "$BACKUP_DIR"
+
+        # Backup create
+        echo "Creating backup at: $BACKUP_PATH"
+        rsync -av --exclude="backups" "$SOURCE_DIR/" "$BACKUP_PATH"
+
+
+        # Keep only 3 backup
+        BACKUP_COUNT=$(ls -dt ${BACKUP_DIR}/backup_* | wc -l)
+        if [ "$BACKUP_COUNT" -gt 3 ]; then
+            echo "Removing old backups..."
+                ls -dt ${BACKUP_DIR}/backup_* | tail -n +4 | xargs rm -rf
+                fi
 
 ```
 
-```
+![image](https://github.com/user-attachments/assets/c961d657-2fc7-4ec7-9751-9dbcce929d6f)
+
+![image](https://github.com/user-attachments/assets/e9eca99f-5563-4976-8d48-07609b3276e4)
 
 
-## Output 
-
-task 1.
 

@@ -25,4 +25,13 @@
 
 ![image](https://github.com/user-attachments/assets/bf05456f-614a-4522-8913-e1831d75234c)
 
+### git stash apply :-
+Applies the latest stash to your working directory but keeps the stash.	
+
+❌ Stash is not removed.
+
+### git stash pop	
+Applies the latest stash and removes it from the stash list.	
+
+✅ Stash is removed.
 

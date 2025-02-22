@@ -22,3 +22,7 @@
 
 ---
 ## Solution :-
+
+![image](https://github.com/user-attachments/assets/bf05456f-614a-4522-8913-e1831d75234c)
+
+![image](https://github.com/user-attachments/assets/3113a391-8966-4499-a0d5-c945e50c3f1c)

@@ -26,3 +26,8 @@
 
 ---
 ## Solution :-
+
+![image](https://github.com/user-attachments/assets/1599e7c2-d212-4e2a-bf78-10e390e5d24a)
+
+![image](https://github.com/user-attachments/assets/6a0fa4ba-82f0-4fa3-b7ca-adbf3e01ea35)
+

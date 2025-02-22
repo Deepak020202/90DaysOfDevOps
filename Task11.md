@@ -21,3 +21,11 @@
 ---
 
 ## Solution :-
+
+
+![image](https://github.com/user-attachments/assets/692f249b-9495-486f-8371-5966d2646f3a)
+
+
+![image](https://github.com/user-attachments/assets/5efa8bd4-b71f-4dcb-b546-6b63c0689b9b)
+
+

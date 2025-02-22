@@ -11,5 +11,18 @@
      ```bash
      docker build -t <your-username>/sample-app:latest .
 
+3. **Verify Your Build:**  
+   - Run your container locally to ensure it works as expected:
+     ```bash
+     docker run -d -p 8080:80 <your-username>/sample-app:latest
+     ```
+   - Verify the container is running with:
+     ```bash
+     docker ps
+     ```
+   - Check logs using:
+     ```bash
+     docker logs <container_id>
+     ```
     ---
    ## Solution :-

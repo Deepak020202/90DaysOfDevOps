@@ -25,4 +25,19 @@
      docker logs <container_id>
      ```
     ---
-   ## Solution :-
+   # Solution :-
+
+ ### choosing a simple flask app and write docker file changes in app.py and then build docker image after that run docker image and container working 
+
+ ### POC are here :-
+
+   
+ ![Dockerfile](https://github.com/user-attachments/assets/1c88ceb0-2f6c-41b3-a41e-2e317b37430f)
+   
+![image](https://github.com/user-attachments/assets/1972b258-dc49-4b7c-bea8-879056b5bf80) 
+
+![image](https://github.com/user-attachments/assets/0229dc55-24e8-4842-9b6b-b9923563f684)
+
+![image](https://github.com/user-attachments/assets/a369e8e0-449d-4141-afda-ed75ab065977)
+
+![image](https://github.com/user-attachments/assets/4868aab3-6e98-4faa-a445-98ff86af3fb0)

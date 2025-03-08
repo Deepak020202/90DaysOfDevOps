@@ -48,6 +48,9 @@ Multi-stage builds allow you to use **multiple `FROM` statements** in a single `
 
 ![image](https://github.com/user-attachments/assets/bc54e691-38cc-42e6-8325-520ccb7c2942)
 
+![image](https://github.com/user-attachments/assets/8aec7469-4712-4fe6-a0de-2f7b01656a48)
+
+
 ![image](https://github.com/user-attachments/assets/d381a5fb-a6d6-46dc-b108-90d799de1d7e)
 
 ![image](https://github.com/user-attachments/assets/dad6fe20-1e7a-46c0-88c5-0e34ff398a1d)

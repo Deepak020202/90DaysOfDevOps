@@ -84,17 +84,3 @@ A tool for defining and managing multi-container applications.
   ```
 
 ---
-
-## Basic Docker Commands
-| Command | Description |
-|---------|-------------|
-| `docker ps` | List running containers |
-| `docker images` | List available images |
-| `docker run IMAGE` | Run a container from an image |
-| `docker stop CONTAINER_ID` | Stop a running container |
-| `docker rm CONTAINER_ID` | Remove a container |
-| `docker rmi IMAGE_ID` | Remove an image |
-| `docker logs CONTAINER_ID` | View container logs |
-| `docker exec -it CONTAINER_ID bash` | Access a running container |
-
----

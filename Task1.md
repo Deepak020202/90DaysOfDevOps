@@ -9,7 +9,7 @@
 ---
 ## Solution :-
 
-### What is Docker? 🤔
+# What is Docker? 🤔
 
 Docker is a containerization tool that helps developers package applications along with all dependencies (like code, libraries, and system tools) into a single unit called a container. This ensures that the application runs the same on any system, whether it’s a developer’s laptop, a test environment, or a production server.
 

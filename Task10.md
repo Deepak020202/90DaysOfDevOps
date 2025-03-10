@@ -60,6 +60,29 @@ docker run --rm my-multistage-image ```
 - **Backup Volumes Regularly**: Always back up your volumes, especially if they contain databases or critical data.
 - **Avoid Storing Application Data Inside Containers**: Store persistent application data in volumes, not inside containers, to prevent data loss when containers are removed.
 
+
+
+### Createing a Docker volume:
+
+```bash
+
+# Create a Docker volume:
+docker volume create my-volume
+
+# Run a container with the volume mounted:
+docker run -d -v my-volume:/data ubuntu:latest
+
+# Run a container with the volume mounted:
+docker run -d -v my-volume:/data ubuntu:latest
+
+# Verify that the volume is mounted:
+docker exec -it <container_id> bash
+Inside the container, check the /data directory
+ls /data
+
+# Inspect the volume:
+docker volume inspect my-volume
+
 ---
 
 ## 3. Docker Networking

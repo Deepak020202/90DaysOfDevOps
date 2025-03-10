@@ -100,6 +100,19 @@ docker volume inspect my-volume
 - **Limit Network Access**: Use network policies to control which containers can communicate with each other.
 - **Avoid Using Host Network**: In most cases, using the host network mode should be avoided as it compromises container isolation.
 
+```bash
+# Create a custom network:
+docker network create my-network
+
+# Run a container on the custom network:
+docker run -d --name my-container --network my-network ubuntu:latest
+
+# Run another container on the same network:
+docker run -d --name another-container --network my-network ubuntu:latest
+
+# Check network connection between containers:
+docker exec -it my-container ping another-container
+```
 ---
 
 ## 4. Docker Compose

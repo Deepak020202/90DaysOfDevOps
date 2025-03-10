@@ -28,6 +28,7 @@ CMD ["./app"]
 
 # Stage 3: Build the Docker image:
 docker build -t my-multistage-image .
+
 # Stage 4: Run the container:
 docker run --rm my-multistage-image ```
 ```

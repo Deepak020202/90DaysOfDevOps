@@ -253,4 +253,5 @@ Docker containers are ephemeral, making persistent data management tricky. While
 
 ### 5. Hardware and Compatibility Issues
 While Docker ensures environment consistency, it can face compatibility challenges, especially with specialized hardware or GPU-intensive applications.
+
 ---

@@ -101,6 +101,7 @@ docker volume inspect my-volume
 - **Avoid Using Host Network**: In most cases, using the host network mode should be avoided as it compromises container isolation.
 
 ```bash
+
 # Create a custom network:
 docker network create my-network
 
@@ -112,6 +113,7 @@ docker run -d --name another-container --network my-network ubuntu:latest
 
 # Check network connection between containers:
 docker exec -it my-container ping another-container
+
 ```
 ---
 
@@ -129,6 +131,7 @@ docker exec -it my-container ping another-container
 - **Define Resource Limits**: Specify resource limits (e.g., CPU and memory) for each service to prevent resource exhaustion.
 
 ```bash
+
 #Create a docker-compose.yml file:
 Copy
 version: "3"
@@ -148,6 +151,7 @@ networks:
 ```
 
 ```bash
+
 # Start services with Docker Compose:
 docker-compose up -d
 
@@ -171,6 +175,19 @@ docker-compose down
 - **Stay Up to Date**: Make sure the images you use are regularly updated and do not contain known vulnerabilities.
 - **Integrate with CI/CD**: Automate security scanning in your CI/CD pipeline to catch vulnerabilities early.
 
+```bash
+
+# Scan an image using Docker Scout:
+docker scan ubuntu:latest
+
+# View the results of the security scan:
+docker scan --only=vulnerabilities ubuntu:latest
+
+# Run a scan after building a custom image:
+docker build -t my-custom-image .
+docker scan my-custom-image
+
+```
 ---
 
 ## 6. Docker Hub Push/Pull
@@ -179,3 +196,22 @@ docker-compose down
 - **Tag Images Appropriately**: Always tag images with version numbers or meaningful tags instead of just using `latest` to avoid confusion.
 - **Use Private Repositories for Sensitive Data**: If your images contain sensitive or proprietary code, use Docker Hub's private repositories to restrict access.
 - **Clean Up Unused Images**: Regularly remove unused or old images from Docker Hub to avoid unnecessary storage costs.
+  
+```bash
+
+# Login to Docker Hub:
+docker login
+
+# Tag the image with your Docker Hub username:
+docker tag ubuntu:latest myusername/my-repository:latest
+
+# Push the image to Docker Hub:
+docker push myusername/my-repository:latest
+
+# Pull the image from Docker Hub:
+docker pull myusername/my-repository:latest
+
+# Verify the image on Docker Hub:
+Visit Docker Hub and check your repository for the pushed image.
+
+```

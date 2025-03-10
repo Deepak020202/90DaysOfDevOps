@@ -132,7 +132,7 @@ docker exec -it my-container ping another-container
 
 ```bash
 
-#Create a docker-compose.yml file:
+# Create a docker-compose.yml file:
 Copy
 version: "3"
 services:
@@ -158,7 +158,7 @@ docker-compose up -d
 # Check if the containers are running:
 docker-compose ps
 
-#Stop the services:
+# Stop the services:
 docker-compose down
 
 ```

@@ -12,7 +12,8 @@
 
 ### Create a Dockerfile with multi-stage builds:
 
-```Dockerfile
+```
+Dockerfile
 # Stage 1: Build stage
 FROM ubuntu:latest AS builder
 RUN apt-get update && apt-get install -y build-essential
@@ -28,8 +29,8 @@ CMD ["./app"]
 # Stage 3: Build the Docker image:
 docker build -t my-multistage-image .
 # Stage 4: Run the container:
-docker run --rm my-multistage-image
-
+docker run --rm my-multistage-image ```
+```
 ---
 # Docker Concepts and Best Practices
 

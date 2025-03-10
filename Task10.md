@@ -128,6 +128,36 @@ docker exec -it my-container ping another-container
 - **Use Named Volumes for Data Persistence**: Always use named volumes to ensure data persists beyond container restarts.
 - **Define Resource Limits**: Specify resource limits (e.g., CPU and memory) for each service to prevent resource exhaustion.
 
+```bash
+#Create a docker-compose.yml file:
+Copy
+version: "3"
+services:
+  web:
+    image: ubuntu:latest
+    networks:
+      - my-network
+  db:
+    image: mysql:latest
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+```
+
+```bash
+# Start services with Docker Compose:
+docker-compose up -d
+
+# Check if the containers are running:
+docker-compose ps
+
+#Stop the services:
+docker-compose down
+
+```
 ---
 
 ## 5. Docker Scout

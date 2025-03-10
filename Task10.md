@@ -8,7 +8,29 @@
 ---
 
 ## Solution :-
+## 1. Docker Multi-Stage Builds
 
+### Create a Dockerfile with multi-stage builds:
+
+```Dockerfile
+# Stage 1: Build stage
+FROM ubuntu:latest AS builder
+RUN apt-get update && apt-get install -y build-essential
+WORKDIR /app
+COPY . /app
+RUN make /app
+
+# Stage 2: Production stage
+FROM ubuntu:latest
+COPY --from=builder /app /app
+CMD ["./app"]
+
+# Stage 3: Build the Docker image:
+docker build -t my-multistage-image .
+# Stage 4: Run the container:
+docker run --rm my-multistage-image
+
+---
 # Docker Concepts and Best Practices
 
 ## 1. Docker Multi-Stage Builds

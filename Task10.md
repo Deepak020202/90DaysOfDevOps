@@ -8,9 +8,22 @@
 ---
 
 ## Solution :-
+
+# Docker Concepts and Best Practices
+
 ## 1. Docker Multi-Stage Builds
 
-### Create a Dockerfile with multi-stage builds:
+### How Multi-Stage Builds Work
+- A multi-stage build allows you to use multiple `FROM` statements in a Dockerfile to create separate stages for building and packaging an image. This technique helps to reduce the final image size by keeping only the necessary artifacts from the build process in the final image.
+- You define multiple stages in your Dockerfile by using the `FROM` command multiple times.
+- Intermediate stages can be used to build dependencies, compile source code, and perform other setup tasks.
+- The final stage copies only the necessary artifacts (e.g., built binaries) from the previous stages into the production image.
+
+### Best Practices for Multi-Stage Builds
+- **Use Small Base Images for Final Stages**: Always use smaller images like `alpine` for the production stage to minimize the final image size.
+- **Use Named Stages**: Naming stages (e.g., `AS builder`) helps to clearly define the flow.
+- **Minimize Each Stage**: Each stage should focus on a specific task to ensure clarity and modularity.
+- **Leverage Docker's Caching**: Order instructions from least likely to change to most likely, as Docker caches layers during the build process.
 
 ```
 Dockerfile
@@ -32,23 +45,6 @@ docker build -t my-multistage-image .
 # Stage 4: Run the container:
 docker run --rm my-multistage-image ```
 ```
----
-# Docker Concepts and Best Practices
-
-## 1. Docker Multi-Stage Builds
-
-### How Multi-Stage Builds Work
-- A multi-stage build allows you to use multiple `FROM` statements in a Dockerfile to create separate stages for building and packaging an image. This technique helps to reduce the final image size by keeping only the necessary artifacts from the build process in the final image.
-- You define multiple stages in your Dockerfile by using the `FROM` command multiple times.
-- Intermediate stages can be used to build dependencies, compile source code, and perform other setup tasks.
-- The final stage copies only the necessary artifacts (e.g., built binaries) from the previous stages into the production image.
-
-### Best Practices for Multi-Stage Builds
-- **Use Small Base Images for Final Stages**: Always use smaller images like `alpine` for the production stage to minimize the final image size.
-- **Use Named Stages**: Naming stages (e.g., `AS builder`) helps to clearly define the flow.
-- **Minimize Each Stage**: Each stage should focus on a specific task to ensure clarity and modularity.
-- **Leverage Docker's Caching**: Order instructions from least likely to change to most likely, as Docker caches layers during the build process.
-
 ---
 
 ## 2. Docker Volumes

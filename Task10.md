@@ -83,6 +83,7 @@ ls /data
 # Inspect the volume:
 docker volume inspect my-volume
 
+```
 ---
 
 ## 3. Docker Networking

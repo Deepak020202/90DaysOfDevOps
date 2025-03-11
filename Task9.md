@@ -1,4 +1,4 @@
-[report.txt](https://github.com/user-attachments/files/19196521/report.txt)## Task 9: Analyze Your Image with Docker Scout
+[report.txt.txt](https://github.com/user-attachments/files/19196620/report.txt.txt)[report.txt](https://github.com/user-attachments/files/19196521/report.txt)## Task 9: Analyze Your Image with Docker Scout
 1. **Run Docker Scout Analysis:**  
    - Execute Docker Scout on your image to generate a detailed report of vulnerabilities and insights:
      ```bash
@@ -50,7 +50,7 @@
 ---
 3.  docker scout cves <your-username>/sample-app:v1.0 > scout_report.txt
 
-[Uploading report
+##  Report.txt
 
 ## Overview
 
@@ -130,6 +130,62 @@ pkg:pypi/flask@2.2.2
   HIGH      3  
   CRITICAL  0  
 
-.txt…]()
+g report.txt.txt…]()
 
 ---
+# Review and  Report:
+
+Analyzed Image: deepak0202/app-mini:latest
+Digest: 1ee2b0cfcd4f
+Platform: linux/amd64
+Size: 26 MB
+Packages: 62
+Vulnerabilities Found: 7 total
+0 Critical
+3 High
+3 Medium
+1 Low
+
+Critical vulnerabilities: 0 (Good) ✅
+High vulnerabilities: 3 (Needs urgent attention) ⚠️
+Fixing Werkzeug & Flask should resolve most issues.
+Keep scanning regularly as new vulnerabilities emerge.
+
+---
+
+# Final Report 
+
+### Vulnerabilities Found: 7 total
+0 Critical
+3 High
+3 Medium
+1 Low
+
+### layers or dependencies contributed to these vulnerabilities.
+
+Layers and Dependencies Contributing to Vulnerabilities
+
+The Python packages Werkzeug and Flask are the primary sources of vulnerabilities in the image.
+
+Werkzeug 2.2.2 accounts for 6 out of 7 vulnerabilities.
+
+Flask 2.2.2 contributes 1 high-severity vulnerability.
+
+The vulnerabilities impact security mechanisms like CSRF, resource consumption, and input validation.
+
+### Actionable Recommendations & Remediation Steps
+
+1. Upgrade Vulnerable Dependencies
+2. Rebuild and Scan the Docker Image
+3. Consider Using Alternative Scanners
+4. Implement Image Optimization Strategies
+
+### Implement Image Optimization Strategies
+
+Use a smaller base image: Consider switching to python:3.9-slim or alpine to reduce the attack surface.
+
+Multi-stage builds: Minimize unnecessary dependencies in the final image.
+
+Regular scanning: Automate vulnerability scanning in the CI/CD pipeline.
+
+

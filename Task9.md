@@ -135,20 +135,32 @@ g report.txt.txt…]()
 ---
 # Review and  Report:
 
-Analyzed Image: deepak0202/app-mini:latest
+### Analyzed Image: deepak0202/app-mini:latest
+
 Digest: 1ee2b0cfcd4f
+
 Platform: linux/amd64
+
 Size: 26 MB
+
 Packages: 62
-Vulnerabilities Found: 7 total
+
+### Vulnerabilities Found: 7 total
+
 0 Critical
+
 3 High
+
 3 Medium
+
 1 Low
 
 Critical vulnerabilities: 0 (Good) ✅
+
 High vulnerabilities: 3 (Needs urgent attention) ⚠️
+
 Fixing Werkzeug & Flask should resolve most issues.
+
 Keep scanning regularly as new vulnerabilities emerge.
 
 ---
@@ -156,9 +168,13 @@ Keep scanning regularly as new vulnerabilities emerge.
 # Final Report 
 
 ### Vulnerabilities Found: 7 total
+
 0 Critical
+
 3 High
+
 3 Medium
+
 1 Low
 
 ### layers or dependencies contributed to these vulnerabilities.
@@ -176,8 +192,11 @@ The vulnerabilities impact security mechanisms like CSRF, resource consumption, 
 ### Actionable Recommendations & Remediation Steps
 
 1. Upgrade Vulnerable Dependencies
+
 2. Rebuild and Scan the Docker Image
+
 3. Consider Using Alternative Scanners
+
 4. Implement Image Optimization Strategies
 
 ### Implement Image Optimization Strategies

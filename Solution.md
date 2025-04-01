@@ -514,7 +514,10 @@ Would you like to add more details or examples? 🚀
 
 ![image](https://github.com/user-attachments/assets/6969810d-1662-4774-9625-73161b93738e)
 ---
-[report.txt.txt](https://github.com/user-attachments/files/19196620/report.txt.txt)[report.txt](https://github.com/user-attachments/files/19196521/report.txt)## Task 9: Analyze Your Image with Docker Scout
+[report.txt.txt](https://github.com/user-attachments/files/19196620/report.txt.txt)[report.txt](https://github.com/user-attachments/files/19196521/report.txt)
+
+## Task 9: Analyze Your Image with Docker Scout
+
 1. **Run Docker Scout Analysis:**  
    - Execute Docker Scout on your image to generate a detailed report of vulnerabilities and insights:
      ```bash

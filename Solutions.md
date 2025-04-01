@@ -23,7 +23,64 @@ Create an end-to-end CI/CD pipeline for a sample application.
 - How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
 - What are the benefits of breaking the pipeline into distinct stages?
 
----
+# Solution 
+
+## Task1.1 **Set Up a Pipeline Job:**  
+
+![image](https://github.com/user-attachments/assets/741b1e53-b62d-416d-bdcc-5415dfee2449)
+
+![image](https://github.com/user-attachments/assets/5126bf92-1e3e-469d-a7e7-e487fa004ab1)
+
+## Task1.2 
+
+![image](https://github.com/user-attachments/assets/23c22501-df66-4384-9b3e-313d8084bea9)
+
+## Task 1.3
+
+### Pipeline code
+```
+pipeline{
+    agent any;
+    stages{
+        stage("Code Build "){
+            steps{
+        echo " Code Buid is succesufully "
+            }
+        }
+        stage("code test"){
+            steps{
+                echo "Code is succesfully tested"
+            }
+        }
+        stage("code deploy"){
+            steps{
+                echo "Code is succesfully deployed!!!"
+                sh "docker ps"
+            }
+        }
+    }
+}
+```
+** Questions:**
+- How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
+Answer--> declarative pipelines streamline the CI/CD process by providing a simple, structured way to define workflows with minimal scripting. This makes them more accessible, maintainable, and less error-prone compared to scripted pipelines, which are better suited for highly customized or complex workflows.
+
+- What are the benefits of breaking the pipeline into distinct stages?
+Answer--> Breaking the pipeline into distinct stages offers numerous advantages:
+
+1.Improved clarity and readability, making it easier to understand the pipeline's flow.
+
+2.Better maintainability with modular design and easier updates.
+
+3.Parallel execution to speed up the pipeline.
+
+4.Clearer error isolation and easier troubleshooting.
+
+5.Granular notifications and better control over pipeline execution.
+
+6.Efficient resource management by tailoring resources for specific stages.
+
+7.Compliance and auditing by tracking each stage's execution and results.
 
 ## Task 2: Build a Multi-Branch Pipeline for a Microservices Application
 

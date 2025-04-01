@@ -63,24 +63,26 @@ pipeline{
 ```
 ** Questions:**
 - How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
+
 Answer--> declarative pipelines streamline the CI/CD process by providing a simple, structured way to define workflows with minimal scripting. This makes them more accessible, maintainable, and less error-prone compared to scripted pipelines, which are better suited for highly customized or complex workflows.
 
 - What are the benefits of breaking the pipeline into distinct stages?
+
 Answer--> Breaking the pipeline into distinct stages offers numerous advantages:
 
-1.Improved clarity and readability, making it easier to understand the pipeline's flow.
+   1.Improved clarity and readability, making it easier to understand the pipeline's flow.
 
-2.Better maintainability with modular design and easier updates.
+   2.Better maintainability with modular design and easier updates.
 
-3.Parallel execution to speed up the pipeline.
+   3.Parallel execution to speed up the pipeline.
 
-4.Clearer error isolation and easier troubleshooting.
+   4.Clearer error isolation and easier troubleshooting.
 
-5.Granular notifications and better control over pipeline execution.
+   5.Granular notifications and better control over pipeline execution.
 
-6.Efficient resource management by tailoring resources for specific stages.
+   6.Efficient resource management by tailoring resources for specific stages.
 
-7.Compliance and auditing by tracking each stage's execution and results.
+   7.Compliance and auditing by tracking each stage's execution and results.
 
 ## Task 2: Build a Multi-Branch Pipeline for a Microservices Application
 

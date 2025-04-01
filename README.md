@@ -1,9 +1,5 @@
 # Week 6 : Jenkins ( CI/CD ) Basics and Advanced real world challenge  
 
-This set of tasks is designed as part of the 90DaysOfDevOps challenge to simulate real-world scenarios you might encounter on the job or in technical interviews. By completing these tasks, you'll gain practical experience with advanced Jenkins topics, including pipelines, distributed agents, RBAC, shared libraries, vulnerability scanning, and automated notifications.
-
-Complete each task and document all steps, commands, Screenshots, and observations in a file named `solution.md`. This documentation will serve as both your preparation guide and a portfolio piece for interviews.
-
 ---
 
 ## Task 1: Create a Jenkins Pipeline Job for CI/CD
@@ -23,7 +19,7 @@ Create an end-to-end CI/CD pipeline for a sample application.
    - Include your Jenkinsfile code and explain the purpose of each stage.
    - Note any issues you encountered and how you resolved them.
 
-**Interview Questions:**
+** Questions:**
 - How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
 - What are the benefits of breaking the pipeline into distinct stages?
 
@@ -46,7 +42,7 @@ You have a microservices-based application with multiple components stored in se
 4. **Document in `solution.md`:**  
    - List the Jenkinsfile(s) used, explain your pipeline design, and describe how multi-branch pipelines help manage microservices deployments in production.
 
-**Interview Questions:**
+** Questions:**
 - How does a multi-branch pipeline improve continuous integration for microservices?
 - What challenges might you face when merging feature branches in a multi-branch pipeline?
 
@@ -69,7 +65,7 @@ Your build workload has increased, and you need to configure multiple agents (ac
    - Explain how you configured and verified each agent.
    - Describe the benefits of distributed builds in terms of speed and reliability.
 
-**Interview Questions:**
+** Questions:**
 - What are the benefits and challenges of using distributed agents in Jenkins?
 - How can you ensure that jobs are assigned to the correct agent in a multi-platform environment?
 
@@ -90,7 +86,7 @@ In a large organization, different teams (developers, testers, and operations) r
    - Include screenshots or logs of your RBAC configuration.
    - Explain the importance of access control and provide a potential risk scenario that RBAC helps mitigate.
 
-**Interview Questions:**
+** Questions:**
 - Why is RBAC essential in a CI/CD environment, and what are the consequences of weak access control?
 - Can you describe a scenario where inadequate RBAC could lead to security issues?
 
@@ -118,7 +114,7 @@ You are working on multiple pipelines that share common tasks (like code quality
    - Provide code examples from your shared library.
    - Explain how this approach improves maintainability and reduces errors.
 
-**Interview Questions:**
+** Questions:**
 - How do shared libraries contribute to code reuse and maintainability in large organizations?
 - Provide an example of a function that would be ideal for a shared library and explain its benefits.
 
@@ -183,7 +179,7 @@ In production environments, pipelines need to be flexible and configurable. Impl
    - Explain how parameterization makes the pipeline dynamic.
    - Include sample outputs and discuss how this flexibility is useful in a production CI/CD environment.
 
-**Interview Questions:**
+** Questions:**
 - How does pipeline parameterization improve the flexibility of CI/CD workflows?
 - Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
 
@@ -239,12 +235,33 @@ Real-world CI/CD pipelines sometimes fail. Demonstrate how you would troubleshoo
    - Provide a detailed account of your troubleshooting, monitoring, and debugging strategies.
    - Reflect on how these practices help maintain a stable CI/CD environment.
 
-**Interview Questions:**
+** Questions:**
 - How would you approach troubleshooting a failing Jenkins pipeline?
 - What are some effective strategies for monitoring Jenkins in a production environment?
 
 ---
 
+## How to Submit
+
+1. **Push Your Final Work to GitHub:**  
+   - Ensure all files (e.g., Jenkinsfile, configuration scripts, `solution.md`, etc.) are committed and pushed to your repository.
+
+2. **Create a Pull Request (PR):**  
+   - Open a PR from your branch (e.g., `jenkins-challenge`) to the main repository.
+   - **Title:**  
+     ```
+     Week 6 Challenge - DevOps Batch 9: Jenkins CI/CD Challenge
+     ```
+   - **PR Description:**  
+     - Summarize your approach, list key commands/configurations, and include screenshots or logs as evidence.
+
+3. **Share Your Experience on LinkedIn:**  
+   - Write a post summarizing your Jenkins challenge experience.
+   - Include key takeaways, challenges faced, and insights (e.g., agent configuration, RBAC, shared libraries, vulnerability scanning, and troubleshooting).
+   - Use the hashtags: **#90DaysOfDevOps #Jenkins #CI/CD #DevOps #InterviewPrep**
+   - Optionally, provide links to your repository or blog posts detailing your journey.
+
+---
 
 
 ## TrainWithShubham Resources for Jenkins CI/CD

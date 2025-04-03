@@ -96,14 +96,60 @@ You have a microservices-based application with multiple components stored in se
 2. **Develop a Jenkinsfile for Each Service:**  
    - Write a Jenkinsfile that includes stages for **Checkout**, **Build**, **Test**, and **Deploy**.  
    - Include parallel stages if applicable (e.g., running tests for different services concurrently).
-3. **Simulate a Merge Scenario:**  
-   - Create a feature branch and simulate a pull request workflow (using the Jenkins “Pipeline Multibranch” plugin with PR support if available).
-4. **Document in `solution.md`:**  
+3. **Document in `solution.md`:**  
    - List the Jenkinsfile(s) used, explain your pipeline design, and describe how multi-branch pipelines help manage microservices deployments in production.
 
 ** Questions:**
 - How does a multi-branch pipeline improve continuous integration for microservices?
 - What challenges might you face when merging feature branches in a multi-branch pipeline?
+
+# Solution :-
+
+Running multi stage pipeline that contain Flask app and SQL 
+
+![image](https://github.com/user-attachments/assets/8a0fbf83-9eee-431c-9f4d-02ed284b61e4)
+
+
+
+![image](https://github.com/user-attachments/assets/5324eb6e-8391-49be-a2d5-f954914b681c)
+
+
+## Multi-branch pipelines allow Jenkins to dynamically create and manage pipelines for each branch in a repository. This is particularly useful for microservices in production for the following reasons:
+
+### ✅ 1. Isolated Testing for Different Features
+
+Developers can work on feature branches (feature/new-auth), and Jenkins will automatically detect and run a separate pipeline for that branch.
+
+This ensures new changes don’t affect the stable code until merged into main or develop.
+
+### ✅ 2. CI/CD for Multiple Services
+
+In a microservices architecture, each service may have its own repository and pipeline.
+
+Multi-branch pipelines allow Jenkins to trigger builds only for changed microservices, reducing deployment time.
+
+### ✅ 3. Automated PR Testing
+
+When a developer opens a pull request (PR), Jenkins can automatically test the branch before merging.
+
+This ensures only high-quality code enters production.
+
+### ✅ 4. Easier Rollbacks & Hotfixes
+
+If a deployment fails, you can quickly switch to a previous branch and deploy a stable version.
+
+Separate pipelines for hotfix branches allow rapid bug fixes without affecting ongoing development.
+
+### ✅ 5. Parallel Deployments for Different Environments
+You can define different branches for different environments:
+
+develop → Staging
+
+main → Production
+
+Jenkins runs different pipelines for each environment, ensuring safe deployments.
+
+
 
 ---
 

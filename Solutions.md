@@ -174,6 +174,49 @@ Your build workload has increased, and you need to configure multiple agents (ac
 - What are the benefits and challenges of using distributed agents in Jenkins?
 - How can you ensure that jobs are assigned to the correct agent in a multi-platform environment?
 
+# Solution :- 
+
+![image](https://github.com/user-attachments/assets/0a0f9ea6-daeb-488a-a847-07d19a5b66e6)
+
+![image](https://github.com/user-attachments/assets/4f98c49a-3adc-4738-b245-7d0427b50758)
+
+![image](https://github.com/user-attachments/assets/0ea7d8ae-a055-47b7-bdd2-1a801dbd91b7)
+
+![image](https://github.com/user-attachments/assets/4dc491da-9231-4600-8472-3914d82fd944)
+
+![image](https://github.com/user-attachments/assets/b69a98f3-bf05-4369-a78b-3858fc45aacf)
+
+
+## Jenkinsfile for agent
+
+```
+pipeline { 
+    agent {label "Dev"};
+    stages{
+        stage(" Code Clone "){
+            steps{
+        git branch: "master", url: "https://github.com/Deepak020202/two-tier-flask-app.git"
+            }
+        }
+        stage("Code Build "){
+            steps{
+        sh "docker build -t flask-app ."
+            }
+        }
+        stage("code test"){
+            steps{
+                echo "code is testedd"
+            }
+        }
+        stage("code deploy"){
+            steps{
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+}
+```
+
 ---
 
 ## Task 4: Implement and Test RBAC in a Multi-Team Environment

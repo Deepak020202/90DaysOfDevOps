@@ -238,6 +238,18 @@ In a large organization, different teams (developers, testers, and operations) r
 - Why is RBAC essential in a CI/CD environment, and what are the consequences of weak access control?
 - Can you describe a scenario where inadequate RBAC could lead to security issues?
 
+# Solution :-
+
+![image](https://github.com/user-attachments/assets/5cf310ee-7279-4faa-a86d-40bb684abe38)
+
+![image](https://github.com/user-attachments/assets/3817141b-81f0-4db8-b544-106db9b198f9)
+
+![image](https://github.com/user-attachments/assets/3730d1c0-3d61-4376-9db7-27d5ccbdb50d)
+
+![image](https://github.com/user-attachments/assets/dbd3782e-8185-480e-86a2-b9573a0fe985)
+
+![image](https://github.com/user-attachments/assets/e8cd091e-0edb-4480-802c-f3836d113e78)
+
 ---
 
 ## Task 5: Develop and Integrate a Jenkins Shared Library

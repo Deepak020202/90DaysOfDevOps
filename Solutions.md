@@ -413,6 +413,11 @@ Real-world CI/CD pipelines sometimes fail. Demonstrate how you would troubleshoo
 - How would you approach troubleshooting a failing Jenkins pipeline?
 - What are some effective strategies for monitoring Jenkins in a production environment?
 
+# Solution 
+
+![image](https://github.com/user-attachments/assets/22e6a058-fe34-4a76-8ff3-a3296cab761b)
+
+
 ---
 
 ## How to Submit

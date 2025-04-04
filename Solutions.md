@@ -492,49 +492,34 @@ Real-world CI/CD pipelines sometimes fail. Demonstrate how you would troubleshoo
 
 # Solution 
 
-![image](https://github.com/user-attachments/assets/22e6a058-fe34-4a76-8ff3-a3296cab761b)
+## 1. **Troubleshooting: For Eg. pipeline fails at the "Docker Build" stage.**
+### Answer :- 
+### 1.Checking the  Console Output:
+### 2.Use docker logs: This helps to debug container-related failures.
+### Adding echo statements in each stage to confirm the flow is correct.
 
+## 2. **Monitoring:**  Describe methods for monitoring Jenkins, such as using system logs or monitoring plugins.
+### Answer:- 
+### 1.Use Monitoring Plugins:
+### Install plugins like Monitoring, Metrics, or Prometheus Exporter for Jenkins.
+### They show real-time stats like memory usage, build queue size, and agent health.
 
----
+### 2.Checking System Logs:
+### Use command:
+tail -f /var/log/jenkins/jenkins.log
+Helps track JVM memory issues, plugin errors, or restarts.
 
-## How to Submit
+### 3.Disk & Resource Alerts:
+### Use tools like Grafana, Prometheus, or CloudWatch to set up alerts.
+### If Jenkins runs low on disk or RAM, get notified via email or Slack.
 
-1. **Push Your Final Work to GitHub:**  
-   - Ensure all files (e.g., Jenkinsfile, configuration scripts, `solution.md`, etc.) are committed and pushed to your repository.
+## 3.3. **Advanced Debugging:**  
+### If not sure which environment variable is breaking the build.
 
-2. **Create a Pull Request (PR):**  
-   - Open a PR from your branch (e.g., `jenkins-challenge`) to the main repository.
-   - **Title:**  
-     ```
-     Week 6 Challenge - DevOps Batch 9: Jenkins CI/CD Challenge
-     ```
-   - **PR Description:**  
-     - Summarize your approach, list key commands/configurations, and include screenshots or logs as evidence.
-
-3. **Share Your Experience on LinkedIn:**  
-   - Write a post summarizing your Jenkins challenge experience.
-   - Include key takeaways, challenges faced, and insights (e.g., agent configuration, RBAC, shared libraries, vulnerability scanning, and troubleshooting).
-   - Use the hashtags: **#90DaysOfDevOps #Jenkins #CI/CD #DevOps #InterviewPrep**
-   - Optionally, provide links to your repository or blog posts detailing your journey.
-
----
-
-
-## TrainWithShubham Resources for Jenkins CI/CD
-
-- **[Jenkins Short notes](https://www.trainwithshubham.com/products/64aac20780964e534608664d?dgps_u=l&dgps_s=ucpd&dgps_t=cp_u&dgps_u_st=p&dgps_uid=66c972da3795a9659545d71a)**  
-- **[Jenkins One-Shot Video](https://youtu.be/XaSdKR2fOU4?si=eDmLQMSSh_eMPT_p)** 
-- **[TWS blog on Jenkins CI/CD](https://trainwithshubham.blog/automate-cicd-spring-boot-banking-app-jenkins-docker-github/)**  
-
-## Additional Resources
-
-- **[Jenkins Official Documentation](https://www.jenkins.io/doc/)**  
-- **[Jenkins Pipeline Documentation](https://www.jenkins.io/doc/book/pipeline/)**  
-- **[Jenkins Agents and Nodes](https://www.jenkins.io/doc/book/managing/nodes/)**  
-- **[Jenkins RBAC & Role Strategy Plugin](https://plugins.jenkins.io/role-strategy/)**  
-- **[Jenkins Shared Libraries](https://www.jenkins.io/doc/book/pipeline/shared-libraries/)**  
-- **[Trivy Vulnerability Scanner](https://trivy.dev/latest/docs/scanner/vulnerability/)**  
+## Steps:
+### Add Debug Info in Jenkinsfile:
+### Use Jenkins "Replay" Feature:
+### Modify the Jenkinsfile temporarily to test fixes without a Git push.
 
 ---
 
-Complete these tasks, answer the interview questions in your documentation, and use your work as a reference to prepare for real-world DevOps challenges and technical interviews.

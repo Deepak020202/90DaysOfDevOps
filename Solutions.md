@@ -425,12 +425,16 @@ Automated notifications keep teams informed about build statuses. Configure Jenk
 
      ```
 # Solution :
+## Configure SMTP Settings:
+### Set up SMTP details in Jenkins under "Manage Jenkins" → "Configure System".
 
 ![image](https://github.com/user-attachments/assets/7364d1d3-9f6d-4a6e-ba3f-9e44bb5d39ca)
 
 ![image](https://github.com/user-attachments/assets/54f87c65-8aa2-4c47-a986-fed8606ead1c)
 
 ![image](https://github.com/user-attachments/assets/ad031a7b-75c7-4e02-ab36-35daef1ae244)
+
+### Add a stage that uses the `emailext` plugin to send notifications:
 
 ![image](https://github.com/user-attachments/assets/af1f9e99-9c7e-4d1e-9501-9bb2ee2fcabd)
 

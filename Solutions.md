@@ -422,34 +422,50 @@ Automated notifications keep teams informed about build statuses. Configure Jenk
              )
          }
      }
-
      ```
-# Solution :
-## Configure SMTP Settings:
-### Set up SMTP details in Jenkins under "Manage Jenkins" → "Configure System".
 
-![image](https://github.com/user-attachments/assets/7364d1d3-9f6d-4a6e-ba3f-9e44bb5d39ca)
-
-![image](https://github.com/user-attachments/assets/54f87c65-8aa2-4c47-a986-fed8606ead1c)
-
-![image](https://github.com/user-attachments/assets/ad031a7b-75c7-4e02-ab36-35daef1ae244)
-
-### Add a stage that uses the `emailext` plugin to send notifications:
-
-![image](https://github.com/user-attachments/assets/af1f9e99-9c7e-4d1e-9501-9bb2ee2fcabd)
-
-![image](https://github.com/user-attachments/assets/bdf21bc3-7dc5-4f0f-903b-45fde468cc10)
-
-     ---
 4. **Test the Notification:**  
    - Trigger the pipeline and verify that an email is sent.
 5. **Document in `solution.md`:**  
    - Explain your configuration steps, note any challenges, and describe how you resolved them.
 
-**Interview Questions:**
+** Questions:**
 - What are the advantages of automating email notifications in CI/CD?
 - How would you troubleshoot issues if email notifications fail to send?
+     ```
+# Solution :
+## Configure SMTP Settings:
+### Set up SMTP details with secret credentials in Jenkins under "Manage Jenkins" → "Configure System".
 
+![image](https://github.com/user-attachments/assets/7364d1d3-9f6d-4a6e-ba3f-9e44bb5d39ca)
+
+![image](https://github.com/user-attachments/assets/54f87c65-8aa2-4c47-a986-fed8606ead1c)
+
+### Add a stage that uses the `emailext` plugin to send notifications
+
+![image](https://github.com/user-attachments/assets/ad031a7b-75c7-4e02-ab36-35daef1ae244)
+
+## Test the Notification :
+### Trigger the pipeline and verify that an email is sent.
+
+![image](https://github.com/user-attachments/assets/af1f9e99-9c7e-4d1e-9501-9bb2ee2fcabd)
+
+![image](https://github.com/user-attachments/assets/bdf21bc3-7dc5-4f0f-903b-45fde468cc10)
+
+** Questions:**
+## 1. What are the advantages of automating email notifications in CI/CD?
+### Answer :- Imagine you're working on a project with a team. When you upload new code and something breaks, an email is automatically sent to you saying "Build failed". You quickly fix it and push the code again — now, an email says "Build successful".
+## This helps you:
+### 1.Know what’s happening without checking Jenkins every time.
+### 2.Save time by fixing issues faster.
+
+
+##  How would you troubleshoot issues if email notifications fail to send?
+### Answer :- 
+### 1.Verify Jenkins SMTP email configuration.
+### 2.Check email steps and addresses in the pipeline.
+### 3.Review Jenkins logs for email errors.
+### 4.Send a test email from Jenkins to confirm setup.
 ---
 
 ## Task 9: Troubleshooting, Monitoring & Advanced Debugging

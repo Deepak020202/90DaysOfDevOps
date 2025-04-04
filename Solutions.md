@@ -180,30 +180,30 @@ Your build workload has increased, and you need to configure multiple agents (ac
 - How can you ensure that jobs are assigned to the correct agent in a multi-platform environment?
 
 # Solution :- 
-### setup agnet 
+## setup agnet 
 
 ![image](https://github.com/user-attachments/assets/0a0f9ea6-daeb-488a-a847-07d19a5b66e6)
 
+
 ![image](https://github.com/user-attachments/assets/4f98c49a-3adc-4738-b245-7d0427b50758)
 
-![image](https://github.com/user-attachments/assets/01ffcf95-dfde-404d-8308-65b6f688baa2)
-
+## Label Agent 
 ![image](https://github.com/user-attachments/assets/7e86b0fb-2089-422e-be9b-cda336743eae)
 
 
+![image](https://github.com/user-attachments/assets/01ffcf95-dfde-404d-8308-65b6f688baa2)
 
 
 ![image](https://github.com/user-attachments/assets/5e1f84c1-ab8a-4a1e-9d18-68b52e1b39e8)
 
-
+## Run Parallel Jobs
 ![image](https://github.com/user-attachments/assets/0ea7d8ae-a055-47b7-bdd2-1a801dbd91b7)
 
-![image](https://github.com/user-attachments/assets/4dc491da-9231-4600-8472-3914d82fd944)
 
 ![image](https://github.com/user-attachments/assets/b69a98f3-bf05-4369-a78b-3858fc45aacf)
 
 
-## Jenkinsfile for agent
+## Jenkinsfile for agens
 
 ```
 pipeline { 

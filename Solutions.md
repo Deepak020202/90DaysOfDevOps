@@ -60,13 +60,13 @@ pipeline{
 }
 ```
 ** Questions:**
-1. How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
+### 1. How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
 
-Answer--> declarative pipelines streamline the CI/CD process by providing a simple, structured way to define workflows with minimal scripting. This makes them more accessible, maintainable, and less error-prone compared to scripted pipelines, which are better suited for highly customized or complex workflows.
+### Answer--> declarative pipelines streamline the CI/CD process by providing a simple, structured way to define workflows with minimal scripting. This makes them more accessible, maintainable, and less error-prone compared to scripted pipelines, which are better suited for highly customized or complex workflows.
 
-2. What are the benefits of breaking the pipeline into distinct stages?
+### 2. What are the benefits of breaking the pipeline into distinct stages?
 
-Answer--> Breaking the pipeline into distinct stages offers numerous advantages:
+### Answer--> Breaking the pipeline into distinct stages offers many advantages:
 
    1.Improved clarity and readability, making it easier to understand the pipeline's flow.
 
@@ -152,7 +152,6 @@ Jenkins runs different pipelines for each environment, ensuring safe deployments
 ## 2. What challenges might you face when merging feature branches in a multi-branch pipeline?
 ### Answer :-  while merging feature branches in a multi-branch pipeline conflict error are comes 
 ### How to avoid this ?
-### Answer :- 
 ### 1.Always rebase your feature branch with latest master before merge
 ### 2.enkins should run tests/builds on PRs before allowing merges
 ### 3.Only allow merge if Jenkins pipeline shows green status

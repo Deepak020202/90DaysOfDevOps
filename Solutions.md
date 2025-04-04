@@ -206,7 +206,7 @@ Your build workload has increased, and you need to configure multiple agents (ac
 ### 1. create a node/agent
 ### 2. generate ssh-key on master agent
 ### 3. upload private key on jenkins 
-### 4. add public key of ssh into private ssh file in agent-node's   
+### 4. add public key of master into private ssh file in agent-node's   
 
 ## 2.Describe the benefits of distributed builds in terms of speed and reliability.
 ## Answer :-
@@ -273,25 +273,40 @@ In a large organization, different teams (developers, testers, and operations) r
 
 # Solution :-
 
+1. **Configure RBAC:**  
+### Use Matrix-based security or the Role Strategy Plugin to create roles (e.g., Admin, Developer, Tester).
+
 ![image](https://github.com/user-attachments/assets/5cf310ee-7279-4faa-a86d-40bb684abe38)
 
 ![image](https://github.com/user-attachments/assets/3817141b-81f0-4db8-b544-106db9b198f9)
+
+### Define permissions for each role.
 
 ![image](https://github.com/user-attachments/assets/3730d1c0-3d61-4376-9db7-27d5ccbdb50d)
 
 ![image](https://github.com/user-attachments/assets/dbd3782e-8185-480e-86a2-b9573a0fe985)
 
+2. **Create Test Accounts:**  
+## Simulate real-world usage by creating user accounts for each role and verifying access.
+### after implementing RBAC the Jhon user unable to access **manage jenkins tab ** 
+
 ![image](https://github.com/user-attachments/assets/e8cd091e-0edb-4480-802c-f3836d113e78)
 
-![image](https://github.com/user-attachments/assets/e62c14fd-fe5f-48d8-a8c2-13ef6c98c825)
+** Questions:**
+## Why is RBAC essential in a CI/CD environment, and what are the consequences of weak access control?
+### Answer :- Consequences of Weak Access Control:
+1.Unauthorized Code Changes – Developers with excessive privileges could push unapproved changes, introducing vulnerabilities.
 
-![image](https://github.com/user-attachments/assets/7e86b0fb-2089-422e-be9b-cda336743eae)
+2.Exposure of Sensitive Credentials – Weak access control might allow unauthorized users to access secrets like API keys or database credentials.
 
-![image](https://github.com/user-attachments/assets/01ffcf95-dfde-404d-8308-65b6f688baa2)
+3.Deployment Failures & Downtime – If unauthorized users trigger deployments or modify pipeline configurations, it could lead to service disruptions.
 
+4.Data Leaks & Compliance Violations – A lack of RBAC enforcement can expose sensitive information, leading to non-compliance with regulations like GDPR or HIPAA.
 
-![image](https://github.com/user-attachments/assets/5e1f84c1-ab8a-4a1e-9d18-68b52e1b39e8)
+5.Compromised Build Environment – Attackers or insiders with elevated permissions could inject malicious code into the pipeline. 
 
+## Can you describe a scenario where inadequate RBAC could lead to security issues?-
+### Answer :- A junior developer has full administrative access to the CI/CD pipeline. One day, they accidentally expose AWS credentials in a public repository. A malicious actor finds these credentials and gains unauthorized access to the production environment, leading to data theft and service downtime.
 ---
 
 ## Task 5: Develop and Integrate a Jenkins Shared Library

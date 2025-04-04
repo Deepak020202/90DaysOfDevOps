@@ -176,6 +176,15 @@ Your build workload has increased, and you need to configure multiple agents (ac
 
 # Solution :- 
 
+![image](https://github.com/user-attachments/assets/e62c14fd-fe5f-48d8-a8c2-13ef6c98c825)
+
+![image](https://github.com/user-attachments/assets/7e86b0fb-2089-422e-be9b-cda336743eae)
+
+![image](https://github.com/user-attachments/assets/01ffcf95-dfde-404d-8308-65b6f688baa2)
+
+
+![image](https://github.com/user-attachments/assets/5e1f84c1-ab8a-4a1e-9d18-68b52e1b39e8)
+
 ![image](https://github.com/user-attachments/assets/0a0f9ea6-daeb-488a-a847-07d19a5b66e6)
 
 ![image](https://github.com/user-attachments/assets/4f98c49a-3adc-4738-b245-7d0427b50758)

@@ -31,13 +31,11 @@ Create an end-to-end CI/CD pipeline for a sample application.
 
 ![image](https://github.com/user-attachments/assets/5126bf92-1e3e-469d-a7e7-e487fa004ab1)
 
-## Task1.2 
+## Task1.2 **using docker ps to confirm container status.**
 
 ![image](https://github.com/user-attachments/assets/23c22501-df66-4384-9b3e-313d8084bea9)
 
-## Task 1.3
-
-### Pipeline code
+## Task 1.3  Pipeline code
 ```
 pipeline{
     agent any;
@@ -62,11 +60,11 @@ pipeline{
 }
 ```
 ** Questions:**
-- How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
+1. How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
 
 Answer--> declarative pipelines streamline the CI/CD process by providing a simple, structured way to define workflows with minimal scripting. This makes them more accessible, maintainable, and less error-prone compared to scripted pipelines, which are better suited for highly customized or complex workflows.
 
-- What are the benefits of breaking the pipeline into distinct stages?
+2. What are the benefits of breaking the pipeline into distinct stages?
 
 Answer--> Breaking the pipeline into distinct stages offers numerous advantages:
 
@@ -105,7 +103,7 @@ You have a microservices-based application with multiple components stored in se
 
 # Solution :-
 
-Running multi stage pipeline that contain Flask app and SQL 
+### Running multi stage pipeline that include Code clone , build test and deploy to run the Flask app and SQL web application using docker tool.
 
 ![image](https://github.com/user-attachments/assets/8a0fbf83-9eee-431c-9f4d-02ed284b61e4)
 
@@ -113,8 +111,10 @@ Running multi stage pipeline that contain Flask app and SQL
 
 ![image](https://github.com/user-attachments/assets/5324eb6e-8391-49be-a2d5-f954914b681c)
 
+** Questions:**
+## 1.How does a multi-branch pipeline improve continuous integration for microservices?
 
-## Multi-branch pipelines allow Jenkins to dynamically create and manage pipelines for each branch in a repository. This is particularly useful for microservices in production for the following reasons:
+### Answer --> Multi-branch pipelines allow Jenkins to dynamically create and manage pipelines for each branch in a repository. This is particularly useful for microservices in production for the following reasons:
 
 ### ✅ 1. Isolated Testing for Different Features
 
@@ -149,7 +149,13 @@ main → Production
 
 Jenkins runs different pipelines for each environment, ensuring safe deployments.
 
-
+## 2. What challenges might you face when merging feature branches in a multi-branch pipeline?
+### Answer :-  while merging feature branches in a multi-branch pipeline conflict error are comes 
+### How to avoid this ?
+### Answer :- 
+### 1.Always rebase your feature branch with latest master before merge
+### 2.enkins should run tests/builds on PRs before allowing merges
+### 3.Only allow merge if Jenkins pipeline shows green status
 
 ---
 

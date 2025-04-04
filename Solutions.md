@@ -250,6 +250,15 @@ In a large organization, different teams (developers, testers, and operations) r
 
 ![image](https://github.com/user-attachments/assets/e8cd091e-0edb-4480-802c-f3836d113e78)
 
+![image](https://github.com/user-attachments/assets/e62c14fd-fe5f-48d8-a8c2-13ef6c98c825)
+
+![image](https://github.com/user-attachments/assets/7e86b0fb-2089-422e-be9b-cda336743eae)
+
+![image](https://github.com/user-attachments/assets/01ffcf95-dfde-404d-8308-65b6f688baa2)
+
+
+![image](https://github.com/user-attachments/assets/5e1f84c1-ab8a-4a1e-9d18-68b52e1b39e8)
+
 ---
 
 ## Task 5: Develop and Integrate a Jenkins Shared Library

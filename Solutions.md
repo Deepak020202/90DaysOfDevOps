@@ -190,21 +190,38 @@ Your build workload has increased, and you need to configure multiple agents (ac
 ## Label Agent 
 ![image](https://github.com/user-attachments/assets/7e86b0fb-2089-422e-be9b-cda336743eae)
 
-
+## To simulate environments running jenkins in docker container
 ![image](https://github.com/user-attachments/assets/01ffcf95-dfde-404d-8308-65b6f688baa2)
 
 
-![image](https://github.com/user-attachments/assets/5e1f84c1-ab8a-4a1e-9d18-68b52e1b39e8)
-
-## Run Parallel Jobs
+## Run parellel agent Job
 ![image](https://github.com/user-attachments/assets/0ea7d8ae-a055-47b7-bdd2-1a801dbd91b7)
 
 
 ![image](https://github.com/user-attachments/assets/b69a98f3-bf05-4369-a78b-3858fc45aacf)
 
+** Questions:**
+## 1. Explain how you configured and verified each agent ?
+## Answer :- to verify agent via ssh these steps are involved -
+### 1. create a node/agent
+### 2. generate ssh-key on master agent
+### 3. upload private key on jenkins 
+### 4. add public key of ssh into private ssh file in agent-node's   
 
-## Jenkinsfile for agens
+## 2.Describe the benefits of distributed builds in terms of speed and reliability.
+## Answer :-
+## Speed Improvement
+### 1.Parallel Execution
+### 2.Load Balancing
+### 3.Faster Feedback Loop
+## Improved Reliability
+### 1.Failure Isolation
+### 2.High Availability
+### 3.Scalability
 
+
+
+## Jenkinsfile for agents
 ```
 pipeline { 
     agent {label "Dev"};

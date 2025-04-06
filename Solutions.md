@@ -105,6 +105,9 @@ You have a microservices-based application with multiple components stored in se
 
 ### Running multi stage pipeline that include Code clone , build test and deploy to run the Flask app and SQL web application using docker tool.
 
+![image](https://github.com/user-attachments/assets/4813bbc7-2650-441b-a6dd-e443cded6ddd)
+
+
 ![image](https://github.com/user-attachments/assets/8a0fbf83-9eee-431c-9f4d-02ed284b61e4)
 
 
@@ -521,13 +524,108 @@ In production environments, pipelines need to be flexible and configurable. Impl
    - Trigger the pipeline and provide different parameter values to observe how the pipeline behavior changes.
 3. **Document in `solution.md`:**  
    - Explain how parameterization makes the pipeline dynamic.
-   - Include sample outputs and discuss how this flexibility is useful in a production CI/CD environment.
+   - How does pipeline parameterization improve the flexibility of CI/CD workflows?
+   - Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
 
-** Questions:**
-1. How does pipeline parameterization improve the flexibility of CI/CD workflows?
-2. Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
+# Solution :- 
 
----
+## Jenkinsfile with Dynamic parameter 
+
+```
+@Library('Shared-Libraries') _
+
+pipeline { 
+    agent { label "linux" }
+
+    parameters {
+        string(name: 'TARGET_ENV', defaultValue: 'staging', description: 'Deployment target environment (e.g., dev, staging, production)')
+        string(name: 'APP_VERSION', defaultValue: '1.0.0', description: 'Application version to deploy')
+    }
+
+    stages {
+        stage("Code Clone") {
+            steps {
+                script {
+                    echo "Cloning repository for ${params.TARGET_ENV} environment..."
+                    clone("https://github.com/Deepak020202/two-tier-flask-app.git", "master")
+                }
+            }
+        }
+
+        stage("File System Scan") {
+            steps {
+                script {
+                    trivy_fs()
+                }
+            }
+        }
+
+        stage("Code Build") {
+            steps {
+                script {
+                    echo "Building Docker image flask-app:${params.APP_VERSION}"
+                    sh "docker build -t flask-app:${params.APP_VERSION} ."
+                }
+            }
+        }
+
+        stage("Push to Docker Hub") {
+            steps {
+                script {
+                    echo "Pushing flask-app:${params.APP_VERSION} to Docker Hub..."
+                    docker_push("DockerHubCreds", "flask-app:${params.APP_VERSION}")
+                }  
+            }
+        }
+
+        stage("Code Test") {
+            steps {
+                echo "Running tests for version ${params.APP_VERSION}"
+            }
+        }
+
+        stage("Code Deploy") {
+            steps {
+                echo "Deploying version ${params.APP_VERSION} to ${params.TARGET_ENV} environment..."
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+}
+
+```
+##  different parameter values to observe how the pipeline behavior changes.
+![image](https://github.com/user-attachments/assets/1d87561e-5a94-476b-8005-027f98c8da7d)
+
+## Questions :- 
+### Q1.Explain how parameterization makes the pipeline dynamic.
+### Answer :- ## Benefits of Parameterized Jenkins Pipelines
+
+### 1. User Input at Runtime
+**Example:**  
+Pass `staging` or `production` as a parameter to control where the app gets deployed.
+
+
+### 2. No Need for Multiple Pipelines  
+**Example:**  
+One parameterized job can build and deploy to any environment based on input like `TARGET_ENV = production`.
+
+### 3. Version Control and Rollback Made Easy  
+**Example:**  
+Run the same pipeline with `APP_VERSION = 2.0.1` to deploy a new version.
+
+
+### 4. Better Flexibility for Teams  
+**Example:**  
+Developers, QA, or Ops can all run the same pipeline with different parameter inputs.
+
+## Q2.How does pipeline parameterization improve the flexibility of CI/CD workflows?
+### Answer:- Pipeline parameterization makes your CI/CD workflows flexible and reusable by allowing runtime inputs. Instead of maintaining multiple pipelines for different environments or versions, you can use one dynamic pipeline that adapts based on the parameters provided — making deployments faster, simpler, and easier to manage
+
+## Q3.Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
+### Answer :-A SaaS company maintains separate environments for development, staging, and production. The same application code must be deployed to each environment, but with different configurations and timing.
+### Problem Without Dynamic Parameters:-
+### The team would need to maintain separate pipelines or jobs for each environment, leading to code duplication, maintenance overhead, and risk of inconsistencies across environments.
 
 ## Task 8: Integrate Email Notifications for Build Events
 

@@ -331,9 +331,72 @@ You are working on multiple pipelines that share common tasks (like code quality
    - Provide code examples from your shared library.
    - Explain how this approach improves maintainability and reduces errors.
 
-** Questions:**
-- How do shared libraries contribute to code reuse and maintainability in large organizations?
-- Provide an example of a function that would be ideal for a shared library and explain its benefits.
+## Solution :-
+
+### Creating seprate git repositoey that stored all Shared liabrary files
+### Repository link:- https://github.com/Deepak020202/Jenkins-Shared-Libraries.git
+![image](https://github.com/user-attachments/assets/03dcbb75-9b5b-4c50-b93f-c493947432a3)
+
+### Jenkinsfile with shared liabrary
+```
+@Library('Shared-Libraries') _
+
+pipeline { 
+    agent { label 'linux' }
+
+    stages {
+        stage('Code Clone') {
+            steps {
+                clone("https://github.com/Deepak020202/two-tier-flask-app.git", "master")
+            }
+        }
+
+        stage('File System Scan') {
+            steps {
+                trivy()
+            }
+        }
+
+        stage('Code Build') {
+            steps {
+                docker_build("flask-app")
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                docker_push("DockerHubCreds", "flask-app")
+            }
+        }
+
+        stage('Code Test') {
+            steps {
+                echo 'Code is tested'
+            }
+        }
+
+        stage('Code Deploy') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+}
+
+```
+## Questions 
+### 1.Explain How Shared Library Improves Maintainability & Reduces Errors
+### Answer :- You are working on a microservices project with 5 services . All the 5  service has a Jenkinsfile for CI/CD pipeline. Same code is copied in all Jenkinsfiles.
+### If build logic changes, you must update every Jenkinsfile manually and High chance of missing one file, causing inconsistency or bugs.
+
+## 2.How do shared libraries contribute to code reuse and maintainability in large organizations?
+### Answer :- If every team writes their own logic for this, it becomes-
+### Hard to maintain,Inconsistent, Error-prone ,Slower to adopt changes
+### Shared Libraries allow you to write common functions/stages once and reuse them across all teams, keeping things:
+### Standardized, Easier to update, DRY (Don't Repeat Yourself)
+
+## 3.Provide an example of a function that would be ideal for a shared library and explain its benefits.
+### Answer:- Let’s say your company has 50 microservices managed by different teams. All of them must send build notifications to Slack. Without a shared function: Developers copy-paste the same logic into 50 different Jenkinsfiles.If the Slack channel changes, you update 50 files manually with a shared function You define notifySlack once in the shared library If the Slack channel or format changes, update just one file — it applies to all 50 services instantly.
 
 ---
 
@@ -345,6 +408,7 @@ Security is critical in CI/CD. You must ensure that the Docker images built in y
 **Steps:**
 1. **Add a Vulnerability Scan Stage:**  
    - Update your Jenkins pipeline to include a stage that runs Trivy on your Docker image:
+   
      ```groovy
      stage('Vulnerability Scan') {
          steps {
@@ -361,7 +425,36 @@ Security is critical in CI/CD. You must ensure that the Docker images built in y
 **Interview Questions:**
 - Why is integrating vulnerability scanning into a CI/CD pipeline important?
 - How does Trivy help improve the security of your Docker images?
+# Solution :-
+## 1.Add a Vulnerability Scan Stage
+### Answer :- 
 
+![image](https://github.com/user-attachments/assets/b616be70-b28f-4827-b821-e4f74b914482)
+
+
+## 2.set the stage to fail the build if critical vulnerabilities are detected.
+### Answer :- 
+```
+ stage('File System Scan') {
+    steps {
+        script {
+            def scanOutput = sh(
+                script: 'trivy fs --severity CRITICAL --exit-code 1 .',
+                returnStatus: true
+            )
+
+            if (scanOutput != 1) {
+                error("Critical vulnerabilities found in file system scan.")
+            } else {
+                echo "No critical vulnerabilities detected."
+            }
+        }
+    }
+}
+```
+## 3. Summarize the scan output, note the vulnerabilities and severity, and describe any remediation steps.
+Answer:-
+![image](https://github.com/user-attachments/assets/b616be70-b28f-4827-b821-e4f74b914482) 
 ---
 
 ## Task 7: Dynamic Pipeline Parameterization

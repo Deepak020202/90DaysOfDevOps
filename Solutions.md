@@ -422,15 +422,14 @@ Security is critical in CI/CD. You must ensure that the Docker images built in y
    - Summarize the scan output, note the vulnerabilities and severity, and describe any remediation steps.
    - Reflect on the importance of automated security scanning in CI/CD pipelines.
 
-**Interview Questions:**
+** Questions:**
 - Why is integrating vulnerability scanning into a CI/CD pipeline important?
 - How does Trivy help improve the security of your Docker images?
 # Solution :-
 ## 1.Add a Vulnerability Scan Stage
 ### Answer :- 
 
-![image](https://github.com/user-attachments/assets/b616be70-b28f-4827-b821-e4f74b914482)
-
+![image](https://github.com/user-attachments/assets/30491c9c-67a1-428f-876a-9979bb7e760d)
 
 ## 2.set the stage to fail the build if critical vulnerabilities are detected.
 ### Answer :- 
@@ -453,10 +452,44 @@ Security is critical in CI/CD. You must ensure that the Docker images built in y
 }
 ```
 ## 3. Summarize the scan output, note the vulnerabilities and severity, and describe any remediation steps.
-Answer:-
-![image](https://github.com/user-attachments/assets/b616be70-b28f-4827-b821-e4f74b914482) 
----
 
+### Answer:- after finding vulnerablities in code security steps are taken to avoid this 
+
+![image](https://github.com/user-attachments/assets/b616be70-b28f-4827-b821-e4f74b914482) 
+
+## **Questions:**
+## 1.Why is integrating vulnerability scanning into a CI/CD pipeline important?
+### Answer :- 
+1. **Shift Left Security**  
+   Detects vulnerabilities early in development, making them cheaper and easier to fix.
+
+2. **Faster Feedback**  
+   Developers get immediate alerts if code introduces security flaws, allowing quick fixes.
+
+3. **Blocks Insecure Builds**  
+   Automatically fails builds if critical vulnerabilities are found, preventing risky deployments.
+
+4. **Automation & Consistency**  
+   Ensures every build is scanned without relying on manual checks, reducing human error.
+
+5. **Compliance & Audit Readiness**  
+   Helps meet industry security standards like **ISO**, **SOC2**, etc., by integrating required scans into the pipeline.
+
+## 2.How does Trivy help improve the security of your Docker images?
+### Answer:-
+### 1.Vulnerability Detection
+Trivy scans your Docker images for **known vulnerabilities (CVEs)** in:
+- System packages (e.g., OS libraries)
+- Application dependencies (e.g., Python, Node.js packages)
+
+### 2.Severity Classification
+Detected vulnerabilities are categorized by severity:
+- **LOW**
+- **MEDIUM**
+- **HIGH**
+- **CRITICAL**
+
+  
 ## Task 7: Dynamic Pipeline Parameterization
 
 **Scenario:**  
@@ -482,6 +515,7 @@ In production environments, pipelines need to be flexible and configurable. Impl
              // Add other stages as needed
          }
      }
+     
      ```
 2. **Run the Parameterized Pipeline:**  
    - Trigger the pipeline and provide different parameter values to observe how the pipeline behavior changes.
@@ -490,8 +524,8 @@ In production environments, pipelines need to be flexible and configurable. Impl
    - Include sample outputs and discuss how this flexibility is useful in a production CI/CD environment.
 
 ** Questions:**
-- How does pipeline parameterization improve the flexibility of CI/CD workflows?
-- Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
+1. How does pipeline parameterization improve the flexibility of CI/CD workflows?
+2. Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
 
 ---
 

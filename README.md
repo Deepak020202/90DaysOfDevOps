@@ -36,7 +36,11 @@ Familiarize yourself with Kubernetes’ control plane and worker node components
 
 # Solution :-
 1. **Study Kubernetes Architecture:**
-## Answer:- In Kubernetes architecture total 8 componentes also it is called k8's. In architecture two main component is Control plan and worker node
+## Answer:- 
+
+![image](https://github.com/user-attachments/assets/4620ddc1-bb22-4b31-a383-9fd0fbebf10e)
+
+## In Kubernetes architecture total 8 componentes also it is called k8's. In architecture two main component is Control plan and worker node
 ## Control-Plane Component :-
 ### 1. API Server (`kube-apiserver`)
 

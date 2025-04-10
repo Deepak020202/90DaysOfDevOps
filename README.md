@@ -172,7 +172,54 @@ spec:
 ```
 ![image](https://github.com/user-attachments/assets/0bc7d605-bcdd-4f56-9890-512a93319dce)
 
-# 
+#  Q3.Describe the Kubernetes architecture components.
+## Kubernetes architecture -
+
+![image](https://github.com/user-attachments/assets/2c329532-6f46-441e-896b-a3f52d8e18d3)
+
+## 1.Kubernetes Architecture Components
+
+## Master Node (Control Plane)
+- **API Server**: Manages cluster API and communication.
+- **Scheduler**: Decides which node will run the pod.
+- **Controller Manager**: Ensures the cluster is in the desired state.
+- **etcd**: Stores cluster data and state.
+
+## Worker Node
+- **kubelet**: Ensures containers are running in pods.
+- **kube-proxy**: Manages network routing and load balancing.
+- **Container Runtime**: Runs containers (e.g., Docker).
+
+## Kubernetes Resources
+- **Pod**: The smallest unit in Kubernetes, representing one or more containers.
+- **Service**: Exposes pods to other services or external traffic.
+- **Deployment**: Manages pod replicas and rolling updates.
+- **ReplicaSet**: Ensures the specified number of pod replicas are running.
+- **StatefulSet**: Manages stateful applications with stable identities.
+- **Namespace**: Organizes and isolates resources within the cluster.
+- **ConfigMap & Secret**: Store non-sensitive and sensitive configuration data.
+- **Ingress**: Manages external access to services, often HTTP/HTTPS.
+
+## 2.Include your Pod YAML and explain each section.
+
+```
+apiVersion: v1                 //specifies that v1 of the Kubernetes API are using
+kind: Pod                      //kind refer to the which component of kubernetes are running 
+
+metadata:                       //data are used for run the container
+  name: nginx-pod
+  namespace: nginx-ns           //refer namespace
+
+spec:
+  containers:                   //details of the container inside the pod
+    - name: nginx         
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+```
+
+
+
 ---
 
 ## Task 2: Deploy and Manage Core Kubernetes Objects

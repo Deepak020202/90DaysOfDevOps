@@ -139,7 +139,40 @@ When you create a `Service` of type `LoadBalancer`, the Cloud Controller communi
 ### Example
 > When you access a Kubernetes service, Kube Proxy routes the request to the correct pod on the correct node.
 
+# 2. **Deploy a Sample Pod:**  
+## Answer :- First created config file to create master and worker node 
 
+![image](https://github.com/user-attachments/assets/3961b34e-b283-4dc8-b45f-e4b07cde2ff6)
+
+## Secound create namespacefile for other component 
+
+```
+kind: Namespace
+apiVersion: v1
+
+metadata:
+  name: nginx-ns
+```
+## Third created pod file for creating pod
+
+```
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: nginx-pod
+  namespace: nginx-ns
+
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+```
+![image](https://github.com/user-attachments/assets/0bc7d605-bcdd-4f56-9890-512a93319dce)
+
+# 
 ---
 
 ## Task 2: Deploy and Manage Core Kubernetes Objects

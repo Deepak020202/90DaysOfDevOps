@@ -34,6 +34,112 @@ Familiarize yourself with Kubernetes’ control plane and worker node components
 >  - Can you explain how the Kubernetes control plane components work together and the role of etcd in this architecture?
 >  - If a Pod fails to start, what steps would you take to diagnose the issue?
 
+# Solution :-
+1. **Study Kubernetes Architecture:**
+## Answer:- In Kubernetes architecture total 8 componentes also it is called k8's. In architecture two main component is Control plan and worker node
+## Control-Plane Component :-
+### 1. API Server (`kube-apiserver`)
+
+**Role:**  
+- Entry point for all administrative tasks (via `kubectl`, UI, or API).  
+- Validates and processes REST requests.  
+- Communicates with etcd.
+
+**Example:**  
+When you run **kubectl apply -f pod.yml** your request goes to the API Server. It checks if the YAML is valid and passes it on to the next component.
+
+### 2. Scheduler (`kube-scheduler`)
+
+**Role:**  
+Decides which worker node a pod should run on.
+
+- Monitors for newly created pods that don’t have a node assigned.
+- Matches pod requirements (like CPU, memory, affinity/anti-affinity, taints, and tolerations) with available nodes.
+- Selects the most suitable node based on policies and resource availability.
+
+**Example:**  
+If your pod requires 2 CPUs, the scheduler checks each node’s available resources.  
+It finds a node with at least 2 CPUs free and assigns the pod to that node for deployment.
+
+### 3. Controller Manager (`kube-controller-manager`)
+
+**Role:**  
+- Watches the state of the cluster by interacting with the API Server.  
+- Runs various background controllers to maintain the desired state of the cluster.  
+- Controllers include:
+  - **Node Controller** – Handles node failures.
+  - **Replication Controller** – Ensures the desired number of pod replicas are running.
+  - **Deployment Controller** – Manages rollouts and rollbacks of deployments.
+  - **Endpoint Controller**, **Namespace Controller**, and more.
+
+**Example:**  
+If a pod crashes, the Replication Controller notices that the actual number of running pods is less than the desired count.  
+It immediately creates a new pod to maintain the defined replica count.
+
+### 4. etcd
+
+**Role:**  
+- The cluster’s distributed key-value store.  
+- Stores all cluster data including:
+  - Configuration data
+  - Secrets
+  - State information
+  - Metadata
+
+**Example:**  
+When you define a deployment (e.g., 3 replicas of an Nginx pod), that configuration is saved in etcd.  
+If the cluster is restarted or scaled, Kubernetes uses this data to restore or maintain the desired state.
+
+### 5. Cloud Controller Manager
+
+**Role:**  
+- Integrates Kubernetes with your cloud provider (AWS, Azure, GCP).  
+- Manages cloud-specific components such as:
+  - Load balancers
+  - Persistent volumes
+  - Cloud-specific networking and routing
+
+**Example:**  
+When you create a `Service` of type `LoadBalancer`, the Cloud Controller communicates with the cloud provider’s API to provision an external load balancer and connect it to your service.
+
+## Worker-Node
+
+### 6. Kubelet
+
+- **Role**: Agent on each node that ensures containers are running.
+- **Responsibilities**:
+  - Communicates with the API Server.
+  - Works with the container runtime to launch and monitor pods.
+
+### Example
+> If the API Server instructs the Kubelet to run a pod, Kubelet pulls the image via the container runtime and ensures it stays healthy.
+
+---
+
+### 7. Container Runtime
+
+- **Role**: Runs the actual containers (e.g., Docker, containerd).
+- **Responsibilities**:
+  - Works closely with the Kubelet to start and manage containers.
+  - Pulls container images.
+  - Starts and stops containers as directed.
+
+### Example
+> When a pod is assigned to a node, the container runtime pulls the image and runs the containers inside the pod.
+
+---
+
+### 8. Kube Proxy
+
+- **Role**: Manages network rules and traffic routing.
+- **Responsibilities**:
+  - Uses `iptables` or `IPVS` to route traffic.
+  - Ensures networking rules are correctly applied on the node.
+
+### Example
+> When you access a Kubernetes service, Kube Proxy routes the request to the correct pod on the correct node.
+
+
 ---
 
 ## Task 2: Deploy and Manage Core Kubernetes Objects

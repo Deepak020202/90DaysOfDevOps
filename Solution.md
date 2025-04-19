@@ -394,14 +394,110 @@ Expose your SpringBoot BankApp application to internal and external traffic by c
 1. **Create a Service:**  
    - Write a YAML file for a Service of type ClusterIP.
    - Modify the Service type to NodePort or LoadBalancer and apply the YAML.
+
+![image](https://github.com/user-attachments/assets/a5bfdecc-d75a-47e2-b4fe-cdbbe951a9d3)
+
+
 2. **Configure an Ingress:**  
    - Create an Ingress resource to route external traffic to your application.
+  
+![image](https://github.com/user-attachments/assets/726c1315-8b47-4809-a171-22ef3d478ede)
+
 3. **Implement a Network Policy:**  
    - Write a YAML file for a Network Policy that restricts traffic to your application Pods.
+
+![image](https://github.com/user-attachments/assets/f617c332-8abd-4535-8902-6c61c651ec24)
+
+
 4. **Document in `solution.md`:**  
    - Include the YAML files for your Service, Ingress, and Network Policy.
    - Explain the differences between Service types and the roles of Ingress and Network Policies.
-
+**service.yml**
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bankapp-deploy
+  name: bankapp-deploy
+  namespace: bankapp-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bankapp-deploy
+  template:
+    metadata:
+      labels:
+        app: bankapp-deploy
+    spec:
+      containers:
+      - name: bankapp
+        image: deepak0202/bank-app:latest
+        ports:
+        - containerPort: 8080
+```
+**ingress.yml**
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bankapp-ingress
+  namespace: bankapp-ns
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: 13.234.120.34.nip.io
+    http:
+      paths:
+      - path: /?(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: bankapp-service
+            port:
+              number: 8080
+      - path: /nginx/?(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+```
+**networkpolicy.yml**
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: bankapp-restricted-traffic
+  namespace: bankapp-ns
+spec:
+  podSelector:
+    matchLabels:
+      app: bankapp-deploy
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: bankapp-deploy
+    - namespaceSelector:
+        matchLabels:
+          name: bankapp-ns
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: mysql
+    - namespaceSelector:
+        matchLabels:
+          name: bankapp-ns
+  policyTypes:
+  - Ingress
+  - Egress
+```
 > [!NOTE]
 > 
 > **Interview Questions:**
@@ -418,12 +514,72 @@ Deploy a component of the SpringBoot BankApp application that requires persisten
 **Steps:**
 1. **Create a Persistent Volume and Claim:**  
    - Write YAML files for a static PV and a corresponding PVC.
+
+![image](https://github.com/user-attachments/assets/e36d17a7-1db2-4d98-872f-1915280e4f54)
+
+
 2. **Deploy an Application Using the PVC:**  
    - Modify a Pod or Deployment YAML to mount the PVC.
+
+![image](https://github.com/user-attachments/assets/653e956f-07a5-4869-a70c-b2ecfd3a717b)
+
+
 3. **Document in `solution.md`:**  
    - Include your PV, PVC, and application YAML.
    - Explain how StorageClasses facilitate dynamic storage provisioning.
 
+**persistance-volume-claime**
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv
+  namespace: bankapp-ns
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain  # Keeps the PV after the PVC is deleted
+  storageClassName: standard  # Make sure this matches your cluster's default storage class
+  hostPath:
+    path: /mnt/data/mysql
+    type: DirectoryOrCreate
+```
+**persistance-volume-claime**
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  namespace: bankapp-ns
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard
+```
+##  Explain how StorageClasses facilitate dynamic storage provisioning.
+### When a user creates a PersistentVolumeClaim (PVC) and specifies a storageClassName, Kubernetes automatically provisions a PersistentVolume (PV) based on the configuration defined in the StorageClass.
+
+### ✅ Without StorageClass (Static):
+1.You manually create PVs.
+
+2.PVCs bind only if they match size, access mode, and storage class.
+
+3.Time-consuming and error-prone.
+
+### ✅ With StorageClass (Dynamic):
+
+1.PVCs automatically trigger PV creation.
+
+2.Saves time and ensures consistency.
+
+3.Useful for dynamic and on-demand workloads.
 > [!NOTE]
 >
 >  **Interview Questions:**

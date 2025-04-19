@@ -614,6 +614,7 @@ Deploy a component of the SpringBoot BankApp application that consumes external 
 
 4. **Document in `solution.md`:**  
    - Include the YAML files and explain how the application uses these resources.
+   
 **configmap.yaml**
 ```
 apiVersion: v1
@@ -639,7 +640,8 @@ data:
   MYSQL_ROOT_PASSWORD: VGVzdEAxMjM=
   SPRING_DATASOURCE_PASSWORD: VGVzdEAxMjM=
 ```
-
+## How  Application Uses These Resources
+**Once the Deployment injects the ConfigMap and Secret as environment variables into your container, your application automatically picks them up at runtime, just like normal environment variables.**
 > [!NOTE]
 > 
 > **Interview Questions:**

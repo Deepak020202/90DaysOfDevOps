@@ -238,16 +238,144 @@ Deploy core Kubernetes objects for the SpringBoot BankApp application, including
      ```bash
      kubectl apply -f namespace.yaml
      ```
+![image](https://github.com/user-attachments/assets/ea2ea026-92ae-49d4-a2e5-10096e5d9da9)
+
 2. **Deploy a Deployment:**  
    - Create a YAML file for a Deployment (within your Namespace) that manages a set of Pods running a component of SpringBoot BankApp.
    - Verify that a ReplicaSet is created automatically.
+
+![image](https://github.com/user-attachments/assets/37c34d82-c6e3-47e6-ab72-94ac4e372050)
+
 3. **Deploy a StatefulSet:**  
    - Write a YAML file for a StatefulSet (for example, for a database component) and apply it.
+
+![image](https://github.com/user-attachments/assets/0ed68e65-a242-4a79-b189-eba640a8cfa5)
+
+
 4. **Deploy a DaemonSet:**  
    - Create a YAML file for a DaemonSet to run a Pod on every node.
+
+![image](https://github.com/user-attachments/assets/0812df83-bc83-4073-9993-0e2766d84498)
+
 5. **Document in `solution.md`:**  
    - Include the YAML files for the Namespace, Deployment, StatefulSet, and DaemonSet.
    - Explain the differences between these objects and when to use each.
+   - 
+**1. namspace.yml**
+
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bankapp-ns
+```
+
+**2. deployment.yml**
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bankapp-deploy
+  name: bankapp-deploy
+  namespace: bankapp-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bankapp-deploy
+  template:
+    metadata:
+      labels:
+        app: bankapp-deploy
+    spec:
+      containers:
+      - name: bankapp
+        image: deepak0202/bank-app:latest
+        ports:
+        - containerPort: 8080
+```
+**3. StatefulSet**
+
+```
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: bankapp-ns
+  labels:
+    app: mysql
+spec:
+  serviceName: "mysql"  # Required for stable network IDs
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_ROOT_PASSWORD
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: bankapp-config
+              key: MYSQL_DATABASE
+
+```
+**4. Daemon-set.yml**
+```
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: bankapp-daemonset
+  namespace: bankapp-ns
+spec:
+  selector:
+    matchLabels:
+      app: bankapp
+  template:
+    metadata:
+      labels:
+        app: bankapp
+    spec:
+      containers:
+      - name: bankapp
+        image: deepak0202/bank-app:latest
+        ports:
+        - containerPort: 8080
+
+```
+
+## Namespace
+A **Namespace** is used to logically group and isolate Kubernetes resources within a cluster.  
+It helps in organizing environments (like `dev`, `test`, `prod`) or teams by separating their workloads.
+
+
+## Deployment
+A **Deployment** manages **stateless applications**.  
+It ensures the desired number of identical Pods are running and handles updates, rollbacks, and scaling easily.
+
+## StatefulSet
+A **StatefulSet** is for **stateful applications**.  
+It provides stable network identities and persistent storage to each Pod.  
+Useful when each instance needs to be uniquely identified and data must persist across restarts.
+
+## DaemonSet
+A **DaemonSet** ensures that a **single Pod runs on every node** (or selected nodes) in the cluster.  
+Ideal for background tasks or node-specific operations like monitoring and logging.
 
 > [!NOTE]
 >

@@ -607,8 +607,6 @@ Deploy a component of the SpringBoot BankApp application that consumes external 
 3. **Deploy an Application:**  
    - Update your application YAML to mount the ConfigMap and Secret.
 
-![image](https://github.com/user-attachments/assets/2dc6213f-bf4c-4817-a465-6f2d06093ed5)
-
 ![image](https://github.com/user-attachments/assets/1f6f95b9-75e3-47d6-bd1e-f25c9590c28e)
 
 
@@ -658,13 +656,106 @@ Implement autoscaling for a component of the SpringBoot BankApp application usin
 **Steps:**
 1. **Deploy an Application with Resource Requests:**  
    - Deploy an application with defined resource requests and limits.
+
+![image](https://github.com/user-attachments/assets/2dc6213f-bf4c-4817-a465-6f2d06093ed5) 
+
 2. **Create an HPA Resource:**  
    - Write a YAML file for an HPA that scales the number of replicas based on CPU or memory usage.
+
+![image](https://github.com/user-attachments/assets/7615ae70-e39e-4be1-9ffd-67ff60321a6d)
+
 3. **(Optional) Implement VPA & Metrics Server:**  
    - Optionally, deploy a VPA and verify that the Metrics Server is running.
+
+   ![image](https://github.com/user-attachments/assets/7ee5eac5-6aaa-46d9-9f9c-1aefe0077f00)
+   
+
 4. **Document in `solution.md`:**  
    - Include the YAML files and explain how HPA (and optionally VPA) work.
    - Discuss the benefits of autoscaling in production.
+  
+   **hpa.yml**
+   
+```
+   apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bankapp-hpa
+  namespace: bankapp-ns
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bankapp-deploy
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 30
+ ```
+
+**vpa.yml**
+```
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: mysql-vpa
+  namespace: bankapp-ns
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind: Deployment
+    name: mysql
+  updatePolicy:
+    updateMode: "Auto"
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "*"
+        minAllowed:
+          cpu: 100m
+          memory: 128Mi
+        maxAllowed:
+          cpu: 1
+          memory: 1Gi
+```
+# Benefits of Autoscaling in Kubernetes
+
+## 1. Improved Application Performance
+
+**Benefit:**  
+Handles increased load automatically to keep your app fast and responsive.
+
+**Example:**  
+Imagine you run an e-commerce app. During a flash sale, thousands of users visit at once. Kubernetes Horizontal Pod Autoscaler (HPA) automatically scales from 2 to 10 pods to handle the traffic smoothly without slowing down the site.
+
+## 2. Cost Efficiency
+
+**Benefit:**  
+Saves money by scaling down unused resources during low demand.
+
+**Example:**  
+Your blog app gets less traffic at night. Kubernetes scales down the number of pods from 5 to 1, freeing up resources and reducing cloud costs.
+
+## 3. High Availability
+
+**Benefit:**  
+Keeps your services running even when traffic unexpectedly spikes.
+
+**Example:**  
+A news site gets featured on a trending platform. Kubernetes auto-scales to maintain availability without crashing, ensuring all readers can access it.
+
+## 4. Smart Resource Optimization
+
+**Benefit:**  
+Right-sizes CPU and memory based on actual usage.
+
+**Example:**  
+Using Vertical Pod Autoscaler (VPA), Kubernetes notices your MySQL pod consistently uses more memory than requested. It automatically increases the memory limit to prevent crashes.
+
 
 > [!NOTE]
 > 

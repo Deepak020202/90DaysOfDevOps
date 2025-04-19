@@ -596,12 +596,49 @@ Deploy a component of the SpringBoot BankApp application that consumes external 
 **Steps:**
 1. **Create a ConfigMap:**  
    - Write a YAML file for a ConfigMap containing configuration data.
+
+![image](https://github.com/user-attachments/assets/fcc38d4f-89a8-4459-9946-1852c0dfc350)
+
 2. **Create a Secret:**  
    - Write a YAML file for a Secret containing sensitive information.
+
+![image](https://github.com/user-attachments/assets/c1d534ac-6947-40b4-bbad-d6cd74bc5ff5)
+
 3. **Deploy an Application:**  
    - Update your application YAML to mount the ConfigMap and Secret.
+
+![image](https://github.com/user-attachments/assets/2dc6213f-bf4c-4817-a465-6f2d06093ed5)
+
+![image](https://github.com/user-attachments/assets/1f6f95b9-75e3-47d6-bd1e-f25c9590c28e)
+
+
 4. **Document in `solution.md`:**  
    - Include the YAML files and explain how the application uses these resources.
+**configmap.yaml**
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bankapp-config
+  namespace: bankapp-ns
+data:
+  MYSQL_DATABASE: BankDB
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql-svc.bankapp-ns.svc.cluster.local:3306/BankDB?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  SPRING_DATASOURCE_USERNAME: root
+```
+**secretes.yml**
+```
+ubuntu@ip-172-31-44-158:~/Springboot-BankApp/kubernetes$ cat secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: bankapp-ns
+type: Opaque
+data:
+  MYSQL_ROOT_PASSWORD: VGVzdEAxMjM=
+  SPRING_DATASOURCE_PASSWORD: VGVzdEAxMjM=
+```
 
 > [!NOTE]
 > 

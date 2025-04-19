@@ -774,14 +774,41 @@ Secure your Kubernetes cluster by implementing Role-Based Access Control (RBAC) 
 **Steps:**
 1. **Configure RBAC:**  
    - Create roles and role bindings using YAML files for specific user groups (e.g., Admin, Developer, Tester).
+
+![image](https://github.com/user-attachments/assets/fb0cf503-2bcf-4a78-9063-beb2a4e981fe)
+
 2. **Create Test Accounts:**  
    - Simulate real-world usage by creating user accounts for each role and verifying access.
+## admin can only delete pod 
+
+![image](https://github.com/user-attachments/assets/fa3b4cd3-caa7-4bb2-b472-caf89df49f21)
+
 3. **Optional Enhancement:**  
    - Simulate an unauthorized action (e.g., a Developer attempting to delete a critical resource) and document how RBAC prevents it.
-   - Analyze RBAC logs (if available) to verify that unauthorized access attempts are recorded.
+   - 
+![image](https://github.com/user-attachments/assets/89a87cda-f5cd-4104-90e5-571369de55ab)
+
 4. **Document in `solution.md`:**  
    - Include screenshots or logs of your RBAC configuration.
    - Describe the roles, permissions, and potential risks mitigated by proper RBAC implementation.
+
+## RBAC (Role-Based Access Control) is a security method in Kubernetes used to control who can do what in the cluster. It works by creating roles that define what actions are allowed, and then assigning those roles to users or groups using bindings.
+
+## How it Works (With Example)
+
+An Admin can have full access to manage everything in a namespace (create, delete, update pods, deployments, etc.).
+
+A Developer might have permission to create and update deployments or pods, but not delete secrets or change security settings.
+
+A Tester might only be allowed to view logs or see the status of the app, but not change anything.
+
+This way, each team member gets only the access they need to do their job—nothing more, nothing less.
+
+## Benefits of RBAC
+
+- Improved security by limiting access based on roles
+- Easier auditing and compliance tracking
+- Prevents accidental or unauthorized changes
 
 > [!NOTE] 
 > 
@@ -793,10 +820,49 @@ Secure your Kubernetes cluster by implementing Role-Based Access Control (RBAC) 
 **Steps:**
 1. **Set Up Taints & Tolerations:**  
    - Apply taints to nodes and specify tolerations in your Pod specifications.
+
+### When i apply taint to worker-node-1 all then all the pods only ran on other worker node
+![image](https://github.com/user-attachments/assets/dfcf0633-9a6d-4fb3-81ba-c6d0a8e2efc4)
+
+
 2. **Define a Pod Disruption Budget (PDB):**  
    - Write a YAML file for a PDB to ensure a minimum number of Pods remain available during maintenance.
+```
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: bankapp-pdb
+  namespace: bankapp-ns
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: bankapp
+```
 3. **Document in `solution.md`:**  
    - Include the YAML files and explain how taints, tolerations, and PDBs contribute to cluster stability and security.
+# Kubernetes: Taints, Tolerations & Pod Disruption Budgets (PDBs)
+
+## 1. Taints
+**What they do:** Prevent pods from being scheduled on certain nodes.
+
+**Purpose:** Mark a node as special or restricted — such as nodes reserved for critical workloads or those requiring high memory or GPU.
+
+## 2. Tolerations
+**What they do:** Allow specific pods to run on tainted nodes.
+
+**Purpose:** Provide exceptions for selected pods to access special or restricted nodes.
+
+## 3. Pod Disruption Budgets (PDBs)
+**What they do:** Ensure a minimum number of pods are always running during voluntary disruptions (e.g., node upgrades or drains).
+
+**Purpose:** Maintain application availability and prevent total outages during cluster maintenance.
+
+## How They Improve Cluster Stability & Security
+
+Taints help maintain stability by preventing unnecessary workloads from being scheduled on special or resource-intensive nodes, reducing the risk of overloading them. Tolerations complement taints by allowing only trusted or high-priority pods to be scheduled on these restricted nodes, ensuring selective and safe scheduling.
+
+From a security perspective, taints and tolerations help isolate sensitive workloads from general-purpose nodes. This ensures that only authorized or trusted workloads can run in secure environments, preventing unauthorized access. Pod Disruption Budgets (PDBs), while more focused on stability, also indirectly support security by ensuring critical services remain available and resilient, especially during planned disruptions or maintenance activities.
 
 > [!NOTE]
 > 

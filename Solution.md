@@ -28,12 +28,6 @@ Familiarize yourself with Kubernetes’ control plane and worker node components
    - Describe the Kubernetes architecture components.
    - Include your Pod YAML and explain each section.
 
-> [!NOTE]
-> 
-> **Interview Questions:**
->  - Can you explain how the Kubernetes control plane components work together and the role of etcd in this architecture?
->  - If a Pod fails to start, what steps would you take to diagnose the issue?
-
 # Solution :-
 1. **Study Kubernetes Architecture:**
 ## Answer:- 
@@ -377,11 +371,6 @@ Useful when each instance needs to be uniquely identified and data must persist 
 A **DaemonSet** ensures that a **single Pod runs on every node** (or selected nodes) in the cluster.  
 Ideal for background tasks or node-specific operations like monitoring and logging.
 
-> [!NOTE]
->
-> **Interview Questions:**
->  - How does a Deployment ensure that the desired state of Pods is maintained in a cluster?
->  - Can you explain the differences between a Deployment, StatefulSet, and DaemonSet, and provide an example scenario for each?
 
 ---
 
@@ -498,12 +487,6 @@ spec:
   - Ingress
   - Egress
 ```
-> [!NOTE]
-> 
-> **Interview Questions:**
->  - How do NodePort and LoadBalancer Services differ in terms of exposure and use cases?
->  - What is the role of a Network Policy in Kubernetes, and can you describe a scenario where it is essential?
-
 ---
 
 ## Task 4: Storage Management – Use Persistent Volumes and Claims
@@ -580,11 +563,6 @@ spec:
 2.Saves time and ensures consistency.
 
 3.Useful for dynamic and on-demand workloads.
-> [!NOTE]
->
->  **Interview Questions:**
->  - What are the main differences between a Persistent Volume and a Persistent Volume Claim?
->  - How does a StorageClass simplify storage management in Kubernetes?
 
 ---
 
@@ -640,11 +618,6 @@ data:
 ```
 ## How  Application Uses These Resources
 **Once the Deployment injects the ConfigMap and Secret as environment variables into your container, your application automatically picks them up at runtime, just like normal environment variables.**
-> [!NOTE]
-> 
-> **Interview Questions:**
->  - How would you update a running application if a ConfigMap or Secret is modified?
->  - What measures do you take to secure Secrets in Kubernetes?
 
 ---
 
@@ -756,13 +729,6 @@ Right-sizes CPU and memory based on actual usage.
 **Example:**  
 Using Vertical Pod Autoscaler (VPA), Kubernetes notices your MySQL pod consistently uses more memory than requested. It automatically increases the memory limit to prevent crashes.
 
-
-> [!NOTE]
-> 
-> **Interview Questions:**
->  - What is the process by which the Horizontal Pod Autoscaler scales an application?
->  - In what scenarios would vertical scaling (VPA) be more beneficial than horizontal scaling (HPA)?
-
 ---
 
 ## Task 7: Security & Access Control
@@ -841,34 +807,25 @@ spec:
 ```
 3. **Document in `solution.md`:**  
    - Include the YAML files and explain how taints, tolerations, and PDBs contribute to cluster stability and security.
-# Kubernetes: Taints, Tolerations & Pod Disruption Budgets (PDBs)
+## Kubernetes: Taints, Tolerations & Pod Disruption Budgets (PDBs)
 
-## 1. Taints
+### 1. Taints
 **What they do:** Prevent pods from being scheduled on certain nodes.
 
 **Purpose:** Mark a node as special or restricted — such as nodes reserved for critical workloads or those requiring high memory or GPU.
 
-## 2. Tolerations
+### 2. Tolerations
 **What they do:** Allow specific pods to run on tainted nodes.
 
 **Purpose:** Provide exceptions for selected pods to access special or restricted nodes.
 
-## 3. Pod Disruption Budgets (PDBs)
+### 3. Pod Disruption Budgets (PDBs)
 **What they do:** Ensure a minimum number of pods are always running during voluntary disruptions (e.g., node upgrades or drains).
 
 **Purpose:** Maintain application availability and prevent total outages during cluster maintenance.
 
-## How They Improve Cluster Stability & Security
-
-Taints help maintain stability by preventing unnecessary workloads from being scheduled on special or resource-intensive nodes, reducing the risk of overloading them. Tolerations complement taints by allowing only trusted or high-priority pods to be scheduled on these restricted nodes, ensuring selective and safe scheduling.
-
-From a security perspective, taints and tolerations help isolate sensitive workloads from general-purpose nodes. This ensures that only authorized or trusted workloads can run in secure environments, preventing unauthorized access. Pod Disruption Budgets (PDBs), while more focused on stability, also indirectly support security by ensuring critical services remain available and resilient, especially during planned disruptions or maintenance activities.
-
-> [!NOTE]
-> 
-> **Interview Questions:**
->  - How do taints and tolerations ensure that critical workloads are isolated from interference?
->  - Why are Pod Disruption Budgets important for maintaining application availability?
+### How They Improve Cluster Stability & Security
+Taints and tolerations work together to maintain cluster stability by controlling where pods can run—ensuring only critical or trusted workloads use special nodes, preventing overload. They also enhance security by isolating sensitive applications from general workloads. Pod Disruption Budgets (PDBs) add stability by ensuring key services stay available during maintenance or updates, reducing downtime risks.
 
 ---
 
@@ -880,17 +837,113 @@ Manage scheduled tasks and extend Kubernetes functionality by creating Jobs, Cro
 **Steps:**
 1. **Create a Job and CronJob:**  
    - Write YAML files for a Job (a one-time task) and a CronJob (a scheduled task).
+   **Onetime-job**
+
+![image](https://github.com/user-attachments/assets/aaaa89a6-54b5-4ba2-8749-d7cac0b20869)
+
+   **cron-job**
+### generate a new job after 1 minute 
+
+![image](https://github.com/user-attachments/assets/413b1d2d-ace7-483c-9358-174b160fd206)
+
+   
 2. **Create a Custom Resource Definition (CRD):**  
    - Write a YAML file for a CRD and use `kubectl` to create a custom resource.
-3. **Document in `solution.md`:**  
+
+![image](https://github.com/user-attachments/assets/6e8f3c6b-3e89-4703-81fc-434276666a4e)
+
+4. **Document in `solution.md`:**  
    - Include the YAML files and explain the use cases for Jobs, CronJobs, and CRDs.
    - Reflect on how CRDs extend Kubernetes capabilities.
 
-> [!NOTE]
-> 
-> **Interview Questions:**
->  - What factors would influence your decision to use a CronJob versus a Job?
->  - How do CRDs enable custom extensions in Kubernetes?
+**job.yml**
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-job
+  namespace: bankapp-ns
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello
+        image: busybox
+        command: ["echo", "Hello this is one-time job"]
+      restartPolicy: Never
+```
+**cron-job.yml**
+```
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-cron
+  namespace: bankapp-ns
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            command: ["echo", "Hello this is cron-job CronJob"]
+          restartPolicy: OnFailure
+```
+**crd.yml**
+```
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: copytasks.copy.example.com
+spec:
+  group: copy.example.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                source:
+                  type: string
+                  description: "The source location from which files should be copied"
+                destination:
+                  type: string
+                  description: "The destination location where files should be copied"
+                filePattern:
+                  type: string
+                  description: "Pattern to match files for copying (e.g., *.txt)"
+                schedule:
+                  type: string
+                  description: "Optional cron schedule for periodic copying task"
+  scope: Namespaced
+  names:
+    plural: copytasks
+    singular: copytask
+    kind: CopyTask
+    shortNames:
+    - ct
+```
+### 1. Jobs
+- **Use Case:** Running database migrations or backup tasks
+- **Example:** A job to back up a database at a specific time
+
+### 2. CronJobs
+- **Use Case:** Periodic backups, scheduled report generation, or cleanup tasks
+- **Example:** A CronJob to back up the database every night at midnight
+
+### 3. Custom Resource Definitions (CRDs)
+- **Use Case:** Defining custom workflows, monitoring systems, or managing business-specific resources
+- **Example:** A custom OrderProcessing CRD to handle orders in an e-commerce system
+
+### How CRDs Extend Kubernetes
+CRDs allow you to define custom resources that extend Kubernetes' native capabilities, enabling the management of specialized workloads beyond the standard containers. By using CRDs, you can create custom resources like `OrderProcessing` that integrate directly into Kubernetes, making it more versatile for specific application needs
 
 ---
 
@@ -913,12 +966,6 @@ For an added challenge, deploy a component of the SpringBoot BankApp application
    - Include your Helm chart files, Service Mesh configuration, or EKS deployment details.
    - Explain the advantages of using Helm, a Service Mesh, or EKS in a production environment.
 
-> [!NOTE]
-> 
-> **Interview Questions:**
->  - How does Helm simplify application deployments in Kubernetes?
->  - What are the benefits of using a Service Mesh in a microservices architecture?
->  - How does deploying on AWS EKS compare with managing your own Kubernetes cluster?
 ---
 
 ## Additional Resources

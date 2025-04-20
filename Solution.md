@@ -966,11 +966,40 @@ For an added challenge, deploy a component of the SpringBoot BankApp application
 2. **Service Mesh Implementation:**  
    - Deploy a basic Service Mesh (using Istio, Linkerd, or Consul) and demonstrate traffic management between services.
    - *OR*
+
+![image](https://github.com/user-attachments/assets/22cdfe43-1424-4eef-85b9-633aaca4979f)
+
 3. **Deploy on AWS EKS:**  
    - Set up an EKS cluster and deploy your application there.
 4. **Document in `solution.md`:**  
    - Include your Helm chart files, Service Mesh configuration, or EKS deployment details.
    - Explain the advantages of using Helm, a Service Mesh, or EKS in a production environment.
+   
+## Helm – Kubernetes Package Manager
+Helm helps you manage Kubernetes applications with versioned, reusable charts.
+
+- Simplifies Deployments: One command can deploy complex apps with all their dependencies.
+- Configuration Management: Easily override values for different environments (dev/staging/prod).
+- Reusable Templates: Helm charts standardize deployments across teams.
+- Rollback Support: Quickly revert to a previous stable version on failure.
+
+---
+
+## Service Mesh (e.g., Istio, Linkerd) – Advanced Traffic Control & Observability
+
+- Security: Built-in mutual TLS encryption between services.
+- Observability: Monitor service communication with metrics, tracing, and logging.
+- Traffic Management: Fine-grained control like canary deployments, traffic shifting, retries, and timeouts.
+- Resilience: Automatic failover, circuit breaking, and load balancing between services.
+
+---
+
+## Amazon EKS (Elastic Kubernetes Service) – Managed Kubernetes on AWS
+
+- Fully Managed Control Plane: No need to handle Kubernetes upgrades, security patches, or scaling the control plane.
+- Integrated Security: Works with IAM, VPC, and AWS Secrets Manager for secure access and networking.
+- Auto Scaling & Load Balancing: Native support for Cluster Autoscaler and AWS Load Balancers.
+- Production-Ready: High availability, SLA-backed, and integrated with AWS services (CloudWatch, RDS, S3, etc.).
 
 ---
 

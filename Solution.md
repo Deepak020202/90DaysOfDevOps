@@ -956,6 +956,12 @@ For an added challenge, deploy a component of the SpringBoot BankApp application
 1. **Helm Deployment:**  
    - Create a Helm chart for your application.
    - Deploy the application using Helm and perform an update.
+  
+![image](https://github.com/user-attachments/assets/c364c4d1-a789-4614-a184-0011a74c2487)
+
+![image](https://github.com/user-attachments/assets/a2458345-5b13-424a-840f-613d39ec2240)
+
+
    - *OR*
 2. **Service Mesh Implementation:**  
    - Deploy a basic Service Mesh (using Istio, Linkerd, or Consul) and demonstrate traffic management between services.

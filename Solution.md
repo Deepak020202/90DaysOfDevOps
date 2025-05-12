@@ -13,12 +13,21 @@ Begin by installing Terraform, initializing a project, and provisioning a basic 
 **Steps:**
 1. **Install Terraform:**  
    - Download and install Terraform on your local machine.
+   
+   ![image](https://github.com/user-attachments/assets/ee8aa5b1-ee3b-4dbe-b604-79e5b5007ffe)
+
 2. **Initialize a Terraform Project:**  
    - Create a new directory for your Terraform project.
    - Run `terraform init` to initialize the project.
+
+![image](https://github.com/user-attachments/assets/844908f7-0bb9-46b3-b640-0bc2456a288d)
+
 3. **Provision a Basic Resource:**  
    - Create a configuration file (e.g., `main.tf`) to provision an AWS EC2 instance (or a similar resource for your cloud provider).
    - Run `terraform apply` and confirm the changes.
+
+
+     
 4. **Document in `solution.md`:**  
    - Include the installation steps, your `main.tf` file, and the output of your `terraform apply` command.
 

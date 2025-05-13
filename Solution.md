@@ -25,6 +25,8 @@ Begin by installing Terraform, initializing a project, and provisioning a basic 
 3. **Provision a Basic Resource:**  
    - Create a configuration file (e.g., `main.tf`) to provision an AWS EC2 instance (or a similar resource for your cloud provider).
    - Run `terraform apply` and confirm the changes.
+   - 
+![image](https://github.com/user-attachments/assets/f8a5b7ce-6630-4bcc-88e3-a3e2757cecc3)
 
 
      

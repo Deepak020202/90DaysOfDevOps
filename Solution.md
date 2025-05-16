@@ -114,8 +114,16 @@ Ensure correct resource creation order and safe updates by managing dependencies
 **Steps:**
 1. **Define Resource Dependencies:**  
    - Use the `depends_on` meta-argument in your configuration to specify dependencies explicitly.
+
+![image](https://github.com/user-attachments/assets/9197ed52-5c36-4399-bc2e-bb381277a35d)
+
+     
 2. **Configure Resource Lifecycles:**  
    - Add lifecycle blocks (e.g., `create_before_destroy`) in your resource definitions to manage updates safely.
+  
+![image](https://github.com/user-attachments/assets/c04ae16a-f1d0-4ef5-bf57-ccdb5fc93a8a)
+
+
 3. **Document in `solution.md`:**  
    - Include examples of resource dependencies and lifecycle configurations in your code.
    - Explain how these settings prevent downtime during updates.

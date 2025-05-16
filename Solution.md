@@ -48,18 +48,13 @@ Ensuring state consistency is critical when multiple team members work on infras
 1. **Configure a Remote Backend:**  
    - Create a backend configuration in your `main.tf` or a separate backend file to configure a remote backend.
 
-
-![image](https://github.com/user-attachments/assets/352cf264-9dda-4f8e-99e9-cce6f4b66910)
-
-
+![image](https://github.com/user-attachments/assets/079156e6-82bc-49ec-baac-be165dde5509)
 
 2. **Reinitialize Terraform:**  
    - Run `terraform init` to reinitialize your project with the new backend.
 
    ![image](https://github.com/user-attachments/assets/2df2d044-4857-4142-82f5-077095052065)
 
-
-![image](https://github.com/user-attachments/assets/c9ee1c27-732d-46e0-b196-087518ae9cc5)
 
 ![image](https://github.com/user-attachments/assets/1c37c622-da46-47b7-a921-57f8bfa96423)
 

@@ -79,7 +79,8 @@ Improve the flexibility and reusability of your Terraform configuration by using
 1. **Define Variables and Outputs:**  
    - Create a `variables.tf` file to define configurable parameters (e.g., region, instance type).
 
-     ![image](https://github.com/user-attachments/assets/3ee07470-fae9-4e33-ba89-f68a26cf2a4e)
+   ![image](https://github.com/user-attachments/assets/3752f594-5082-49aa-8616-a6b4ceaea0f2)
+
 
    - Create an `outputs.tf` file to output key information (e.g., public IP address of the EC2 instance).
 
@@ -87,6 +88,12 @@ Improve the flexibility and reusability of your Terraform configuration by using
 
 2. **Implement Workspaces:**  
    - Use `terraform workspace new` to create separate workspaces for different environments (e.g., dev, staging, prod).
+
+![image](https://github.com/user-attachments/assets/2e5dc93b-dfa2-493d-861a-b053f5b0917b)
+
+![image](https://github.com/user-attachments/assets/7635efe5-7455-41a7-a829-ab81e6c7273a)
+
+  
 3. **Document in `solution.md`:**  
    - Include your `variables.tf`, `outputs.tf`, and a summary of your workspace setup.
    - Explain how these features enable dynamic and multi-environment deployments.

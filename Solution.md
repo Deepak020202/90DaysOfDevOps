@@ -112,8 +112,21 @@ Enhance reusability by creating a Terraform module for commonly used resources, 
 **Steps:**
 1. **Create a Module:**  
    - In a separate directory (e.g., `modules/ec2_instance`), create a module with `main.tf`, `variables.tf`, and `outputs.tf` for provisioning an EC2 instance.
+
+![image](https://github.com/user-attachments/assets/d1a856ec-c133-4090-be4c-797ce4ef5dff)
+
+
+![image](https://github.com/user-attachments/assets/d5bb7d5a-8bd0-4732-8d57-f342f3d7422b)
+
+     
 2. **Reference the Module:**  
    - Update your main configuration to call the module using a `module` block.
+
+![image](https://github.com/user-attachments/assets/e2d15f1f-e81a-43b7-b1c1-96c4ef4b2e71)
+
+![image](https://github.com/user-attachments/assets/633c239f-229a-4240-adc4-b516c582c14f)
+
+     
 3. **Document in `solution.md`:**  
    - Provide the module code and the main configuration.
    - Explain how modules promote consistency and reduce code duplication.

@@ -173,6 +173,10 @@ In production, changes might occur outside of Terraform. Use Terraform commands 
 **Steps:**
 1. **Detect Drift:**  
    - Run `terraform plan` to identify differences between your configuration and the actual infrastructure.
+
+![image](https://github.com/user-attachments/assets/96d85fb0-3eeb-44f4-8006-89cf59fcd1ae)
+
+
 2. **Reconcile Changes:**  
    - Describe your approach to updating the state or reapplying configurations when drift is detected.
 3. **Document in `solution.md`:**  

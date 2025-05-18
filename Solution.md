@@ -94,13 +94,42 @@ Ensuring state consistency is critical when multiple team members work on infras
      
 3. **Document in `solution.md`:**  
    - Include the backend configuration details.
+  ```backend "s3" {
+  bucket = "bucket-backend-tff"
+  key = "terraform.tfstate"
+  region = "ap-south-1"
+  dynamodb_table = "Dynamo-Table"
+```
    - Explain the benefits of using a remote backend and state locking in collaborative environments.
-     
+     1. Prevent Conflicts with State Locking
+    
+     2. Centralized State with Remote Backend
+    
+     3. Backup and Recovery
 
+     4. Better Team Workflow
+     
 **Interview Questions:**
 - Why is remote state management important in Terraform?
-- How does state locking prevent conflicts during collaborative updates?
+--->
+1. Centralized Source of Truth
+All team members access one shared state file, stored in the cloud (e.g., AWS S3).
 
+2. Supports State Locking
+When you use services like DynamoDB with S3, Terraform can lock the state file while one person is applying changes.
+
+3. Version History / Rollback
+Services like AWS S3 or Terraform Cloud support state file versioning.
+
+- How does state locking prevent conflicts during collaborative updates?
+--->
+Using a remote backend with locking (like AWS S3 + DynamoDB):
+
+1.Dev A starts terraform apply –> Lock is acquired in DynamoDB.
+
+2.Dev B tries terraform apply –> Terraform shows a lock error.
+
+3.Dev B must wait until the lock is released before making changes.
 ---
 
 ## Task 3: Use Variables, Outputs, and Workspaces

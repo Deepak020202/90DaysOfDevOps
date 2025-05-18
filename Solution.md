@@ -220,13 +220,61 @@ Enhance reusability by creating a Terraform module for commonly used resources, 
 
      
 3. **Document in `solution.md`:**  
-   - Provide the module code and the main configuration.
-   - Explain how modules promote consistency and reduce code duplication.
+#### Provide the module code and the main configuration.
+```
+module "ec2_instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+
+  name = "auto-instance"
+
+  ami           = "ami-0e35ddab05955cf57" # Amazon Linux 2023 AMI
+  instance_type = "t2.micro"
+  key_name      = aws_key_pair.my_key.key_name
+
+  subnet_id              = data.aws_subnet.default_subnet.id
+  vpc_security_group_ids = [aws_security_group.my_sg.id]
+  monitoring             = true
+
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}
+```
+
+#### Explain how modules promote consistency and reduce code duplication.
+--->
+##### How Modules Promote Consistency
+- Standardized Configuration:
+All environments (dev, test, prod) use the same logic by calling the same module. This ensures uniform naming, tagging, and settings across infrastructure.
+
+- Single Source of Truth:
+Any update to the module (like enabling logging on S3 buckets) automatically applies to all environments using that module — reducing the risk of inconsistency.
+
+#### How Modules Reduce Code Duplication
+-  Without Modules:
+You'd copy-paste the same EC2 block 15 times (5 per environment × 3).
+This leads to:
+
+Repetitive code
+
+Difficult maintenance
+
+Higher chances of manual errors
+
+- With Modules:
+You write the EC2 logic once inside a module and call it multiple times with different variables.
 
 **Interview Questions:**
-- What are the advantages of using modules in Terraform?
-- How would you structure a module for reusable infrastructure components?
+### What are the advantages of using modules in Terraform?
+--->
 
+### How would you structure a module for reusable infrastructure components?
+--->
+- 1. Reusability = Write once, use anywhere.
+- 2. Organization = Break your Terraform code into smaller, manageable components.
+- 3. Maintainability = If a change is needed (e.g., enable monitoring), you update the module — not every instance.
+- 4. Consistency = Modules ensure uniform settings for naming, tags, security policies, etc., across all resources and environments.
 ---
 
 ## Task 5: Resource Dependencies and Lifecycle Management
@@ -248,14 +296,32 @@ Ensure correct resource creation order and safe updates by managing dependencies
 
 
 3. **Document in `solution.md`:**  
-   - Include examples of resource dependencies and lifecycle configurations in your code.
-   - Explain how these settings prevent downtime during updates.
+#### Include examples of resource dependencies and lifecycle configurations in your code.
+--->
+`depends_on    = [aws_security_group.web_sg]`
+- Ensures AWS EC2 instance is launched only after the security group is created.
+- Prevents errors like: “Security group not found.”
+  
+#### Explain how these settings prevent downtime during updates.
+---> 
+- Protects critical infrastructure (e.g., databases, backup buckets) from being deleted.
+- Forces the user to manually remove this lifecycle rule before Terraform can delete the resource.
 
 **Interview Questions:**
-- How does Terraform handle resource dependencies?
-- Can you explain the purpose of the `create_before_destroy` lifecycle argument?
+#### How does Terraform handle resource dependencies?
+---> 
+- Terraform handles resource dependencies automatically through dependency graphing, and manually using the depends_on keyword.
+- Sometimes resources are not directly referenced, but one still needs to wait for the other. In such cases, use depends_on.
 
----
+#### Can you explain the purpose of the `create_before_destroy` lifecycle argument?
+---> 
+- When a resource needs to be replaced (for example, changing an immutable attribute like an AMI in an EC2 instance), Terraform by default:
+- Destroys the old resource.
+- Then creates the new one.
+  
+- This can cause downtime if the old resource is in production (e.g., EC2 instance, load balancer, etc.).
+- With create_before_destroy = true, Terraform does this instead:
+- Creates the new resource first.Once it’s successfully created, it destroys the old one.
 
 ## Task 6: Infrastructure Drift Detection and Change Management
 

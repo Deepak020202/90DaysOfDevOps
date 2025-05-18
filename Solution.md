@@ -285,13 +285,11 @@ Ensure correct resource creation order and safe updates by managing dependencies
    - Use the `depends_on` meta-argument in your configuration to specify dependencies explicitly.
 
 ![image](https://github.com/user-attachments/assets/9197ed52-5c36-4399-bc2e-bb381277a35d)
-
-     
+  
 2. **Configure Resource Lifecycles:**  
    - Add lifecycle blocks (e.g., `create_before_destroy`) in your resource definitions to manage updates safely.
   
 ![image](https://github.com/user-attachments/assets/c04ae16a-f1d0-4ef5-bf57-ccdb5fc93a8a)
-
 
 3. **Document in `solution.md`:**  
 #### Include examples of resource dependencies and lifecycle configurations in your code.
@@ -364,16 +362,12 @@ Terraform won’t detect it because it only knows about what’s defined in .tf 
 ---> Drift a Concern in Production
 - 1.Inconsistent State
 Terraform believes the infrastructure is one way, but reality is different — leading to unexpected behavior.
-
 - 2.Unpredictable Changes
 Applying Terraform changes may accidentally override critical manual changes, causing downtime or data loss.
-
 - 3.Security Risks
 Manually changed firewall rules or IAM policies may open up vulnerabilities.
-
 - 4.Debugging Complexity
 It becomes hard to troubleshoot when infrastructure doesn’t match the code, increasing time to resolution.
-
 - 5.Non-compliance
 Manual changes bypass auditing, versioning, and approval processes, leading to compliance violations.
 

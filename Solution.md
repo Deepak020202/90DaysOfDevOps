@@ -128,11 +128,9 @@ Services like AWS S3 or Terraform Cloud support state file versioning.
 --->
 Using a remote backend with locking (like AWS S3 + DynamoDB):
 
-1.Dev A starts terraform apply –> Lock is acquired in DynamoDB.
-
-2.Dev B tries terraform apply –> Terraform shows a lock error.
-
-3.Dev B must wait until the lock is released before making changes.
+1. Dev A starts terraform apply –> Lock is acquired in DynamoDB.
+2. Dev B tries terraform apply –> Terraform shows a lock error.
+3. Dev B must wait until the lock is released before making changes.
 
 ---
 

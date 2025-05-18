@@ -30,9 +30,9 @@ Begin by installing Terraform, initializing a project, and provisioning a basic 
 
 
      
-4. **Document in `solution.md`:**  
-   - Include the installation steps, your `main.tf` file, and the output of your `terraform apply` command.
-### Terraform Installation on Linux (Ubuntu/Debian)
+4. **Document in `solution.md`:**
+### Include the installation steps, your `main.tf` file, and the output of your `terraform apply` command.
+- Terraform Installation on Linux (Ubuntu/Debian)
 - Step 1: Update Packages
 ```
 sudo apt-get update && sudo apt-get upgrade -y
@@ -55,16 +55,18 @@ sudo apt update
 sudo apt install terraform -y
 ```
 **Interview Questions:**
-- How does Terraform manage resource creation and state?
-### ---> 1.Reads your configuration files (.tf)
+### How does Terraform manage resource creation and state?
+ ---> 
+ - 1.Reads your configuration files (.tf)
 These files declare what infrastructure you want — like EC2 instances, VPCs, or S3 buckets.
 
-### 2.Plans what needs to change
+- 2.Plans what needs to change
 Terraform compares what you want (your config) vs what exists (in the state file).
 →Example: If your config says “create 2 EC2 instances” and none exist, it will plan to create 2.
 
-- What is the significance of the `terraform init` command in a new project?
-### ---> Terraform uses a file called terraform.tfstate to keep track of the real infrastructure it has created.
+### What is the significance of the `terraform init` command in a new project?
+---> 
+- Terraform uses a file called terraform.tfstate to keep track of the real infrastructure it has created.
 - Think of the state file as a “receipt” — it records:
 - What resources were created
 - Their IDs and properties
@@ -86,7 +88,7 @@ Ensuring state consistency is critical when multiple team members work on infras
 2. **Reinitialize Terraform:**  
    - Run `terraform init` to reinitialize your project with the new backend.
 
-   ![image](https://github.com/user-attachments/assets/2df2d044-4857-4142-82f5-077095052065)
+ ![image](https://github.com/user-attachments/assets/2df2d044-4857-4142-82f5-077095052065)
 
 
 ![image](https://github.com/user-attachments/assets/1c37c622-da46-47b7-a921-57f8bfa96423)
@@ -94,6 +96,7 @@ Ensuring state consistency is critical when multiple team members work on infras
      
 3. **Document in `solution.md`:**  
    - Include the backend configuration details.
+   
   ```backend "s3" {
   bucket = "bucket-backend-tff"
   key = "terraform.tfstate"
@@ -110,7 +113,7 @@ Ensuring state consistency is critical when multiple team members work on infras
      4. Better Team Workflow
      
 **Interview Questions:**
-- Why is remote state management important in Terraform?
+### Why is remote state management important in Terraform?
 --->
 1. Centralized Source of Truth
 All team members access one shared state file, stored in the cloud (e.g., AWS S3).
@@ -121,7 +124,7 @@ When you use services like DynamoDB with S3, Terraform can lock the state file w
 3. Version History / Rollback
 Services like AWS S3 or Terraform Cloud support state file versioning.
 
-- How does state locking prevent conflicts during collaborative updates?
+### How does state locking prevent conflicts during collaborative updates?
 --->
 Using a remote backend with locking (like AWS S3 + DynamoDB):
 

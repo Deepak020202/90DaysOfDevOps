@@ -32,10 +32,43 @@ Begin by installing Terraform, initializing a project, and provisioning a basic 
      
 4. **Document in `solution.md`:**  
    - Include the installation steps, your `main.tf` file, and the output of your `terraform apply` command.
-
+## Terraform Installation on Linux (Ubuntu/Debian)
+### Step 1: Update Packages
+```
+sudo apt-get update && sudo apt-get upgrade -y
+```
+### Step 2: Install Required Dependencies
+```
+sudo apt-get install -y gnupg software-properties-common curl
+```
+### Step 3: Add the HashiCorp GPG Key
+```
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+```
+### step 4: Add the Official HashiCorp Repository
+```
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+```
+### step 5: Install Terraform
+```
+sudo apt update
+sudo apt install terraform -y
+```
 **Interview Questions:**
 - How does Terraform manage resource creation and state?
+### ---> 1.Reads your configuration files (.tf)
+These files declare what infrastructure you want — like EC2 instances, VPCs, or S3 buckets.
+
+### 2.Plans what needs to change
+Terraform compares what you want (your config) vs what exists (in the state file).
+→Example: If your config says “create 2 EC2 instances” and none exist, it will plan to create 2.
+
 - What is the significance of the `terraform init` command in a new project?
+### ---> Terraform uses a file called terraform.tfstate to keep track of the real infrastructure it has created.
+- Think of the state file as a “receipt” — it records:
+- What resources were created
+- Their IDs and properties
+- How they relate to your .tf config
 
 ---
 
@@ -197,8 +230,14 @@ Enhance your Terraform configurations by using dynamic input parameters and cond
 **Steps:**
 1. **Enhance Variables with Conditionals:**  
    - Update your `variables.tf` to include default values and conditional expressions for environment-specific configurations.
+
+![image](https://github.com/user-attachments/assets/6bfca218-91c4-47ee-859a-e8a34858ee9b)
+
 2. **Apply Conditional Logic:**  
    - Use conditional expressions in your resource definitions to adjust attributes based on variable values.
+
+![image](https://github.com/user-attachments/assets/2b3dda45-02f5-40c8-9587-22b018ad2597)
+
 3. **Document in `solution.md`:**  
    - Explain how dynamic parameterization improves flexibility.
    - Include sample outputs demonstrating different configurations.

@@ -225,7 +225,7 @@ module "ec2_instance" {
 
   name = "auto-instance"
 
-  ami           = "ami-0e35ddab05955cf57" # Amazon Linux 2023 AMI
+  ami           = "ami-0e35ddab05955cf57" 
   instance_type = "t2.micro"
   key_name      = aws_key_pair.my_key.key_name
 

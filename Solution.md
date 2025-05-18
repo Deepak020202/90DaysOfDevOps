@@ -133,6 +133,7 @@ Using a remote backend with locking (like AWS S3 + DynamoDB):
 2.Dev B tries terraform apply –> Terraform shows a lock error.
 
 3.Dev B must wait until the lock is released before making changes.
+
 ---
 
 ## Task 3: Use Variables, Outputs, and Workspaces
@@ -160,14 +161,40 @@ Improve the flexibility and reusability of your Terraform configuration by using
 
   
 3. **Document in `solution.md`:**  
-   - Include your `variables.tf`, `outputs.tf`, and a summary of your workspace setup.
-   - Explain how these features enable dynamic and multi-environment deployments.
+### Include your `variables.tf`, `outputs.tf`, and a summary of your workspace setup.
+
+- 1.variables.tf = Accepts input values like environment name, tags, region, etc.
+- 2.outputs.tf =	Exposes important info per environment (e.g., IPs, URLs)
+- 3.Workspaces	= Keeps each environment isolated by using separate state files
+  
+### Explain how these features enable dynamic and multi-environment deployments.
+
+- 1. variables.tf – Inject Environment-Specific Values
+This file defines input variables that make your configuration dynamic.
+
+- 2. outputs.tf – Get Useful Info Per Environment
+This file prints values like public IP, instance ID, or DNS name after Terraform runs.
+
+- 3. Workspaces – Keep Environments Isolated
+Workspaces let you create separate state files for each environment.
 
 **Interview Questions:**
-- How do variables and outputs enhance the reusability of Terraform configurations?
-- What is the purpose of workspaces in Terraform, and how would you use them in a production scenario?
+### How do variables and outputs enhance the reusability of Terraform configurations?
+--->
+- Variables Make Code Dynamic
+Variables allow you to parameterize your Terraform configuration. Instead of hardcoding values (like instance types, region, etc.), you use variables that can change based on input.
 
----
+- Outputs Expose Key Resource Info
+Outputs display values from your resources — like IP addresses, instance IDs, or names — after terraform apply.
+
+### What is the purpose of workspaces in Terraform, and how would you use them in a production scenario?
+--->
+- A workspace = a separate instance of your infrastructure managed with its own Terraform state file.
+- Without workspaces, you'd need to duplicate your code for each environment (like dev.tf, prod.tf).
+  Workspaces let you:
+  1. Use a single configuration
+  2. Keep state isolated
+  3. Avoid conflicts between environments
 
 ## Task 4: Create and Use Terraform Modules
 

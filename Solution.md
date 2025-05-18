@@ -32,24 +32,24 @@ Begin by installing Terraform, initializing a project, and provisioning a basic 
      
 4. **Document in `solution.md`:**  
    - Include the installation steps, your `main.tf` file, and the output of your `terraform apply` command.
-## Terraform Installation on Linux (Ubuntu/Debian)
-### Step 1: Update Packages
+### Terraform Installation on Linux (Ubuntu/Debian)
+- Step 1: Update Packages
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
-### Step 2: Install Required Dependencies
+- Step 2: Install Required Dependencies
 ```
 sudo apt-get install -y gnupg software-properties-common curl
 ```
-### Step 3: Add the HashiCorp GPG Key
+- Step 3: Add the HashiCorp GPG Key
 ```
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 ```
-### step 4: Add the Official HashiCorp Repository
+- step 4: Add the Official HashiCorp Repository
 ```
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 ```
-### step 5: Install Terraform
+- step 5: Install Terraform
 ```
 sudo apt update
 sudo apt install terraform -y

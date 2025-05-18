@@ -336,16 +336,49 @@ In production, changes might occur outside of Terraform. Use Terraform commands 
 
 
 2. **Reconcile Changes:**  
-   - Describe your approach to updating the state or reapplying configurations when drift is detected.
+#### Describe your approach to updating the state or reapplying configurations when drift is detected.
+---> You changed the instance type of an EC2 instance via AWS Console from t2.micro to t2.small.
+- Run terraform plan: shows EC2 instance will be replaced (back to t2.micro)
+- You decide the new size is correct → update your Terraform config to t2.small
+- Run terraform apply: Terraform now reflects the new size in its state
+
 3. **Document in `solution.md`:**  
-   - Include examples of drift detection and your strategy for reconciling differences.
-   - Reflect on the importance of change management in infrastructure as code.
+#### Q) Include examples of drift detection and your strategy for reconciling differences.
+--->
+
+#### Q) Reflect on the importance of change management in infrastructure as code.
+--->
+- Scenario:
+A new S3 bucket was created manually in AWS (not using Terraform).
+
+- Detection:
+Terraform won’t detect it because it only knows about what’s defined in .tf files.
+
+- To bring it under Terraform’s control
+`terraform import aws_s3_bucket.example bucket-name`
 
 **Interview Questions:**
-- What is infrastructure drift, and why is it a concern in production environments?
-- How would you resolve discrepancies between your Terraform configuration and actual infrastructure?
+#### Q) What is infrastructure drift, and why is it a concern in production environments?
+--->  
+- Infrastructure drift occurs when the actual state of your infrastructure changes outside of Terraform, meaning changes are made manually
+- 
+#### Q)  How would you resolve discrepancies between your Terraform configuration and actual infrastructure?
+---> Drift a Concern in Production
+- 1.Inconsistent State
+Terraform believes the infrastructure is one way, but reality is different — leading to unexpected behavior.
 
----
+- 2.Unpredictable Changes
+Applying Terraform changes may accidentally override critical manual changes, causing downtime or data loss.
+
+- 3.Security Risks
+Manually changed firewall rules or IAM policies may open up vulnerabilities.
+
+- 4.Debugging Complexity
+It becomes hard to troubleshoot when infrastructure doesn’t match the code, increasing time to resolution.
+
+- 5.Non-compliance
+Manual changes bypass auditing, versioning, and approval processes, leading to compliance violations.
+
 
 ## Task 7: (Optional) Dynamic Pipeline Parameterization for Terraform
 
@@ -364,14 +397,34 @@ Enhance your Terraform configurations by using dynamic input parameters and cond
 ![image](https://github.com/user-attachments/assets/2b3dda45-02f5-40c8-9587-22b018ad2597)
 
 3. **Document in `solution.md`:**  
-   - Explain how dynamic parameterization improves flexibility.
-   - Include sample outputs demonstrating different configurations.
+#### Q) Explain how dynamic parameterization improves flexibility.
+--->
+- Dynamic parameterization in Terraform refers to using variables and input values (instead of hardcoded values) to define infrastructure. It allows users to customize configurations at runtime, making modules and resources reusable and flexible.
+  
+#### Q) Include sample outputs demonstrating different configurations.
 
+![image](https://github.com/user-attachments/assets/751dab9d-a512-4d1d-ad1d-3b82e955f2c6)
+
+ 
 **Interview Questions:**
-- How do conditional expressions in Terraform improve configuration flexibility?
-- Provide an example scenario where dynamic parameters are critical in a deployment pipeline.
+#### Q) How do conditional expressions in Terraform improve configuration flexibility?
+---> 
+- Conditional expressions in Terraform improve configuration flexibility by allowing you to dynamically assign values based on conditions—without duplicating code. This makes your infrastructure adaptive, reusable, and easier to manage across different environments or use cases.
 
----
+#### Q) Provide an example scenario where dynamic parameters are critical in a deployment pipeline.
+--->
+##### The team maintains separate AWS infrastructure for:
+- Development (dev)
+- Staging (staging)
+- Production (prod)
+
+##### Each environment requires:
+- Different instance sizes
+- Different number of instances
+- Different regions
+- Different tags for billing and audit
+
+You use Terraform modules for infrastructure as code and deploy using GitHub Actions CI/CD.
 
 
 ### **Bonus Task: Multi-Environment Setup with Terraform & Ansible **
@@ -401,48 +454,3 @@ Set up **AWS infrastructure** for multiple environments (dev, staging, prod) usi
 - **Nginx Configuration:** How do you handle environment-specific differences for Nginx setups?
 
 ---
-
-## How to Submit
-
-1. **Push Your Final Work to GitHub:**  
-   - Fork the [online_shop repository](https://github.com/Amitabh-DevOps/online_shop) and ensure all Terraform files (configuration files, modules, variable files, `solution.md`, etc.) are committed and pushed to your fork.
-
-2. **Create a Pull Request (PR):**  
-   - Open a PR from your branch (e.g., `terraform-challenge`) to the main repository.
-   - **Title:**  
-     ```
-     Week 8 Challenge - Terraform Infrastructure as Code Challenge
-     ```
-   - **PR Description:**  
-     - Summarize your approach, list key commands/configurations, and include screenshots or logs as evidence.
-
-3. **Submit Your Documentation:**  
-   - **Important:** Place your `solution.md` file in the Week 8 (Terraform) task folder of the 90DaysOfDevOps repository.
-
-4. **Share Your Experience on LinkedIn:**  
-   - Write a post summarizing your Terraform challenge experience.
-   - Include key takeaways, challenges faced, and insights (e.g., state management, module usage, drift detection, multi-environment setups).
-   - Use the hashtags: **#90DaysOfDevOps #Terraform #DevOps #InterviewPrep**
-   - Optionally, provide links to your fork or blog posts detailing your journey.
-
----
-
-## TrainWithShubham Resources for Terraform
-
-- **[Terraform Short Notes](https://www.trainwithshubham.com/products/66d5c45f7345de4e9c1d8b05?dgps_u=l&dgps_s=ucpd&dgps_t=cp_u&dgps_u_st=u&dgps_uid=66c972da3795a9659545d71a)**
-- **[Terraform One-Shot Video](https://youtu.be/S9mohJI_R34?si=QdRm-JrdKs8ZswXZ)**
-- **[Multi-Environment Setup Blog](https://amitabhdevops.hashnode.dev/devops-project-multi-environment-infrastructure-with-terraform-and-ansible)**
-
----
-
-## Additional Resources
-
-- **[Terraform Official Documentation](https://www.terraform.io/docs/)**
-- **[Terraform Providers](https://www.terraform.io/docs/providers/index.html)**
-- **[Terraform Modules](https://www.terraform.io/docs/modules/index.html)**
-- **[Terraform State Management](https://www.terraform.io/docs/state/index.html)**
-- **[Terraform Workspaces](https://www.terraform.io/docs/language/state/workspaces.html)**
-
----
-
-Complete these tasks, answer the interview questions in your documentation, and use your work as a reference to prepare for real-world DevOps challenges and technical interviews.

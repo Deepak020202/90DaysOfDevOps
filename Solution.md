@@ -23,14 +23,35 @@ In production, inventories change frequently. Set up Ansible with a dynamic inve
      
 2. **Configure a Dynamic Inventory:**  
    - Set up a dynamic inventory using an inventory script or the AWS EC2 dynamic inventory plugin.
+
+![image](https://github.com/user-attachments/assets/8132f014-715d-4c0e-8012-85a42dbcb97f)
+
+
 3. **Test Connectivity:**  
    - Run:
      ```bash
      ansible all -m ping -i dynamic_inventory.py
      ```
+     ![image](https://github.com/user-attachments/assets/3d348c52-64ab-47de-9208-f691c755640b)
+
      to ensure all servers are reachable.
 4. **Document in `solution.md`:**  
    - Include your dynamic inventory configuration and test outputs.
+```
+ubuntu@ip-172-31-14-94:~/inventories$ cat dev
+[my_servers]
+server1 ansible_host=13.233.201.146
+server2 ansible_host=13.126.100.188
+server3 ansible_host=13.203.160.24
+
+server1 ansible_user=ubuntu
+server2 ansible_user=ec2-user
+server3 ansible_user=ec2-user
+
+[my_servers:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_private_key_file=/home/ubuntu/keys/terra-key-ansible.pem
+```
    - Explain how dynamic inventories adapt to a production environment.
 
 **Interview Questions:**
@@ -50,8 +71,14 @@ Web servers like Nginx must be reliably deployed and configured in production. C
      - Installs Nginx.
      - Deploys a templated Nginx configuration using a Jinja2 template (`nginx.conf.j2`) that includes loops and conditionals.
      - Implements asynchronous execution (`async` and `poll`) with error handling.
+   
+   ![image](https://github.com/user-attachments/assets/bbd8b3cd-301e-4c79-b297-bcb187eab9d0)
+
 2. **Test the Playbook:**  
    - Run the playbook against your dynamic inventory.
+   
+   ![image](https://github.com/user-attachments/assets/0919efeb-f1f5-4887-a9db-6f29f56e178a)
+
 3. **Document in `solution.md`:**  
    - Include your playbook and Jinja2 template.
    - Describe your strategies for asynchronous execution and error handling.
@@ -92,6 +119,10 @@ In production, managing secrets securely is critical. Use Ansible Vault to encry
 **Steps:**
 1. **Create Encrypted Files:**  
    - Use `ansible-vault create` to encrypt multiple secret files.
+
+  ![image](https://github.com/user-attachments/assets/bb13ec13-bcab-44ab-bd52-23765e9df512)
+
+   
 2. **Integrate Vault in Your Playbooks:**  
    - Modify your playbooks to load encrypted variables from multiple files.
 3. **Test Decryption:**  

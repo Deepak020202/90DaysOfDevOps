@@ -17,6 +17,10 @@ In production, inventories change frequently. Set up Ansible with a dynamic inve
 **Steps:**
 1. **Install Ansible:**  
    - Follow the official installation guide to install Ansible on your local machine.
+
+![image](https://github.com/user-attachments/assets/6cc84a11-e1cb-428b-80f8-1cb83c8aee1b)
+
+     
 2. **Configure a Dynamic Inventory:**  
    - Set up a dynamic inventory using an inventory script or the AWS EC2 dynamic inventory plugin.
 3. **Test Connectivity:**  

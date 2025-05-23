@@ -49,11 +49,19 @@ Deploy Prometheus on your KIND cluster with a custom configuration that includes
 **Steps:**
 1. **Create a Custom Prometheus Configuration:**  
    - Write a `prometheus.yml` with custom scrape configurations targeting cluster components (e.g., kube-state-metrics, Node Exporter) and advanced relabeling rules to clean up metric labels.
+   
 2. **Deploy Prometheus:**  
    - Deploy Prometheus using a Kubernetes Deployment or via a Helm chart.
+
+![image](https://github.com/user-attachments/assets/0e851e5b-12ce-4a42-9a51-3be03c809054)
+
+
 3. **Verify and Tune:**  
    - Access the Prometheus UI to verify that metrics are being scraped as expected.
    - Adjust relabeling rules and scrape intervals to optimize performance.
+
+![image](https://github.com/user-attachments/assets/590c0535-7eb7-4143-b5e8-91130b62e345)
+
 4. **Document in `solution.md`:**  
    - Include your `prometheus.yml` and screenshots of the Prometheus UI showing active targets and effective relabeling.
 

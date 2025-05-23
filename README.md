@@ -79,13 +79,28 @@ Deploy Grafana on your KIND cluster and configure it to use Prometheus as a data
 **Steps:**
 1. **Deploy Grafana:**  
    - Create a Kubernetes Deployment and Service for Grafana.
+
+![image](https://github.com/user-attachments/assets/7f765faa-1f85-4599-999c-adc84b6336d0)
+
+
 2. **Configure the Data Source:**  
    - In the Grafana UI, add Prometheus as a data source.
+
+![image](https://github.com/user-attachments/assets/1913635b-7cfc-4364-8be8-2f027a98bdc0)
+
+
 3. **Design Production Dashboards:**  
    - Create dashboards with panels that display key metrics (e.g., CPU, memory, disk I/O, network latency) using advanced PromQL queries.
    - Customize panel visualizations (e.g., graphs, tables, heatmaps) to present data effectively.
+
+![image](https://github.com/user-attachments/assets/6d261a53-14f9-4e41-ba3d-537a09885f0f)
+
+
 4. **Document in `solution.md`:**  
    - Include configuration details, screenshots of dashboards, and an explanation of the queries and visualization choices.
+
+![image](https://github.com/user-attachments/assets/27f54b4f-6969-4a30-978f-fe258ab99dfe)
+
 
 **Interview Questions:**
 - What factors are critical when designing dashboards for production monitoring?

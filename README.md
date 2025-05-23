@@ -22,8 +22,16 @@ Simulate a production-like Kubernetes environment locally by creating a KIND clu
      ```bash
      kind create cluster --name observability-cluster
      ```
+
+![image](https://github.com/user-attachments/assets/be145181-ba19-480b-bbc9-d07a127e2a85)
+
+     
 3. **Verify the Cluster:**  
    - Run `kubectl get nodes` and capture the output.
+
+![image](https://github.com/user-attachments/assets/ecdd51af-ede4-4663-9f31-9f6cd04e7c26)
+
+
 4. **Document in `solution.md`:**  
    - Include installation steps, the commands used, and output from `kubectl get nodes`.
 

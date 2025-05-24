@@ -57,11 +57,11 @@ pipeline{
 
 
 ** Questions:**
-- How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
+## How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
 
 ### Answer--> declarative pipelines streamline the CI/CD process by providing a simple, structured way to define workflows with minimal scripting. This makes them more accessible, maintainable, and less error-prone compared to scripted pipelines, which are better suited for highly customized or complex workflows.
 
-- What are the benefits of breaking the pipeline into distinct stages?
+## What are the benefits of breaking the pipeline into distinct stages?
 
 ### Answer--> Breaking the pipeline into distinct stages offers many advantages:
 
@@ -88,31 +88,27 @@ You have a microservices-based application with multiple components stored in se
 1. **Set Up a Multi-Branch Pipeline Job:**  
    - Create a new multi-branch pipeline in Jenkins.
    - Configure it to scan your Git repository (or repositories) for branches.
-2. **Develop a Jenkinsfile for Each Service:**  
-   - Write a Jenkinsfile that includes stages for **Checkout**, **Build**, **Test**, and **Deploy**.  
-   - Include parallel stages if applicable (e.g., running tests for different services concurrently).
-3. **Document in `solution.md`:**  
-   - List the Jenkinsfile(s) used, explain your pipeline design, and describe how multi-branch pipelines help manage microservices deployments in production.
 
-** Questions:**
-- How does a multi-branch pipeline improve continuous integration for microservices?
-- What challenges might you face when merging feature branches in a multi-branch pipeline?
-
-# Solution :-
-
-### Running multi stage pipeline that include Code clone , build test and deploy to run the Flask app and SQL web application using docker tool.
 
 ![image](https://github.com/user-attachments/assets/4813bbc7-2650-441b-a6dd-e443cded6ddd)
 
 
+2. **Develop a Jenkinsfile for Each Service:**  
+   - Write a Jenkinsfile that includes stages for **Checkout**, **Build**, **Test**, and **Deploy**.  
+   - Include parallel stages if applicable (e.g., running tests for different services concurrently).
+  
+
 ![image](https://github.com/user-attachments/assets/8a0fbf83-9eee-431c-9f4d-02ed284b61e4)
 
+   
+3. **Document in `solution.md`:**  
+   - List the Jenkinsfile(s) used, explain your pipeline design, and describe how multi-branch pipelines help manage microservices deployments in production.
 
 
 ![image](https://github.com/user-attachments/assets/5324eb6e-8391-49be-a2d5-f954914b681c)
 
 ** Questions:**
-## 1.How does a multi-branch pipeline improve continuous integration for microservices?
+## How does a multi-branch pipeline improve continuous integration for microservices?
 
 ### Answer --> Multi-branch pipelines allow Jenkins to dynamically create and manage pipelines for each branch in a repository. This is particularly useful for microservices in production for the following reasons:
 
@@ -149,7 +145,7 @@ main → Production
 
 Jenkins runs different pipelines for each environment, ensuring safe deployments.
 
-## 2. What challenges might you face when merging feature branches in a multi-branch pipeline?
+## 2.What challenges might you face when merging feature branches in a multi-branch pipeline?
 ### Answer :-  while merging feature branches in a multi-branch pipeline conflict error are comes 
 ### How to avoid this ?
 ### 1.Always rebase your feature branch with latest master before merge
@@ -167,50 +163,49 @@ Your build workload has increased, and you need to configure multiple agents (ac
 1. **Set Up Multiple Agents:**  
    - Configure at least two agents (e.g., one Linux-based and one Windows-based) in Jenkins.
    - Use Docker containers or VMs to simulate different environments.
-2. **Label Agents:**  
-   - Assign labels (e.g., `linux`, `windows`) and modify your Jenkinsfile to run appropriate stages on the correct agent.
-3. **Run Parallel Jobs:**  
-   - Create jobs that run in parallel across these agents.
-4. **Document in `solution.md`:**  
-   - Explain how you configured and verified each agent.
-   - Describe the benefits of distributed builds in terms of speed and reliability.
 
-** Questions:**
-- What are the benefits and challenges of using distributed agents in Jenkins?
-- How can you ensure that jobs are assigned to the correct agent in a multi-platform environment?
-
-# Solution :- 
-## setup agnet 
 
 ![image](https://github.com/user-attachments/assets/0a0f9ea6-daeb-488a-a847-07d19a5b66e6)
 
 
 ![image](https://github.com/user-attachments/assets/4f98c49a-3adc-4738-b245-7d0427b50758)
 
-## Label Agent 
-![image](https://github.com/user-attachments/assets/7e86b0fb-2089-422e-be9b-cda336743eae)
+
+2. **Label Agents:**  
+   - Assign labels (e.g., `linux`, `windows`) and modify your Jenkinsfile to run appropriate stages on the correct agent.
+
+  ![image](https://github.com/user-attachments/assets/7e86b0fb-2089-422e-be9b-cda336743eae)
+   
+3. **Run Parallel Jobs:**  
+   - Create jobs that run in parallel across these agents.
+
 
 ## To simulate environments running jenkins in docker container
 ![image](https://github.com/user-attachments/assets/01ffcf95-dfde-404d-8308-65b6f688baa2)
 
+4. **Document in `solution.md`:**  
+   - Explain how you configured and verified each agent.
+   - Describe the benefits of distributed builds in terms of speed and reliability.
+
 
 ## Run parellel agent Job
+
 ![image](https://github.com/user-attachments/assets/0ea7d8ae-a055-47b7-bdd2-1a801dbd91b7)
 
 
 ![image](https://github.com/user-attachments/assets/b69a98f3-bf05-4369-a78b-3858fc45aacf)
 
 ** Questions:**
-## 1. Explain how you configured and verified each agent ?
-## Answer :- to verify agent via ssh these steps are involved -
+## What are the benefits and challenges of using distributed agents in Jenkins?
+### Answer :- to verify agent via ssh these steps are involved -
 ### 1. create a node/agent
 ### 2. generate ssh-key on master agent
 ### 3. upload private key on jenkins 
 ### 4. add public key of master into private ssh file in agent-node's   
 
-## 2.Describe the benefits of distributed builds in terms of speed and reliability.
-## Answer :-
-## Speed Improvement
+## 2.How can you ensure that jobs are assigned to the correct agent in a multi-platform environment?
+### Answer :-
+### Speed Improvement
 ### 1.Parallel Execution
 ### 2.Load Balancing
 ### 3.Faster Feedback Loop
@@ -261,38 +256,41 @@ In a large organization, different teams (developers, testers, and operations) r
 1. **Configure RBAC:**  
    - Use Matrix-based security or the Role Strategy Plugin to create roles (e.g., Admin, Developer, Tester).
    - Define permissions for each role.
-2. **Create Test Accounts:**  
-   - Simulate real-world usage by creating user accounts for each role and verifying access.
-3. **Document in `solution.md`:**  
-   - Include screenshots or logs of your RBAC configuration.
-   - Explain the importance of access control and provide a potential risk scenario that RBAC helps mitigate.
-
-** Questions:**
-- Why is RBAC essential in a CI/CD environment, and what are the consequences of weak access control?
-- Can you describe a scenario where inadequate RBAC could lead to security issues?
-
-# Solution :-
-
-1. **Configure RBAC:**  
-### Use Matrix-based security or the Role Strategy Plugin to create roles (e.g., Admin, Developer, Tester).
 
 ![image](https://github.com/user-attachments/assets/5cf310ee-7279-4faa-a86d-40bb684abe38)
 
+
 ![image](https://github.com/user-attachments/assets/3817141b-81f0-4db8-b544-106db9b198f9)
+
+
 
 ### Define permissions for each role.
 
+
 ![image](https://github.com/user-attachments/assets/3730d1c0-3d61-4376-9db7-27d5ccbdb50d)
+
+
 
 ![image](https://github.com/user-attachments/assets/dbd3782e-8185-480e-86a2-b9573a0fe985)
 
+
 2. **Create Test Accounts:**  
-## Simulate real-world usage by creating user accounts for each role and verifying access.
-### after implementing RBAC the Jhon user unable to access **manage jenkins tab ** 
+   - Simulate real-world usage by creating user accounts for each role and verifying access.
+  
 
 ![image](https://github.com/user-attachments/assets/e8cd091e-0edb-4480-802c-f3836d113e78)
 
+
+
+3. **Document in `solution.md`:**  
+   - Include screenshots or logs of your RBAC configuration.
+
+![image](https://github.com/user-attachments/assets/e8cd091e-0edb-4480-802c-f3836d113e78)
+
+   - Explain the importance of access control and provide a potential risk scenario that RBAC helps mitigate.
+
 ** Questions:**
+
 ## Why is RBAC essential in a CI/CD environment, and what are the consequences of weak access control?
 ### Answer :- Consequences of Weak Access Control:
 1.Unauthorized Code Changes – Developers with excessive privileges could push unapproved changes, introducing vulnerabilities.
@@ -305,7 +303,7 @@ In a large organization, different teams (developers, testers, and operations) r
 
 5.Compromised Build Environment – Attackers or insiders with elevated permissions could inject malicious code into the pipeline. 
 
-## Can you describe a scenario where inadequate RBAC could lead to security issues?-
+##  Can you describe a scenario where inadequate RBAC could lead to security issues?
 ### Answer :- A junior developer has full administrative access to the CI/CD pipeline. One day, they accidentally expose AWS credentials in a public repository. A malicious actor finds these credentials and gains unauthorized access to the production environment, leading to data theft and service downtime.
 ---
 
@@ -318,6 +316,10 @@ You are working on multiple pipelines that share common tasks (like code quality
 1. **Create a Shared Library Repository:**  
    - Set up a separate Git repository that hosts your shared library code.
    - Develop reusable functions (e.g., a function for sending notifications or a common test stage).
+
+Repository link:- https://github.com/Deepak020202/Jenkins-Shared-Libraries.git
+![image](https://github.com/user-attachments/assets/03dcbb75-9b5b-4c50-b93f-c493947432a3)
+   
 2. **Integrate the Library:**  
    - Update your Jenkinsfile(s) from previous tasks to load and use the shared library.
    - Use syntax similar to:
@@ -331,13 +333,6 @@ You are working on multiple pipelines that share common tasks (like code quality
    - Provide code examples from your shared library.
    - Explain how this approach improves maintainability and reduces errors.
 
-## Solution :-
-
-### Creating seprate git repositoey that stored all Shared liabrary files
-### Repository link:- https://github.com/Deepak020202/Jenkins-Shared-Libraries.git
-![image](https://github.com/user-attachments/assets/03dcbb75-9b5b-4c50-b93f-c493947432a3)
-
-### Jenkinsfile with shared liabrary
 ```
 @Library('Shared-Libraries') _
 
@@ -384,6 +379,7 @@ pipeline {
 }
 
 ```
+
 ## Questions 
 ### 1.Explain How Shared Library Improves Maintainability & Reduces Errors
 ### Answer :- You are working on a microservices project with 5 services . All the 5  service has a Jenkinsfile for CI/CD pipeline. Same code is copied in all Jenkinsfiles.
@@ -416,23 +412,12 @@ Security is critical in CI/CD. You must ensure that the Docker images built in y
          }
      }
      ```
-2. **Configure Fail Criteria:**  
-   - Optionally, set the stage to fail the build if critical vulnerabilities are detected.
-3. **Document in `solution.md`:**  
-   - Summarize the scan output, note the vulnerabilities and severity, and describe any remediation steps.
-   - Reflect on the importance of automated security scanning in CI/CD pipelines.
-
-** Questions:**
-- Why is integrating vulnerability scanning into a CI/CD pipeline important?
-- How does Trivy help improve the security of your Docker images?
-# Solution :-
-## 1.Add a Vulnerability Scan Stage
-### Answer :- 
 
 ![image](https://github.com/user-attachments/assets/30491c9c-67a1-428f-876a-9979bb7e760d)
-
-## 2.set the stage to fail the build if critical vulnerabilities are detected.
-### Answer :- 
+     
+2. **Configure Fail Criteria:**  
+   - Optionally, set the stage to fail the build if critical vulnerabilities are detected.
+  
 ```
  stage('File System Scan') {
     steps {
@@ -451,14 +436,18 @@ Security is critical in CI/CD. You must ensure that the Docker images built in y
     }
 }
 ```
-## 3. Summarize the scan output, note the vulnerabilities and severity, and describe any remediation steps.
 
-### Answer:- after finding vulnerablities in code security steps are taken to avoid this 
+3. **Document in `solution.md`:**  
+   - Summarize the scan output, note the vulnerabilities and severity, and describe any remediation steps.
+   - Reflect on the importance of automated security scanning in CI/CD pipelines.
+
+after finding vulnerablities in code security steps are taken to avoid this 
 
 ![image](https://github.com/user-attachments/assets/b616be70-b28f-4827-b821-e4f74b914482) 
 
-## **Questions:**
-## 1.Why is integrating vulnerability scanning into a CI/CD pipeline important?
+
+** Questions:**
+## Why is integrating vulnerability scanning into a CI/CD pipeline important?
 ### Answer :- 
 1. **Shift Left Security**  
    Detects vulnerabilities early in development, making them cheaper and easier to fix.
@@ -517,12 +506,6 @@ In production environments, pipelines need to be flexible and configurable. Impl
      }
      
      ```
-2. **Run the Parameterized Pipeline:**  
-   - Trigger the pipeline and provide different parameter values to observe how the pipeline behavior changes.
-3. **Document in `solution.md`:**  
-   - Explain how parameterization makes the pipeline dynamic.
-   - How does pipeline parameterization improve the flexibility of CI/CD workflows?
-   - Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
 
 # Solution :- 
 
@@ -591,13 +574,17 @@ pipeline {
 }
 
 ```
-##  different parameter values to observe how the pipeline behavior changes.
+
+
+2. **Run the Parameterized Pipeline:**  
+   - Trigger the pipeline and provide different parameter values to observe how the pipeline behavior changes.
+
+
 ![image](https://github.com/user-attachments/assets/1d87561e-5a94-476b-8005-027f98c8da7d)
-
-## Questions :- 
-### Q1.Explain how parameterization makes the pipeline dynamic.
-### Answer :- ## Benefits of Parameterized Jenkins Pipelines
-
+  
+   
+3. **Document in `solution.md`:**  
+## Explain how parameterization makes the pipeline dynamic.
 ### 1. User Input at Runtime
 **Example:**  
 Pass `staging` or `production` as a parameter to control where the app gets deployed.
@@ -616,7 +603,7 @@ Run the same pipeline with `APP_VERSION = 2.0.1` to deploy a new version.
 **Example:**  
 Developers, QA, or Ops can all run the same pipeline with different parameter inputs.
 
-## Q2.How does pipeline parameterization improve the flexibility of CI/CD workflows?
+## Q2. How does pipeline parameterization improve the flexibility of CI/CD workflows?
 ### Answer:- Pipeline parameterization makes your CI/CD workflows flexible and reusable by allowing runtime inputs. Instead of maintaining multiple pipelines for different environments or versions, you can use one dynamic pipeline that adapts based on the parameters provided — making deployments faster, simpler, and easier to manage
 
 ## Q3.Provide an example of a scenario where dynamic parameters would be critical in a deployment pipeline.
@@ -632,6 +619,13 @@ Automated notifications keep teams informed about build statuses. Configure Jenk
 **Steps:**
 1. **Configure SMTP Settings:**  
    - Set up SMTP details in Jenkins under "Manage Jenkins" → "Configure System".
+  
+
+![image](https://github.com/user-attachments/assets/7364d1d3-9f6d-4a6e-ba3f-9e44bb5d39ca)
+
+![image](https://github.com/user-attachments/assets/54f87c65-8aa2-4c47-a986-fed8606ead1c)
+
+
 2. **Update Your Jenkinsfile:**  
    - Add a stage that uses the `emailext` plugin to send notifications:
      ```groovy
@@ -646,35 +640,24 @@ Automated notifications keep teams informed about build statuses. Configure Jenk
      }
      ```
 
-4. **Test the Notification:**  
-   - Trigger the pipeline and verify that an email is sent.
-5. **Document in `solution.md`:**  
-   - Explain your configuration steps, note any challenges, and describe how you resolved them.
-
-** Questions:**
-- What are the advantages of automating email notifications in CI/CD?
-- How would you troubleshoot issues if email notifications fail to send?
-     ```
-# Solution :
-## Configure SMTP Settings:
-### Set up SMTP details with secret credentials in Jenkins under "Manage Jenkins" → "Configure System".
-
-![image](https://github.com/user-attachments/assets/7364d1d3-9f6d-4a6e-ba3f-9e44bb5d39ca)
-
-![image](https://github.com/user-attachments/assets/54f87c65-8aa2-4c47-a986-fed8606ead1c)
-
-### Add a stage that uses the `emailext` plugin to send notifications
-
 ![image](https://github.com/user-attachments/assets/ad031a7b-75c7-4e02-ab36-35daef1ae244)
 
-## Test the Notification :
+4. **Test the Notification:**  
+   - Trigger the pipeline and verify that an email is sent.
+
+
 ### Trigger the pipeline and verify that an email is sent.
 
 ![image](https://github.com/user-attachments/assets/af1f9e99-9c7e-4d1e-9501-9bb2ee2fcabd)
 
 ![image](https://github.com/user-attachments/assets/bdf21bc3-7dc5-4f0f-903b-45fde468cc10)
 
+   
+5. **Document in `solution.md`:**  
+   - Explain your configuration steps, note any challenges, and describe how you resolved them.
+
 ** Questions:**
+
 ## 1. What are the advantages of automating email notifications in CI/CD?
 ### Answer :- Imagine you're working on a project with a team. When you upload new code and something breaks, an email is automatically sent to you saying "Build failed". You quickly fix it and push the code again — now, an email says "Build successful".
 ## This helps you:
@@ -682,7 +665,7 @@ Automated notifications keep teams informed about build statuses. Configure Jenk
 ### 2.Save time by fixing issues faster.
 
 
-##  How would you troubleshoot issues if email notifications fail to send?
+## 2.How would you troubleshoot issues if email notifications fail to send?
 ### Answer :- 
 ### 1.Verify Jenkins SMTP email configuration.
 ### 2.Check email steps and addresses in the pipeline.
@@ -699,11 +682,27 @@ Real-world CI/CD pipelines sometimes fail. Demonstrate how you would troubleshoo
 1. **Troubleshooting:**  
    - Simulate a pipeline failure (e.g., by introducing an error in the Jenkinsfile) and document your troubleshooting process.
    - Use commands like `docker logs` and review Jenkins console output.
+
+### 1.Checking the  Console Output:
+### 2.Use docker logs: This helps to debug container-related failures.
+### Adding echo statements in each stage to confirm the flow is correct.
+
+
 2. **Monitoring:**  
    - Describe methods for monitoring Jenkins, such as using system logs or monitoring plugins.
+
+### 2.Checking System Logs:
+### Use command:
+tail -f /var/log/jenkins/jenkins.log
+Helps track JVM memory issues, plugin errors, or restarts.
+
 3. **Advanced Debugging:**  
    - Add debugging statements (e.g., `echo` commands) in your Jenkinsfile to output environment variables or intermediate results.
    - Use Jenkins' "Replay" feature to test modifications without committing changes.
+
+### Use Jenkins "Replay" Feature:
+### Modify the Jenkinsfile temporarily to test fixes without a Git push.
+
 4. **Document in `solution.md`:**  
    - Provide a detailed account of your troubleshooting, monitoring, and debugging strategies.
    - Reflect on how these practices help maintain a stable CI/CD environment.
@@ -712,36 +711,10 @@ Real-world CI/CD pipelines sometimes fail. Demonstrate how you would troubleshoo
 - How would you approach troubleshooting a failing Jenkins pipeline?
 - What are some effective strategies for monitoring Jenkins in a production environment?
 
-# Solution 
-
-## 1. **Troubleshooting: For Eg. pipeline fails at the "Docker Build" stage.**
-### Answer :- 
-### 1.Checking the  Console Output:
-### 2.Use docker logs: This helps to debug container-related failures.
-### Adding echo statements in each stage to confirm the flow is correct.
-
-## 2. **Monitoring:**  Describe methods for monitoring Jenkins, such as using system logs or monitoring plugins.
-### Answer:- 
-### 1.Use Monitoring Plugins:
-### Install plugins like Monitoring, Metrics, or Prometheus Exporter for Jenkins.
-### They show real-time stats like memory usage, build queue size, and agent health.
-
-### 2.Checking System Logs:
-### Use command:
-tail -f /var/log/jenkins/jenkins.log
-Helps track JVM memory issues, plugin errors, or restarts.
-
-### 3.Disk & Resource Alerts:
-### Use tools like Grafana, Prometheus, or CloudWatch to set up alerts.
-### If Jenkins runs low on disk or RAM, get notified via email or Slack.
-
-## 3.3. **Advanced Debugging:**  
-### If not sure which environment variable is breaking the build.
-
-## Steps:
 ### Add Debug Info in Jenkinsfile:
 ### Use Jenkins "Replay" Feature:
 ### Modify the Jenkinsfile temporarily to test fixes without a Git push.
+
 
 ---
 

@@ -10,32 +10,27 @@ Create an end-to-end CI/CD pipeline for a sample application.
 **Steps:**
 1. **Set Up a Pipeline Job:**  
    - Create a new Pipeline job in Jenkins.
-   - Write a basic Jenkinsfile that automates the build, test, and deployment of a sample application (e.g., a simple web app).  
+
+   - Write a basic Jenkinsfile that automates the build, test, and deployment of a sample application (e.g., a simple web app).
+
+
+
+![image](https://github.com/user-attachments/assets/741b1e53-b62d-416d-bdcc-5415dfee2449)
+
+
    - Suggested stages: **Build**, **Test**, **Deploy**.
 2. **Run and Verify the Pipeline:**  
    - Trigger the pipeline and ensure each stage runs successfully.
    - Verify the execution by checking console logs and, if applicable, using `docker ps` to confirm container status.
+
+
+  ![image](https://github.com/user-attachments/assets/23c22501-df66-4384-9b3e-313d8084bea9)
+
+   
 3. **Document in `solution.md`:**  
    - Include your Jenkinsfile code and explain the purpose of each stage.
    - Note any issues you encountered and how you resolved them.
 
-** Questions:**
-- How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
-- What are the benefits of breaking the pipeline into distinct stages?
-
-# Solution 
-
-## Task1.1 **Set Up a Pipeline Job:**  
-
-![image](https://github.com/user-attachments/assets/741b1e53-b62d-416d-bdcc-5415dfee2449)
-
-![image](https://github.com/user-attachments/assets/5126bf92-1e3e-469d-a7e7-e487fa004ab1)
-
-## Task1.2 **using docker ps to confirm container status.**
-
-![image](https://github.com/user-attachments/assets/23c22501-df66-4384-9b3e-313d8084bea9)
-
-## Task 1.3  Pipeline code
 ```
 pipeline{
     agent any;
@@ -59,12 +54,14 @@ pipeline{
     }
 }
 ```
+
+
 ** Questions:**
-### 1. How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
+- How do declarative pipelines streamline the CI/CD process compared to scripted pipelines?
 
 ### Answer--> declarative pipelines streamline the CI/CD process by providing a simple, structured way to define workflows with minimal scripting. This makes them more accessible, maintainable, and less error-prone compared to scripted pipelines, which are better suited for highly customized or complex workflows.
 
-### 2. What are the benefits of breaking the pipeline into distinct stages?
+- What are the benefits of breaking the pipeline into distinct stages?
 
 ### Answer--> Breaking the pipeline into distinct stages offers many advantages:
 

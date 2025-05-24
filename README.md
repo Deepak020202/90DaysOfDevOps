@@ -12,8 +12,10 @@ Familiarize yourself with Kubernetes’ control plane and worker node components
 **Steps:**
 1. **Study Kubernetes Architecture:**  
    - Review the roles of control plane components (API Server, Scheduler, Controller Manager, etcd, Cloud Controller) and worker node components (Kubelet, Container Runtime, Kube Proxy).
+
   
 ![image](https://github.com/user-attachments/assets/4620ddc1-bb22-4b31-a383-9fd0fbebf10e)
+
 
 ## In Kubernetes architecture total 8 componentes also it is called k8's. In architecture two main component is Control plan and worker node
 ## Control-Plane Component :-
@@ -125,7 +127,9 @@ When you create a `Service` of type `LoadBalancer`, the Cloud Controller communi
      ```bash
      kubectl apply -f pod.yaml
      ```
+     
 ![image](https://github.com/user-attachments/assets/3961b34e-b283-4dc8-b45f-e4b07cde2ff6)
+
 
 ## Secound create namespacefile for other component 
 
@@ -153,13 +157,17 @@ spec:
       ports:
         - containerPort: 80
 ```
+
 ![image](https://github.com/user-attachments/assets/0bc7d605-bcdd-4f56-9890-512a93319dce)
+
 
 3. **Document in `solution.md`:**  
    - Describe the Kubernetes architecture components.
    - Include your Pod YAML and explain each section.
 
+
 ![image](https://github.com/user-attachments/assets/2c329532-6f46-441e-896b-a3f52d8e18d3)
+
 
 ## 1.Kubernetes Architecture Components
 
@@ -218,16 +226,21 @@ Deploy core Kubernetes objects for the SpringBoot BankApp application, including
      ```bash
      kubectl apply -f namespace.yaml
      ```
+     
 ![image](https://github.com/user-attachments/assets/ea2ea026-92ae-49d4-a2e5-10096e5d9da9)
+
 
 2. **Deploy a Deployment:**  
    - Create a YAML file for a Deployment (within your Namespace) that manages a set of Pods running a component of SpringBoot BankApp.
    - Verify that a ReplicaSet is created automatically.
 
+
 ![image](https://github.com/user-attachments/assets/37c34d82-c6e3-47e6-ab72-94ac4e372050)
+
 
 3. **Deploy a StatefulSet:**  
    - Write a YAML file for a StatefulSet (for example, for a database component) and apply it.
+
 
 ![image](https://github.com/user-attachments/assets/0ed68e65-a242-4a79-b189-eba640a8cfa5)
 
@@ -235,7 +248,10 @@ Deploy core Kubernetes objects for the SpringBoot BankApp application, including
 4. **Deploy a DaemonSet:**  
    - Create a YAML file for a DaemonSet to run a Pod on every node.
 
+
 ![image](https://github.com/user-attachments/assets/0812df83-bc83-4073-9993-0e2766d84498)
+
+
 
 5. **Document in `solution.md`:**  
    - Include the YAML files for the Namespace, Deployment, StatefulSet, and DaemonSet.
@@ -370,16 +386,21 @@ Expose your SpringBoot BankApp application to internal and external traffic by c
    - Write a YAML file for a Service of type ClusterIP.
    - Modify the Service type to NodePort or LoadBalancer and apply the YAML.
 
+
 ![image](https://github.com/user-attachments/assets/a5bfdecc-d75a-47e2-b4fe-cdbbe951a9d3)
+
 
 
 2. **Configure an Ingress:**  
    - Create an Ingress resource to route external traffic to your application.
+
   
 ![image](https://github.com/user-attachments/assets/726c1315-8b47-4809-a171-22ef3d478ede)
 
+
 3. **Implement a Network Policy:**  
    - Write a YAML file for a Network Policy that restricts traffic to your application Pods.
+
 
 ![image](https://github.com/user-attachments/assets/f617c332-8abd-4535-8902-6c61c651ec24)
 
@@ -484,11 +505,14 @@ Deploy a component of the SpringBoot BankApp application that requires persisten
 1. **Create a Persistent Volume and Claim:**  
    - Write YAML files for a static PV and a corresponding PVC.
 
+
 ![image](https://github.com/user-attachments/assets/e36d17a7-1db2-4d98-872f-1915280e4f54)
+
 
 
 2. **Deploy an Application Using the PVC:**  
    - Modify a Pod or Deployment YAML to mount the PVC.
+
 
 ![image](https://github.com/user-attachments/assets/653e956f-07a5-4869-a70c-b2ecfd3a717b)
 
@@ -561,15 +585,20 @@ Deploy a component of the SpringBoot BankApp application that consumes external 
 1. **Create a ConfigMap:**  
    - Write a YAML file for a ConfigMap containing configuration data.
 
+
 ![image](https://github.com/user-attachments/assets/fcc38d4f-89a8-4459-9946-1852c0dfc350)
+
 
 2. **Create a Secret:**  
    - Write a YAML file for a Secret containing sensitive information.
 
+
 ![image](https://github.com/user-attachments/assets/c1d534ac-6947-40b4-bbad-d6cd74bc5ff5)
+
 
 3. **Deploy an Application:**  
    - Update your application YAML to mount the ConfigMap and Secret.
+
 
 ![image](https://github.com/user-attachments/assets/1f6f95b9-75e3-47d6-bd1e-f25c9590c28e)
 
@@ -616,17 +645,22 @@ Implement autoscaling for a component of the SpringBoot BankApp application usin
 1. **Deploy an Application with Resource Requests:**  
    - Deploy an application with defined resource requests and limits.
 
+
 ![image](https://github.com/user-attachments/assets/2dc6213f-bf4c-4817-a465-6f2d06093ed5) 
+
 
 2. **Create an HPA Resource:**  
    - Write a YAML file for an HPA that scales the number of replicas based on CPU or memory usage.
 
+
 ![image](https://github.com/user-attachments/assets/7615ae70-e39e-4be1-9ffd-67ff60321a6d)
+
 
 3. **(Optional) Implement VPA & Metrics Server:**  
    - Optionally, deploy a VPA and verify that the Metrics Server is running.
 
-   ![image](https://github.com/user-attachments/assets/7ee5eac5-6aaa-46d9-9f9c-1aefe0077f00)
+
+ ![image](https://github.com/user-attachments/assets/7ee5eac5-6aaa-46d9-9f9c-1aefe0077f00)
    
 
 4. **Document in `solution.md`:**  
@@ -727,13 +761,17 @@ Secure your Kubernetes cluster by implementing Role-Based Access Control (RBAC) 
 1. **Configure RBAC:**  
    - Create roles and role bindings using YAML files for specific user groups (e.g., Admin, Developer, Tester).
 
+
 ![image](https://github.com/user-attachments/assets/fb0cf503-2bcf-4a78-9063-beb2a4e981fe)
+
 
 2. **Create Test Accounts:**  
    - Simulate real-world usage by creating user accounts for each role and verifying access.
 ## admin can only delete pod 
 
+
 ![image](https://github.com/user-attachments/assets/fa3b4cd3-caa7-4bb2-b472-caf89df49f21)
+
 
 3. **Optional Enhancement:**  
    - Simulate an unauthorized action (e.g., a Developer attempting to delete a critical resource) and document how RBAC prevents it.
@@ -774,6 +812,8 @@ This way, each team member gets only the access they need to do their job—noth
    - Apply taints to nodes and specify tolerations in your Pod specifications.
 
 ### When i apply taint to worker-node-1 all then all the pods only ran on other worker node
+
+
 ![image](https://github.com/user-attachments/assets/dfcf0633-9a6d-4fb3-81ba-c6d0a8e2efc4)
 
 
@@ -825,10 +865,13 @@ Manage scheduled tasks and extend Kubernetes functionality by creating Jobs, Cro
    - Write YAML files for a Job (a one-time task) and a CronJob (a scheduled task).
    **Onetime-job**
 
+
 ![image](https://github.com/user-attachments/assets/aaaa89a6-54b5-4ba2-8749-d7cac0b20869)
+
 
    **cron-job**
 ### generate a new job after 1 minute 
+
 
 ![image](https://github.com/user-attachments/assets/413b1d2d-ace7-483c-9358-174b160fd206)
 
@@ -836,7 +879,10 @@ Manage scheduled tasks and extend Kubernetes functionality by creating Jobs, Cro
 2. **Create a Custom Resource Definition (CRD):**  
    - Write a YAML file for a CRD and use `kubectl` to create a custom resource.
 
+
 ![image](https://github.com/user-attachments/assets/6e8f3c6b-3e89-4703-81fc-434276666a4e)
+
+
 
 4. **Document in `solution.md`:**  
    - Include the YAML files and explain the use cases for Jobs, CronJobs, and CRDs.
@@ -943,7 +989,9 @@ For an added challenge, deploy a component of the SpringBoot BankApp application
    - Create a Helm chart for your application.
    - Deploy the application using Helm and perform an update.
   
+
 ![image](https://github.com/user-attachments/assets/c364c4d1-a789-4614-a184-0011a74c2487)
+
 
 ![image](https://github.com/user-attachments/assets/a2458345-5b13-424a-840f-613d39ec2240)
 
@@ -953,7 +1001,9 @@ For an added challenge, deploy a component of the SpringBoot BankApp application
    - Deploy a basic Service Mesh (using Istio, Linkerd, or Consul) and demonstrate traffic management between services.
    - *OR*
 
+
 ![image](https://github.com/user-attachments/assets/22cdfe43-1424-4eef-85b9-633aaca4979f)
+
 
 3. **Deploy on AWS EKS:**  
    - Set up an EKS cluster and deploy your application there.
@@ -989,16 +1039,3 @@ Helm helps you manage Kubernetes applications with versioned, reusable charts.
 
 ---
 
-## Additional Resources
-
-- **[Kubernetes Official Documentation](https://kubernetes.io/docs/)**
-- **[Kubernetes Concepts](https://kubernetes.io/docs/concepts/)**
-- **[Helm Documentation](https://helm.sh/docs/)**
-- **[Istio Documentation](https://istio.io/latest/docs/)**
-- **[Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)**
-- **[Kubernetes Networking](https://kubernetes.io/docs/concepts/services-networking/)**
-- **[Kubernetes Storage](https://kubernetes.io/docs/concepts/storage/)**
-- **[Kubernetes Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)**
-- **[Kubernetes Custom Resource Definitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)**
-
----

@@ -40,7 +40,6 @@ else
 fi
 ```
 
-## Output :-
 
 ![image](https://github.com/user-attachments/assets/1985bd97-a4f0-49fe-9e85-878019b33efb)
 
@@ -128,6 +127,7 @@ fi
 ### Output :- 
 
 ![image](https://github.com/user-attachments/assets/81a831da-3b9b-44cb-a482-f1a674364ef8)
+
 ---
 ## Part 4: List User Accounts
 
@@ -152,6 +152,7 @@ fi
 ### Output :-
 
 ![image](https://github.com/user-attachments/assets/d1d61458-6d7b-4d0f-ad7c-de637c4326b3)
+
 ---
 
 ## Task 5: Help and Usage Information

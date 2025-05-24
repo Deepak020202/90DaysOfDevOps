@@ -2,12 +2,6 @@
 
 This set of tasks is designed as part of the 90DaysOfDevOps challenge to simulate real-world scenarios you might encounter on the job or in technical interviews. By completing these tasks on the [SpringBoot BankApp](https://github.com/Amitabh-DevOps/Springboot-BankApp), you'll gain practical experience with advanced Kubernetes topics, including architecture, core objects, networking, storage management, configuration, autoscaling, security & access control, job scheduling, and bonus topics like Helm, Service Mesh, or AWS EKS.
 
-> [!IMPORTANT]
->
->  1. Fork the [SpringBoot BankApp](https://github.com/Amitabh-DevOps/Springboot-BankApp) and implement all tasks on your fork.  
->  2. Document all steps, commands, screenshots, and observations in a file named `solution.md` within your fork.  
->  3. Submit your `solution.md` file in the Week 7 (Kubernetes) task folder of the 90DaysOfDevOps repository.
-
 ---
 
 ## Task 1: Understand Kubernetes Architecture & Deploy a Sample Pod
@@ -18,20 +12,7 @@ Familiarize yourself with Kubernetes’ control plane and worker node components
 **Steps:**
 1. **Study Kubernetes Architecture:**  
    - Review the roles of control plane components (API Server, Scheduler, Controller Manager, etcd, Cloud Controller) and worker node components (Kubelet, Container Runtime, Kube Proxy).
-2. **Deploy a Sample Pod:**  
-   - Create a YAML file (e.g., `pod.yaml`) to deploy a simple Pod (such as an NGINX container).
-   - Apply the YAML using:
-     ```bash
-     kubectl apply -f pod.yaml
-     ```
-3. **Document in `solution.md`:**  
-   - Describe the Kubernetes architecture components.
-   - Include your Pod YAML and explain each section.
-
-# Solution :-
-1. **Study Kubernetes Architecture:**
-## Answer:- 
-
+  
 ![image](https://github.com/user-attachments/assets/4620ddc1-bb22-4b31-a383-9fd0fbebf10e)
 
 ## In Kubernetes architecture total 8 componentes also it is called k8's. In architecture two main component is Control plan and worker node
@@ -137,9 +118,13 @@ When you create a `Service` of type `LoadBalancer`, the Cloud Controller communi
 ### Example
 > When you access a Kubernetes service, Kube Proxy routes the request to the correct pod on the correct node.
 
-# 2. **Deploy a Sample Pod:**  
-## Answer :- First created config file to create master and worker node 
 
+2. **Deploy a Sample Pod:**  
+   - Create a YAML file (e.g., `pod.yaml`) to deploy a simple Pod (such as an NGINX container).
+   - Apply the YAML using:
+     ```bash
+     kubectl apply -f pod.yaml
+     ```
 ![image](https://github.com/user-attachments/assets/3961b34e-b283-4dc8-b45f-e4b07cde2ff6)
 
 ## Secound create namespacefile for other component 
@@ -170,8 +155,9 @@ spec:
 ```
 ![image](https://github.com/user-attachments/assets/0bc7d605-bcdd-4f56-9890-512a93319dce)
 
-#  Q3.Describe the Kubernetes architecture components.
-## Kubernetes architecture -
+3. **Document in `solution.md`:**  
+   - Describe the Kubernetes architecture components.
+   - Include your Pod YAML and explain each section.
 
 ![image](https://github.com/user-attachments/assets/2c329532-6f46-441e-896b-a3f52d8e18d3)
 

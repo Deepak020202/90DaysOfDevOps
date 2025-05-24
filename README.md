@@ -5,11 +5,10 @@
    - In your `solution.md`, provide a brief explanation of Docker’s purpose in modern DevOps.
    - Compare **Virtualization vs. Containerization** and explain why containerization is the preferred approach for microservices and CI/CD pipelines.
   
-   - Solution :-
 ---
 ## Solution :-
 
-# What is Docker? 🤔
+# What is Docker? 
 
 Docker is a containerization tool that helps developers package applications along with all dependencies (like code, libraries, and system tools) into a single unit called a container. This ensures that the application runs the same on any system, whether it’s a developer’s laptop, a test environment, or a production server.
 
@@ -111,8 +110,14 @@ In a CI/CD pipeline, a developer commits code → CI/CD tool (like Jenkins) buil
 ## Task 2 :-
 ### Create a Dockerfile for a Sample Project
 
+![Dockerfile](https://github.com/user-attachments/assets/1c88ceb0-2f6c-41b3-a41e-2e317b37430f)
+
 1. **Select or Create a Sample Application:**  
    - Choose a simple application (for example, a basic Node.js, Python, or Java app that prints “Hello, Docker!” or serves a simple web page).
+  
+![image](https://github.com/user-attachments/assets/1972b258-dc49-4b7c-bea8-879056b5bf80) 
+
+![image](https://github.com/user-attachments/assets/0229dc55-24e8-4842-9b6b-b9923563f684)
 
 2. **Write a Dockerfile:**  
    - Create a `Dockerfile` that defines how to build an image for your application.
@@ -135,22 +140,13 @@ In a CI/CD pipeline, a developer commits code → CI/CD tool (like Jenkins) buil
      docker logs <container_id>
      ```
     ---
-   # Solution :-
-
- ### choosing a simple flask app and write docker file changes in app.py and then build docker image after that run docker image and container working 
-
- ### POC are here :-
-
    
- ![Dockerfile](https://github.com/user-attachments/assets/1c88ceb0-2f6c-41b3-a41e-2e317b37430f)
-   
-![image](https://github.com/user-attachments/assets/1972b258-dc49-4b7c-bea8-879056b5bf80) 
-
-![image](https://github.com/user-attachments/assets/0229dc55-24e8-4842-9b6b-b9923563f684)
-
 ![image](https://github.com/user-attachments/assets/a369e8e0-449d-4141-afda-ed75ab065977)
 
+
 ![image](https://github.com/user-attachments/assets/4868aab3-6e98-4faa-a445-98ff86af3fb0)
+
+
 ---
 ## Task 3 :- 
 ###Explore Docker Terminologies and Components
@@ -278,7 +274,7 @@ Multi-stage builds allow you to use **multiple `FROM` statements** in a single `
    - Improves maintainability and debugging.
 
 ---
-## POC :- 
+
 
 ![image](https://github.com/user-attachments/assets/d71f37ff-b363-497f-9d16-d648329faa9c)
 
@@ -295,13 +291,17 @@ Multi-stage builds allow you to use **multiple `FROM` statements** in a single `
 
 ![image](https://github.com/user-attachments/assets/dad6fe20-1e7a-46c0-88c5-0e34ff398a1d)
 ---
-## Task 5 :- 
+## Task 5 :-  
+
 ### Manage Your Image with Docker Hub
 1. **Tag Your Image:**  
    - Tag your image appropriately:
      ```bash
      docker tag <your-username>/sample-app:latest <your-username>/sample-app:v1.0
      ```
+
+![image](https://github.com/user-attachments/assets/b5541a44-5231-439a-9a67-f724abde9823)
+
 2. **Push Your Image to Docker Hub:**  
    - Log in to Docker Hub if necessary:
      ```bash
@@ -311,22 +311,18 @@ Multi-stage builds allow you to use **multiple `FROM` statements** in a single `
      ```bash
      docker push <your-username>/sample-app:v1.0
      ```
+
+![image](https://github.com/user-attachments/assets/5e505d80-3e02-4eb9-8e54-9d18aa3a85ee)
+     
 3. **(Optional) Pull the Image:**  
    - Verify by pulling your image:
      ```bash
      docker pull <your-username>/sample-app:v1.0
      ```
----
 
-## Solution :-
-
-POC :-
-
-![image](https://github.com/user-attachments/assets/b5541a44-5231-439a-9a67-f724abde9823)
-
-![image](https://github.com/user-attachments/assets/5e505d80-3e02-4eb9-8e54-9d18aa3a85ee)
 
 ![image](https://github.com/user-attachments/assets/7f3fe63f-a076-434a-9979-1729c9dd45b8)
+
 ---
 ## Task 6 :- 
 ### Persist Data with Docker Volumes
@@ -335,16 +331,25 @@ POC :-
      ```bash
      docker volume create my_volume
      ```
+     
+![image](https://github.com/user-attachments/assets/b01ea912-d8bb-4391-b8ec-cc9127a34ca9)
+
+
+![image](https://github.com/user-attachments/assets/46f26ca0-ad6f-457e-8063-5f2464ada018)
+
 2. **Run a Container with the Volume:**  
    - Run a container using the volume to persist data:
      ```bash
      docker run -d -v my_volume:/app/data <your-username>/sample-app:v1.0
      ```
+     
+![image](https://github.com/user-attachments/assets/41ec3067-462b-4d9e-8d1e-248bf317b335)
+
+
+![image](https://github.com/user-attachments/assets/0936d1c2-0f25-46df-9bb8-1d52589981bf)
+
 3. **Document the Process:**  
    - In `solution.md`, explain how Docker volumes help with data persistence and why they are useful.
-
-   ---
-   ## Solution :-
 
 ## 📌 Docker Volumes: Ensuring Data Persistence
 
@@ -362,56 +367,24 @@ Better Performance: Optimized by Docker for speed and efficiency.
 Simplifies Backup & Recovery: Since volumes are managed by Docker, they can be easily backed up or migrated.
 
 ---
-
-POC :-
-
-![image](https://github.com/user-attachments/assets/b01ea912-d8bb-4391-b8ec-cc9127a34ca9)
-
-![image](https://github.com/user-attachments/assets/46f26ca0-ad6f-457e-8063-5f2464ada018)
-
-![image](https://github.com/user-attachments/assets/41ec3067-462b-4d9e-8d1e-248bf317b335)
-
-![image](https://github.com/user-attachments/assets/0936d1c2-0f25-46df-9bb8-1d52589981bf)
-
----
 ### Task 7: Configure Docker Networking
 1. **Create a Custom Docker Network:**  
    - Create a custom Docker network:
      ```bash
      docker network create my_network
      ```
+
+![image](https://github.com/user-attachments/assets/3f327bb7-0e6f-40d4-b4d9-b5b7628a87eb)
+
+
+![image](https://github.com/user-attachments/assets/82dbb1f1-4ae3-4379-9f1d-dece14fb29ae)
+
 2. **Run Containers on the Same Network:**  
    - Run two containers (e.g., your sample app and a simple database like MySQL) on the same network to demonstrate inter-container communication:
      ```bash
      docker run -d --name sample-app --network my_network <your-username>/sample-app:v1.0
      docker run -d --name my-db --network my_network -e MYSQL_ROOT_PASSWORD=root mysql:latest
      ```
-3. **Document the Process:**  
-   - In `solution.md`, describe how Docker networking enables container communication and its significance in multi-container applications.
-
----
-
-## Solution :- 
-
-# 📡 Docker Networking: Enabling Container Communication
-
-## 📖 What is Docker Networking?
-Docker networking allows **containers** to communicate with each other **securely** and **efficiently**. It enables **inter-container communication** and helps applications **scale** in a microservices environment.
-
-### ✅ Key Benefits of Docker Networking:
-- **Container-to-Container Communication** 🏗️  
-- **Isolated & Secure Networks** 🔒  
-- **Integration with Host & External Networks** 🌎  
-- **Scalability for Microservices** 🚀  
-
----
-## developing mongoDB server using mongoDB-express within one network 
-
-### POC :- 
-
-![image](https://github.com/user-attachments/assets/3f327bb7-0e6f-40d4-b4d9-b5b7628a87eb)
-
-![image](https://github.com/user-attachments/assets/82dbb1f1-4ae3-4379-9f1d-dece14fb29ae)
 
 ![image](https://github.com/user-attachments/assets/3bdd5a8b-768a-45ef-b791-40bb34a741bc)
 
@@ -432,13 +405,31 @@ Docker networking allows **containers** to communicate with each other **securel
 ![image](https://github.com/user-attachments/assets/6b439a32-05c1-4b6f-9a59-f770161da4e8)
  
 ![image](https://github.com/user-attachments/assets/d3410498-94b2-4f3c-8716-22aebe0b117d)
- 
+
+3. **Document the Process:**  
+   - In `solution.md`, describe how Docker networking enables container communication and its significance in multi-container applications.
+
+# 📡 Docker Networking: Enabling Container Communication
+
+## 📖 What is Docker Networking?
+Docker networking allows **containers** to communicate with each other **securely** and **efficiently**. It enables **inter-container communication** and helps applications **scale** in a microservices environment.
+
+### ✅ Key Benefits of Docker Networking:
+- **Container-to-Container Communication** 🏗️  
+- **Isolated & Secure Networks** 🔒  
+- **Integration with Host & External Networks** 🌎  
+- **Scalability for Microservices** 🚀  
 ---
 ## Task 8: Orchestrate with Docker Compose
 
 1. **Create a docker-compose.yml File:**  
    - Write a `docker-compose.yml` file that defines at least two services (e.g., your sample app and a database).
    - Include definitions for services, networks, and volumes.
+
+![image](https://github.com/user-attachments/assets/9291b4e5-4dcf-4257-a7ca-d46785ae2949)
+
+![image](https://github.com/user-attachments/assets/1ddac6b0-ec61-4700-92b1-12e5965cbb20)
+
 2. **Deploy Your Application:**  
    - Bring up your application using:
      ```bash
@@ -448,11 +439,16 @@ Docker networking allows **containers** to communicate with each other **securel
      ```bash
      docker-compose down
      ```
+
+![image](https://github.com/user-attachments/assets/1ddac6b0-ec61-4700-92b1-12e5965cbb20)
+
+![image](https://github.com/user-attachments/assets/1a0841ea-64f0-4e58-9bca-cca93641f482)
+
+![image](https://github.com/user-attachments/assets/6969810d-1662-4774-9625-73161b93738e)
+
+
 3. **Document the Process:**  
    - Explain each service and configuration in your `solution.md`.
-
----
-## Solution :-
 
 # 📄 Docker Compose File: Simplifying Multi-Container Applications
 
@@ -499,22 +495,10 @@ volumes:
 | **networks** | Enables inter-container communication (optional). |
 | **volumes**  | Stores persistent data outside of containers. |
 
----
-Would you like to add more details or examples? 🚀
-
-
----
-## Poc :-
-
-![image](https://github.com/user-attachments/assets/9291b4e5-4dcf-4257-a7ca-d46785ae2949)
-
-![image](https://github.com/user-attachments/assets/1ddac6b0-ec61-4700-92b1-12e5965cbb20)
-
-![image](https://github.com/user-attachments/assets/1a0841ea-64f0-4e58-9bca-cca93641f482)
-
-![image](https://github.com/user-attachments/assets/6969810d-1662-4774-9625-73161b93738e)
----
 [report.txt.txt](https://github.com/user-attachments/files/19196620/report.txt.txt)[report.txt](https://github.com/user-attachments/files/19196521/report.txt)
+
+---
+
 
 ## Task 9: Analyze Your Image with Docker Scout
 
@@ -533,6 +517,10 @@ Would you like to add more details or examples? 🚀
      docker scout cves <your-username>/sample-app:v1.0 > scout_report.txt
      ```
 
+![image](https://github.com/user-attachments/assets/a2629c94-9f1b-4d9f-b0f9-0058bfd96202)
+
+![image](https://github.com/user-attachments/assets/cb09b9e1-6402-4d71-b8ae-2fa536debe52)
+
 2. **Review and Interpret the Report:**  
    - Carefully review the output and focus on:
      - **List of CVEs:** Identify vulnerabilities along with their severity ratings (e.g., Critical, High, Medium, Low).
@@ -540,6 +528,9 @@ Would you like to add more details or examples? 🚀
      - **Suggested Remediations:** Note any recommended fixes or mitigation strategies provided by Docker Scout.
    - **Comparison Step:** If possible, compare this report with previous builds to assess improvements or regressions in your image's security posture.
    - If Docker Scout is not available in your environment, document that fact and consider using an alternative vulnerability scanner (e.g., Trivy, Clair) for a comparative analysis.
+
+
+![image](https://github.com/user-attachments/assets/6c3e0d03-079a-4b51-a06e-6a8fdecdfc07)
 
 3. **Document Your Findings:**  
    - In your `solution.md`, provide a detailed summary of your analysis:
@@ -549,27 +540,7 @@ Would you like to add more details or examples? 🚀
      - Reflect on how these insights might influence your image optimization or overall security strategy.
    - **Optional:** Include screenshots or attach the saved report file (`scout_report.txt`) as evidence of your analysis.
 
----
-## Solution :-
 
-### POC :- 
-
-### 1.  docker scout cves <your-username>/sample-app:v1.0
-
-![image](https://github.com/user-attachments/assets/a2629c94-9f1b-4d9f-b0f9-0058bfd96202)
-
-![image](https://github.com/user-attachments/assets/cb09b9e1-6402-4d71-b8ae-2fa536debe52)
-
----
-
-2. docker scout quickview <your-username>/sample-app:v1.0
-
-![image](https://github.com/user-attachments/assets/6c3e0d03-079a-4b51-a06e-6a8fdecdfc07)
-
----
-3.  docker scout cves <your-username>/sample-app:v1.0 > scout_report.txt
-
-##  Report.txt
 
 ## Overview
 

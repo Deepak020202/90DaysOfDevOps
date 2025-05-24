@@ -1,31 +1,26 @@
 # Task 1: Fork and Clone the Repository
 1. **Fork the Repository:**  
    - Visit [this repository](https://github.com/LondheShubham153/90DaysOfDevOps) and fork it to your own GitHub account. If not done yet.
+
+
   
 2. **Clone Your Fork Locally:**  
    - Clone the forked repository using HTTPS:
      ```bash
      git clone <your-fork-url>
      ```
+
+![image](https://github.com/user-attachments/assets/78cb1886-dbdc-4b04-937e-74c2e187706c)
+
+
    - Change directory into the cloned repository:
      ```bash
      cd 2025/git/01_Git_and_Github_Basics
      ```
-
----
-
-## Solution 
-
-
   ```
  git clone git clone https://github.com/Deepak020202/90DaysOfDevOps-Demo.gitCloning into '90DaysOfDevOps-Demo'... 
    cd 2025/git/01_Git_and_Github_Basic
-```
-
-
-## Output :-
-
-![image](https://github.com/user-attachments/assets/78cb1886-dbdc-4b04-937e-74c2e187706c)
+```     
 ---
 ### Task 2: Initialize a Local Repository and Create a File
 1. **Set Up Your Challenge Directory:**  
@@ -34,6 +29,8 @@
      mkdir week-4-challenge
      cd week-4-challenge
      ```
+
+
 
 2. **Initialize a Git Repository:**  
    - Initialize the directory as a new Git repository:
@@ -56,7 +53,6 @@
 
 ---
 
-## Solution
 
 ![image](https://github.com/user-attachments/assets/a221c0ae-f0a7-4a47-92b0-bfaa2e71d145)
 
@@ -88,11 +84,8 @@
      git pull origin main
      ```
 
----
-
-## Solution
-
 ![image](https://github.com/user-attachments/assets/b012e603-4272-4bba-af7c-a8a784133cb9)
+
 ---
 ## Task 4: Explore Your Commit History
 1. **View the Git Log:**  
@@ -102,10 +95,10 @@
      ```
    - Take note of the commit hash and details as you will reference these in your documentation.
 
----
-## Solution :-
 
 ![image](https://github.com/user-attachments/assets/e0b94895-c174-4270-af7f-8c5af27ed38c)
+
+
 ---
 ## Task 5: Advanced Branching and Switching
 1. **Create a New Branch:**  
@@ -113,6 +106,8 @@
      ```bash
      git branch feature-update
      ```
+
+![image](https://github.com/user-attachments/assets/a0b73808-a74f-40c5-8178-fc8140db3b63)
   
 2. **Switch to the New Branch:**  
    - Switch using `git switch`:
@@ -124,6 +119,9 @@
      git checkout feature-update
      ```
 
+![image](https://github.com/user-attachments/assets/65c67180-a115-4e33-9763-e873d070e4f4)
+
+
 3. **Modify the File and Commit Changes:**  
    - Edit `info.txt` (for example, add more details or improvements).
    - Stage and commit your changes:
@@ -133,23 +131,19 @@
      git push origin feature-update
      ```
    - Merge this branch to `main` via a Pull Request on GitHub.
+
+
+![image](https://github.com/user-attachments/assets/053c5dbb-46c2-45bd-aa41-aebee071ef34)
    
 4. **(Advanced) Optional Extra Challenge:**  
    - If you feel confident, create another branch (e.g., `experimental`) from your main branch, make a conflicting change to `info.txt`, then switch back to `feature-update` and merge `experimental` to simulate a merge conflict. Resolve the conflict manually, then commit the resolution.  
    > *Note: This extra step is optional and intended for those looking for an additional challenge.*
 
----
-## Solution :-
-
-![image](https://github.com/user-attachments/assets/a0b73808-a74f-40c5-8178-fc8140db3b63)
-
-
-![image](https://github.com/user-attachments/assets/65c67180-a115-4e33-9763-e873d070e4f4)
-
-![image](https://github.com/user-attachments/assets/053c5dbb-46c2-45bd-aa41-aebee071ef34)
 
 ![image](https://github.com/user-attachments/assets/13143aa7-aa39-48c9-9940-71024b75a7f1)
+
 ---
+
 ## Task 6: Explain Branching Strategies
 1. **Document Your Process:**  
    - Create (or update) a file named `solution.md` in your repository.
@@ -159,10 +153,6 @@
      - Facilitating parallel development
      - Reducing merge conflicts
      - Enabling effective code reviews
----
-
----
-## Solution :-
 
 ![image](https://github.com/user-attachments/assets/5fa582f8-d6b2-48e0-99dd-02562d0d7c2b)
 
@@ -248,12 +238,11 @@ This process ensures high-quality code and reduces the risk of introducing bugs.
 - Best practices for writing PR descriptions.  
 - Handling review comments.  
 
----
-## Solution :-
 
 ![image](https://github.com/user-attachments/assets/1599e7c2-d212-4e2a-bf78-10e390e5d24a)
 
 ![image](https://github.com/user-attachments/assets/6a0fa4ba-82f0-4fa3-b7ca-adbf3e01ea35)
+
 ---
 ## **Task 8: Undoing Changes – Reset & Revert**  
 **Scenario:** You accidentally committed incorrect changes and need to undo them.  
@@ -436,7 +425,6 @@ Cherry-picking is commonly used to apply bug fixes to different branches without
 - Pros and cons of different workflows.  
 
 ---
-## Solution
 
 ### - Git Flow (Feature, Release, Hotfix branches) :-
 

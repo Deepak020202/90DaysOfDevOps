@@ -52,7 +52,12 @@ server3 ansible_user=ec2-user
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_private_key_file=/home/ubuntu/keys/terra-key-ansible.pem
 ```
-   - Explain how dynamic inventories adapt to a production environment.
+## how dynamic inventories adapt to a production environment.
+### -> 
+- Keep your Ansible automation aligned with real-time infrastructure
+- Eliminate manual updates
+- Adapt seamlessly to changes
+- best practice for production environments, especially in the cloud
 
 **Interview Questions:**
 - How do dynamic inventories improve the management of production hosts?

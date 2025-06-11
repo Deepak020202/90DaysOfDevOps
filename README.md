@@ -1,8 +1,7 @@
 # #90DaysOfDevOps 🚀
 
 Welcome to my **#90DaysOfDevOps challenge!** 🎯  
-This is a personal journey where I commit to learning, practicing, and mastering various DevOps tools and concepts over a span of 90 days. The goal is to build a strong foundation, share progress with the community, and become industry-ready as a DevOps Engineer.
-
+This is a personal journey where I commit to learning, practicing, and mastering various DevOps tools and concepts over a span of 90 days. The goal is to build a strong foundation, share progress with the community.
 ## 📌 Why #90DaysOfDevOps?
 
 DevOps is not just a toolset – it's a mindset. Over the next 90 days, I aim to:

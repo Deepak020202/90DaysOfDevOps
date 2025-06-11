@@ -23,7 +23,7 @@ DevOps is not just a toolset – it's a mindset. Over the next 90 days, I aim to
 ---
 
 Feel free to explore the repository, try out the steps, and follow along if you're also on the DevOps journey.  
-Let’s learn, build, and grow together! 💪
+Let’s learn, build, and grow together! 
 
 > 🌐 Connect with me on [LinkedIn](https://www.linkedin.com/in/deepakpatel02/) | 📬 [Email](mailto:deepakpatelofficialll.com)
 

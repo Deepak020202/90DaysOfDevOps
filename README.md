@@ -7,8 +7,8 @@ This is a personal journey where I commit to learning, practicing, and mastering
 DevOps is not just a toolset – it's a mindset. Over the next 90 days, I aim to:
 
 - 🧠 Learn core DevOps practices and principles
-- 🛠️ Get hands-on with popular tools like Git, Docker, Kubernetes, Jenkins, Terraform, Ansible, and more
-- ☁️ Understand CI/CD pipelines, Infrastructure as Code (IaC), monitoring, and cloud deployments (AWS-focused)
+- 🛠️ Get hands-on with tools 
+- ☁️ Understand cloud infrastructure and how to automate deployments
 
 ## 🎯 Objectives
 

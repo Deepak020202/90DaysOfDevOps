@@ -17,8 +17,8 @@ DevOps is not just a toolset – it's a mindset. Over the next 90 days, I aim to
 - Build a real-world DevOps project using everything I’ve learned
 - Connect with the DevOps community and gain feedback
 
-## 📅 Challenge  Date
-**Jan 2025** 
+## 📅 Challenge start from 
+**Feb 2025** 
 
 ---
 
